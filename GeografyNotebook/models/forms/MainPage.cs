@@ -28,8 +28,7 @@ namespace GeografyNotebook.models.forms
         {
             //read cities data from database
             using (StreamReader reader = new StreamReader(path:
-   @"C:\Users\Oleg\Documents\projects\c#\Курса4\" +
-   @"GeografyNotebook\GeografyNotebook\assets\cities.txt"))
+   @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\cities.txt"))
             {
                 string line;
 
@@ -50,11 +49,10 @@ namespace GeografyNotebook.models.forms
             cities = cities.OrderBy(o => o.Name).ToList();
         }
 
-        public void updateCities()
+        public void writeCities()
         {
             using (StreamWriter writer = new StreamWriter(path:
-   @"C:\Users\Oleg\Documents\projects\c#\Курса4\" +
-   @"GeografyNotebook\GeografyNotebook\assets\cities1.txt"))
+   @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\cities1.txt"))
             {
                 foreach(classes.City city in cities)
                 {
@@ -67,8 +65,7 @@ namespace GeografyNotebook.models.forms
         {
             //read continents data from database
             using (StreamReader reader = new StreamReader(path:
-                @"C:\Users\Oleg\Documents\projects\c#\Курса4\" +
-                @"GeografyNotebook\GeografyNotebook\assets\continents.txt"))
+                @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\continents.txt"))
             {
                 string line;
 
@@ -115,7 +112,14 @@ namespace GeografyNotebook.models.forms
 
         public void writeContinents()
         {
-
+            using (StreamWriter writer = new StreamWriter(path:
+                @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\continents1.txt"))
+            {
+                foreach (classes.Continent continent in continents)
+                {
+                    writer.WriteLine(continent.ToString());
+                }
+            }
         }
 
         public void extractRegions()
@@ -178,7 +182,14 @@ namespace GeografyNotebook.models.forms
 
         public void writeRegions()
         {
-
+            using (StreamWriter writer = new StreamWriter(path:
+                @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\regions1.txt"))
+            {
+                foreach (classes.Region region in regions)
+                {
+                    writer.WriteLine(region.ToString());
+                }
+            }
         }
 
         public void extractCountries()
@@ -191,8 +202,7 @@ namespace GeografyNotebook.models.forms
 
             //read Country data from database
             using (StreamReader reader = new StreamReader(path:
-                @"C:\Users\Oleg\Documents\projects\c#\Курса4\" +
-                @"GeografyNotebook\GeografyNotebook\assets\capitals.txt"))
+                @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\capitals.txt"))
             //names and capitals
             {
                 string line;
@@ -210,8 +220,7 @@ namespace GeografyNotebook.models.forms
             }
 
             using (StreamReader reader = new StreamReader(path:
-                @"C:\Users\Oleg\Documents\projects\c#\Курса4\" +
-                @"GeografyNotebook\GeografyNotebook\assets\country_area.txt"))
+                @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\country_area.txt"))
             //area
             {
                 string line;
@@ -249,8 +258,7 @@ namespace GeografyNotebook.models.forms
             }
 
             using (StreamReader reader = new StreamReader(path:
-               @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeografyNotebook\" +
-                @"GeografyNotebook\assets\country_gov_type.txt"))
+               @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\country_gov_type.txt"))
             //govtype
             {
                 string line;
@@ -287,8 +295,7 @@ namespace GeografyNotebook.models.forms
             }
 
             using (StreamReader reader = new StreamReader(path:
-               @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeografyNotebook" +
-                @"\GeografyNotebook\assets\country_population.txt"))
+               @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\country_population.txt"))
             //population
             {
                 string line;
@@ -342,14 +349,14 @@ namespace GeografyNotebook.models.forms
 
         public void writeCountries()
         {
-            //        using (StreamWriter writer = new StreamWriter(path:
-            //@"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\counties.txt"))
-            //        {
-            //            for(int i = 0; i < countries.Count; i++)
-            //            {
-
-            //            }
-            //        }
+            using (StreamWriter writer = new StreamWriter(path:
+                @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\countries1.txt"))
+            {
+                foreach (classes.Country country in countries)
+                {
+                    writer.WriteLine(country.ToString());
+                }
+            }
         }
 
         public MainPage()
@@ -360,6 +367,11 @@ namespace GeografyNotebook.models.forms
             extractCountries();
             extractRegions();
             extractContinents();
+
+            writeCities();
+            writeCountries();
+            writeRegions();
+            writeContinents();
         }
 
         private void onCityButtonClick(object sender, EventArgs e)
