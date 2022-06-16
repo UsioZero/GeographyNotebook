@@ -29,7 +29,7 @@ namespace GeografyNotebook.models.classes
             string returnS = $"{Uuid};{Name};{Population};{Countries.Count}";
             foreach(Country country in Countries)
             {
-                returnS += ";" + country.ToString();
+                returnS += ";" + country.Uuid.ToString();
             }
             return returnS;
         }
