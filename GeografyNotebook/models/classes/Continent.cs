@@ -23,6 +23,17 @@ namespace GeografyNotebook.models.classes
 
         public List<Country> Countries { set; get; }
 
+
+        public override string ToString()
+        {
+            string returnS = $"{Uuid};{Name};{Population};{Countries.Count}";
+            foreach(Country country in Countries)
+            {
+                returnS += ";" + country.ToString();
+            }
+            return returnS;
+        }
+
         public override void edit()
         {
             throw new NotImplementedException();

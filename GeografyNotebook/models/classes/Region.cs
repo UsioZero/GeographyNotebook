@@ -23,6 +23,12 @@ namespace GeografyNotebook.models.classes
         public Country Country { set; get; }
         public City Capital { set; get; }
 
+
+        public override string ToString()
+        {
+            return $"{Uuid};{Name};{Type};{Country};{Population}";
+        }
+
         public override void edit()
         {
             throw new NotImplementedException();
