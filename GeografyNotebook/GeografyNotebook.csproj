@@ -49,7 +49,7 @@
     <Compile Include="models\classes\City.cs" />
     <Compile Include="models\classes\Continent.cs" />
     <Compile Include="models\classes\Country.cs" />
-    <Compile Include="models\classes\GeografyUnit.cs" />
+    <Compile Include="models\classes\GeographyUnit.cs" />
     <Compile Include="models\classes\Region.cs" />
     <Compile Include="models\forms\CityPage.cs">
       <SubType>Form</SubType>

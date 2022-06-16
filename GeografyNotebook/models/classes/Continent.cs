@@ -6,20 +6,26 @@ using System.Threading.Tasks;
 
 namespace GeografyNotebook.models.classes
 {
-    public class Continent : GeografyUnit
+    public class Continent : GeographyUnit
     {
-        public Continent(string name, List<Country> countries)
+        public Continent(Guid uuid, string name, List<Country> countries)
         {
-            this.Name = name;
-            this.Countries = countries;
-            this.Population = 0;
+            Uuid = uuid;
+            Name = name;
+            Countries = countries;
+            Population = 0;
+            
             foreach(Country country in countries)
             {
-                this.Population += country.Population;
+                Population += country.Population;
             }
         }
 
-        public string Name { set; get; }
         public List<Country> Countries { set; get; }
+
+        public override void edit()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -6,28 +6,32 @@ using System.Threading.Tasks;
 
 namespace GeografyNotebook.models.classes
 {
-    public class Country : GeografyUnit
+    public class Country : GeographyUnit
     {
-        public Country(string name, int area, int population,
+        public Country(Guid uuid, string name, int area, int population,
             string governmentType, City capital)
         {
-            this.Name = name;
-            this.Area = area;
-            this.Population = population;
-            this.GovernmentType = governmentType;
-            this.Capital = capital;
-
-            //Population = 0;
-            //foreach (Region r in Regions)
-            //{
-            //    Population += r.Population;
-            //}
+            Uuid = uuid;
+            Name = name;
+            Area = area;
+            Population = population;
+            GovernmentType = governmentType;
+            Capital = capital;
         }
 
-        public string Name { set; get; }
         public int Area { set; get; }
         public string GovernmentType { set; get; }
         public City Capital { set; get; }
 
+
+        public override string ToString()
+        {
+            return $"{Uuid};{Name};{Area};{Population};{GovernmentType};{Capital}";
+        }
+
+        public override void edit()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

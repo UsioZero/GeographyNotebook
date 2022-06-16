@@ -12,7 +12,7 @@ namespace GeografyNotebook.models.forms
 {
     public partial class SearchPage : Form
     {
-        public SearchPage(List<classes.GeografyUnit> items)
+        public SearchPage(List<classes.GeographyUnit> items)
         {
             InitializeComponent();
         }

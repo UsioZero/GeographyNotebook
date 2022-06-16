@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 
 namespace GeografyNotebook.models.classes
 {
-    public class Region : GeografyUnit
+    public class Region : GeographyUnit
     {
-        public Region(string name, string type,
+        public Region(Guid uuid, string name, string type,
             Country country, int population)
         {
-            this.Name = name;
-            this.Type = type;
-            this.Country = country;
-            this.Capital = country.Capital;
-            this.Population = population; 
+            Uuid = uuid;
+            Name = name;
+            Type = type;
+            Country = country;
+            Capital = country.Capital;
+            Population = population; 
         }
 
-        public string Name { set; get; }
         public string Type { set; get; }
         public Country Country { set; get; }
         public City Capital { set; get; }
+
+        public override void edit()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
