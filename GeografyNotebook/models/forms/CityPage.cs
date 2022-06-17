@@ -40,11 +40,11 @@ namespace GeografyNotebook.models.forms
             }
 
             SearchParameter.Items.AddRange(new string[]{
-                "Name", "Latitude", "Longtitude", "Population", "Country"
+                "Name", "Latitude", "Longitude", "Population", "CountryName"
             });
 
             SortParametr.Items.AddRange(new string[]{
-                "Name", "Latitude", "Longtitude", "Population", "Country"
+                "Name", "Latitude", "Longitude", "Population", "CountryName"
             });
         }
 
@@ -70,6 +70,7 @@ namespace GeografyNotebook.models.forms
                     );
 
                 curFirstCity = 0;
+                CityList.Text = "";
 
                 for (int i = 0; i < 10; i++)
                 {
@@ -159,6 +160,7 @@ namespace GeografyNotebook.models.forms
                 orderByField: SortParametr.Text);
 
             curFirstCity = 0;
+            CityList.Text = "";
 
             for (int i = 0; i < 10; i++)
             {
