@@ -158,18 +158,29 @@ namespace GeografyNotebook.models.classes
             GetContinents();
         }
 
-        public List<City> FindCities(string? searchFild, string? searchValue, string? orderByField)
+        public List<City> FindCities(string? searchFild, string? searchValue, string? orderByField, string? orderByValue)
         {
             List<City> result = cities;
+
             if (searchFild != null && searchValue != null)
             {
-                result = result.FindAll(predicate);
+                result = result.FindAll(city => city
+                    .GetType()
+                    .GetProperty(searchFild)
+                    .GetValue(city)
+                    .ToString() == searchValue);
             }
 
-            if (orderByField != null)
+            if (orderByField != null && orderByValue != null)
             {
-                result = result.OrderBy(predicate);
+                result = result.OrderBy(city => city
+                    .GetType()
+                    .GetProperty(orderByField)
+                    .GetValue(city)
+                    .ToString()).ToList();
             }
+
+            return result;
         }
 
         public void AddCity(City newCity) {
