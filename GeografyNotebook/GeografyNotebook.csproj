@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-<PropertyGroup>
-  <Nullable>enable</Nullable>
-  <LangVersion>8.0</LangVersion>
-</PropertyGroup>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -104,12 +104,6 @@
     <Compile Include="models\forms\RegionPage.Designer.cs">
       <DependentUpon>RegionPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\forms\SearchPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="models\forms\SearchPage.Designer.cs">
-      <DependentUpon>SearchPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="models\forms\CityPage.resx">
@@ -132,9 +126,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="models\forms\RegionPage.resx">
       <DependentUpon>RegionPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="models\forms\SearchPage.resx">
-      <DependentUpon>SearchPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

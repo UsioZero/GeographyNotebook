@@ -18,12 +18,12 @@ namespace GeografyNotebook.models.classes
         private static string searchResultPath
             = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\search_results.txt";
 
-        private List<City> cities;
-        private List<Region> regions; 
-        private List<Country> countries; 
-        private List<Continent> continents; 
+        public List<City> cities { private set; get; }
+        public List<Region> regions { private set; get; }
+        public List<Country> countries { private set; get; }
+        public List<Continent> continents { private set; get; }
 
-        private void GetCities()
+        private void GetCitiesFromFile()
         {
             cities = new List<City>();
 
@@ -48,7 +48,7 @@ namespace GeografyNotebook.models.classes
             }
         }
 
-        private void GetCountries()
+        private void GetCountriesFromFile()
         {
             countries = new List<Country>();
 
@@ -84,7 +84,7 @@ namespace GeografyNotebook.models.classes
             }
         }
 
-        private void GetRegions()
+        private void GetRegionsFromFile()
         {
             regions = new List<Region>();
 
@@ -99,7 +99,7 @@ namespace GeografyNotebook.models.classes
                         uuid: Guid.Parse(words[0]),
                         name: words[1],
                         type: words[2],
-                        country: countries.Find(country => country.Uuid == Guid.Parse(words[3])),
+                        country: countries.Find(country => country.Uuid.ToString() == words[3]),
                         population: Int32.Parse(words[4])
                     );
 
@@ -119,7 +119,7 @@ namespace GeografyNotebook.models.classes
             }
         }
 
-        private void GetContinents()
+        private void GetContinentsFromFile()
         {
             continents = new List<Continent>();
 
@@ -157,28 +157,28 @@ namespace GeografyNotebook.models.classes
             }
         }
 
-        public List<City> ChangeCities(string? searchFild, string? searchValue,
-            string? orderByField, string? orderByValue)
+        public List<City> ChangeCities(string searchFild, string searchValue)
         {
             List<City> result = cities;
 
-            if (searchFild != null && searchValue != null)
-            {
-                result = result.FindAll(city => city
-                    .GetType()
-                    .GetProperty(searchFild)
-                    .GetValue(city)
-                    .ToString() == searchValue);
-            }
+            result = result.FindAll(city => city
+                .GetType()
+                .GetProperty(searchFild)
+                .GetValue(city)
+                .ToString() == searchValue);
 
-            if (orderByField != null && orderByValue != null)
-            {
-                result = result.OrderBy(city => city
-                    .GetType()
-                    .GetProperty(orderByField)
-                    .GetValue(city)
-                    .ToString()).ToList();
-            }
+            return result;
+        }
+
+        public List<City> ChangeCities(string orderByField)
+        {
+            List<City> result = cities;
+
+            result = result.OrderBy(city => city
+                .GetType()
+                .GetProperty(orderByField)
+                .GetValue(city)
+                .ToString()).ToList();
 
             return result;
         }
@@ -199,10 +199,10 @@ namespace GeografyNotebook.models.classes
 
         public Database()
         {
-            GetCities();
-            GetCountries();
-            GetRegions();
-            GetContinents();
+            GetCitiesFromFile();
+            GetCountriesFromFile();
+            GetRegionsFromFile();
+            GetContinentsFromFile();
         }
     }
 }

@@ -12,17 +12,21 @@ namespace GeografyNotebook.models.forms
 {
     public partial class CitySelectorPage : Form
     {
+
+        classes.Database database;
         List<classes.City> cities;
         List<int> indexes;
 
-        public CitySelectorPage(List<classes.City> citiesRe, List<int> indexesRe)
+        public CitySelectorPage(classes.Database databaseRe, List<int> indexesRe)
         {
-            cities = citiesRe;
-            indexes = indexesRe;
             InitializeComponent();
-            for(int i =0; i < indexes.Count; i++)
+            database = databaseRe;
+            cities = database.cities;
+            indexes = indexesRe;
+
+            for(int i = 0; i < indexes.Count; i++)
             {
-                CityList.Items.Add(cities[indexes[i]].Name + " " + cities[indexes[i]].Population.ToString());
+                CitySelector.Items.Add(cities[indexes[i]].Name + " " + cities[indexes[i]].Population.ToString());
             }
         }
 
@@ -30,7 +34,7 @@ namespace GeografyNotebook.models.forms
         {
             for (int i = 0; i < indexes.Count; i++)
             {
-                if (CityList.SelectedItem == null)
+                if (CitySelector.SelectedItem == null)
                 {
                     Dialog diForm = new Dialog();
                     DialogResult dialog = diForm.ShowDialog(this);
@@ -46,9 +50,9 @@ namespace GeografyNotebook.models.forms
                 else
                 {
                     if (cities[indexes[i]].Name + " " + cities[indexes[i]].Population.ToString()
-                        == CityList.SelectedItem.ToString())
+                        == CitySelector.SelectedItem.ToString())
                     {
-                        MapPage page = new MapPage(cities, indexes[i]);
+                        MapPage page = new MapPage(database, indexes[i]);
                         page.Show();
                         Hide();
                     }
@@ -56,8 +60,20 @@ namespace GeografyNotebook.models.forms
 
             }
         }
-
         private void mapButton_Click(object sender, EventArgs e)
             => onMapButtonClick(sender, e);
+
+        private void OnBackButtonClick(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                MainPage form = new MainPage();
+                form.Show();
+                this.Close();
+            }
+        }
+
+        private void CitySelectorPage_KeyDown(object sender, KeyEventArgs e)
+            => OnBackButtonClick(sender, e);
     }
 }

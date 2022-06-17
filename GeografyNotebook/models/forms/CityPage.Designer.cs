@@ -33,18 +33,18 @@
             this.SearchValue = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.MapButton = new System.Windows.Forms.Button();
-            this.NamesSelection = new System.Windows.Forms.ComboBox();
-            this.leftButton = new System.Windows.Forms.Button();
-            this.rightButton = new System.Windows.Forms.Button();
-            this.SortList = new System.Windows.Forms.ComboBox();
-            this.sortButton = new System.Windows.Forms.Button();
+            this.CityOnMapSelector = new System.Windows.Forms.ComboBox();
+            this.LeftButton = new System.Windows.Forms.Button();
+            this.RightButton = new System.Windows.Forms.Button();
+            this.SortParametr = new System.Windows.Forms.ComboBox();
+            this.SortButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // CityList
+            // CitySelector
             // 
             this.CityList.AutoSize = true;
             this.CityList.Location = new System.Drawing.Point(49, 129);
-            this.CityList.Name = "CityList";
+            this.CityList.Name = "CitySelector";
             this.CityList.Size = new System.Drawing.Size(35, 13);
             this.CityList.TabIndex = 0;
             this.CityList.Text = "label1";
@@ -54,7 +54,7 @@
             this.SearchParameter.FormattingEnabled = true;
             this.SearchParameter.Location = new System.Drawing.Point(196, 10);
             this.SearchParameter.Name = "SearchParameter";
-            this.SearchParameter.Size = new System.Drawing.Size(121, 21);
+            this.SearchParameter.Size = new System.Drawing.Size(126, 21);
             this.SearchParameter.TabIndex = 1;
             // 
             // SearchValue
@@ -84,62 +84,62 @@
             this.MapButton.UseVisualStyleBackColor = true;
             this.MapButton.Click += new System.EventHandler(this.MapButton_Click);
             // 
-            // NamesSelection
+            // CityOnMapSelector
             // 
-            this.NamesSelection.FormattingEnabled = true;
-            this.NamesSelection.Location = new System.Drawing.Point(346, 85);
-            this.NamesSelection.Name = "NamesSelection";
-            this.NamesSelection.Size = new System.Drawing.Size(267, 21);
-            this.NamesSelection.TabIndex = 5;
+            this.CityOnMapSelector.FormattingEnabled = true;
+            this.CityOnMapSelector.Location = new System.Drawing.Point(346, 85);
+            this.CityOnMapSelector.Name = "CityOnMapSelector";
+            this.CityOnMapSelector.Size = new System.Drawing.Size(267, 21);
+            this.CityOnMapSelector.TabIndex = 5;
             // 
-            // leftButton
+            // LeftButton
             // 
-            this.leftButton.Location = new System.Drawing.Point(1, 129);
-            this.leftButton.Name = "leftButton";
-            this.leftButton.Size = new System.Drawing.Size(42, 122);
-            this.leftButton.TabIndex = 6;
-            this.leftButton.Text = "left";
-            this.leftButton.UseVisualStyleBackColor = true;
-            this.leftButton.Click += new System.EventHandler(this.leftButton_Click);
+            this.LeftButton.Location = new System.Drawing.Point(1, 129);
+            this.LeftButton.Name = "LeftButton";
+            this.LeftButton.Size = new System.Drawing.Size(42, 122);
+            this.LeftButton.TabIndex = 6;
+            this.LeftButton.Text = "left";
+            this.LeftButton.UseVisualStyleBackColor = true;
+            this.LeftButton.Click += new System.EventHandler(this.LeftButton_Click);
             // 
-            // rightButton
+            // RightButton
             // 
-            this.rightButton.Location = new System.Drawing.Point(756, 129);
-            this.rightButton.Name = "rightButton";
-            this.rightButton.Size = new System.Drawing.Size(42, 122);
-            this.rightButton.TabIndex = 7;
-            this.rightButton.Text = "Right";
-            this.rightButton.UseVisualStyleBackColor = true;
-            this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
+            this.RightButton.Location = new System.Drawing.Point(756, 129);
+            this.RightButton.Name = "RightButton";
+            this.RightButton.Size = new System.Drawing.Size(42, 122);
+            this.RightButton.TabIndex = 7;
+            this.RightButton.Text = "Right";
+            this.RightButton.UseVisualStyleBackColor = true;
+            this.RightButton.Click += new System.EventHandler(this.RightButton_Click);
             // 
-            // SortList
+            // SortParametr
             // 
-            this.SortList.FormattingEnabled = true;
-            this.SortList.Location = new System.Drawing.Point(346, 50);
-            this.SortList.Name = "SortList";
-            this.SortList.Size = new System.Drawing.Size(267, 21);
-            this.SortList.TabIndex = 8;
+            this.SortParametr.FormattingEnabled = true;
+            this.SortParametr.Location = new System.Drawing.Point(346, 50);
+            this.SortParametr.Name = "SortParametr";
+            this.SortParametr.Size = new System.Drawing.Size(267, 21);
+            this.SortParametr.TabIndex = 8;
             // 
-            // sortButton
+            // SortButton
             // 
-            this.sortButton.Location = new System.Drawing.Point(645, 48);
-            this.sortButton.Name = "sortButton";
-            this.sortButton.Size = new System.Drawing.Size(75, 23);
-            this.sortButton.TabIndex = 9;
-            this.sortButton.Text = "Sort";
-            this.sortButton.UseVisualStyleBackColor = true;
-            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            this.SortButton.Location = new System.Drawing.Point(645, 48);
+            this.SortButton.Name = "SortButton";
+            this.SortButton.Size = new System.Drawing.Size(75, 23);
+            this.SortButton.TabIndex = 9;
+            this.SortButton.Text = "Sort";
+            this.SortButton.UseVisualStyleBackColor = true;
+            this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
             // 
             // CityPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.sortButton);
-            this.Controls.Add(this.SortList);
-            this.Controls.Add(this.rightButton);
-            this.Controls.Add(this.leftButton);
-            this.Controls.Add(this.NamesSelection);
+            this.Controls.Add(this.SortButton);
+            this.Controls.Add(this.SortParametr);
+            this.Controls.Add(this.RightButton);
+            this.Controls.Add(this.LeftButton);
+            this.Controls.Add(this.CityOnMapSelector);
             this.Controls.Add(this.MapButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SearchValue);
@@ -148,7 +148,6 @@
             this.KeyPreview = true;
             this.Name = "CityPage";
             this.Text = "CityPage";
-            this.Load += new System.EventHandler(this.CityPage_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CityPage_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -162,10 +161,10 @@
         private System.Windows.Forms.TextBox SearchValue;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button MapButton;
-        private System.Windows.Forms.ComboBox NamesSelection;
-        private System.Windows.Forms.Button leftButton;
-        private System.Windows.Forms.Button rightButton;
-        private System.Windows.Forms.ComboBox SortList;
-        private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.ComboBox CityOnMapSelector;
+        private System.Windows.Forms.Button LeftButton;
+        private System.Windows.Forms.Button RightButton;
+        private System.Windows.Forms.ComboBox SortParametr;
+        private System.Windows.Forms.Button SortButton;
     }
 }

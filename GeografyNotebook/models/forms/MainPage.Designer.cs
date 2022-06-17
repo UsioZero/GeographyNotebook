@@ -86,7 +86,6 @@
             this.KeyPreview = true;
             this.Name = "MainPage";
             this.Text = "MainPage";
-            this.Load += new System.EventHandler(this.MainPage_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainPage_KeyDown);
             this.ResumeLayout(false);
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.mapButton = new System.Windows.Forms.Button();
-            this.CityList = new System.Windows.Forms.ComboBox();
+            this.CitySelector = new System.Windows.Forms.ComboBox();
             this.textInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -43,13 +43,13 @@
             this.mapButton.UseVisualStyleBackColor = true;
             this.mapButton.Click += new System.EventHandler(this.mapButton_Click);
             // 
-            // CityList
+            // CitySelector
             // 
-            this.CityList.FormattingEnabled = true;
-            this.CityList.Location = new System.Drawing.Point(289, 14);
-            this.CityList.Name = "CityList";
-            this.CityList.Size = new System.Drawing.Size(375, 21);
-            this.CityList.TabIndex = 2;
+            this.CitySelector.FormattingEnabled = true;
+            this.CitySelector.Location = new System.Drawing.Point(289, 14);
+            this.CitySelector.Name = "CitySelector";
+            this.CitySelector.Size = new System.Drawing.Size(375, 21);
+            this.CitySelector.TabIndex = 2;
             // 
             // textInfo
             // 
@@ -66,10 +66,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textInfo);
-            this.Controls.Add(this.CityList);
+            this.Controls.Add(this.CitySelector);
             this.Controls.Add(this.mapButton);
+            this.KeyPreview = true;
             this.Name = "CitySelectorPage";
             this.Text = "CitySelectorPage";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CitySelectorPage_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,7 +79,7 @@
 
         #endregion
         private System.Windows.Forms.Button mapButton;
-        private System.Windows.Forms.ComboBox CityList;
+        private System.Windows.Forms.ComboBox CitySelector;
         private System.Windows.Forms.Label textInfo;
     }
 }

@@ -12,12 +12,15 @@ namespace GeografyNotebook.models.forms
 {
     public partial class MapPage : Form
     {
+
+        classes.Database database;
         List<classes.City> cities;
 
-        public MapPage(List<classes.City> citiesRe, int index)
+        public MapPage(classes.Database databaseRe, int index)
         {
             InitializeComponent();
-            this.cities = citiesRe;
+            database = databaseRe;
+            this.cities = database.cities;
             this.Height = 832;
             //this.Width = 1430;
             this.Width = 1430;
@@ -33,7 +36,7 @@ namespace GeografyNotebook.models.forms
         {
             if (e.KeyCode == Keys.Escape)
             {
-                CityPage form = new CityPage(cities);
+                CityPage form = new CityPage(database);
                 form.Show();
                 this.Close();
             }

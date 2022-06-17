@@ -12,192 +12,43 @@ namespace GeografyNotebook.models.forms
 {
     public partial class CityPage : Form
     {
-        List<classes.City> cities;
-        List<classes.City> searchCities = new List<classes.City> { };
+        classes.Database database;
+        List<classes.City> showedCities;
         int curFirstCity = 0;
 
-        public CityPage(List<classes.City> citiesRe)
+        public CityPage(classes.Database databaseRe)
         {
             InitializeComponent();
 
-            this.cities = citiesRe;
+            database = databaseRe;
+            showedCities = database.cities;
             CityList.Text = "";
 
-            for (int i = 0; i < cities.Count; i++)
+            for (int i = 0; i < showedCities.Count; i++)
             {
-                NamesSelection.Items.Add(cities[i].Name);
+                CityOnMapSelector.Items.Add(showedCities[i].Name);
             }
 
             for(int i = 0; i < 10; i++)
             {
                 CityList.Text +=
-                    $"{cities[i].Name}; Country - {cities[i].CountryName};" +
-                    $"Latitude - {cities[i].Latitude}; " +
-                    $"Longtitude - {cities[i].Longitude}; " +
-                    $"Population - {cities[i].Population}\n";
+                    $"{showedCities[i].Name}; " +
+                    $"Country - {showedCities[i].CountryName};" +
+                    $"Latitude - {showedCities[i].Latitude}; " +
+                    $"Longtitude - {showedCities[i].Longitude}; " +
+                    $"Population - {showedCities[i].Population}\n";
             }
 
             SearchParameter.Items.AddRange(new string[]{
                 "Name", "Latitude", "Longtitude", "Population", "Country"
             });
 
-            SortList.Items.AddRange(new string[]{
-                "Name", "Latitude", "Longtitude", "Population" }
-                );
+            SortParametr.Items.AddRange(new string[]{
+                "Name", "Latitude", "Longtitude", "Population", "Country"
+            });
         }
 
-        private void sortCity(object sender, EventArgs e)
-        {
-            if (SortList.SelectedItem == "Name")
-            {
-                cities = cities.OrderBy(o => o.Name).ToList();
-            }
-            if (SortList.SelectedItem == "Latitude")
-            {
-                cities = cities.OrderBy(o => -o.Latitude).ToList();
-            }
-            if (SortList.SelectedItem == "Longtitude")
-            {
-                cities = cities.OrderBy(o => -o.Longitude).ToList();
-            }
-            if (SortList.SelectedItem == "Population")
-            {
-                cities = cities.OrderBy(o => -o.Population).ToList();
-            }
-
-            CityList.Text = "";
-            for (int i = 0; i < 10; i++)
-            {
-                if (curFirstCity + i <= cities.Count - 1)
-                    CityList.Text +=
-                        $"{cities[curFirstCity + i].Name}; " +
-                        $"Country - {cities[curFirstCity + i].CountryName};" +
-                        $"Latitude - {cities[curFirstCity + i].Latitude}; " +
-                        $"Longtitude - {cities[curFirstCity + i].Longitude}; " +
-                        $"Population - {cities[curFirstCity + i].Population}\n";
-            }
-        }
-
-        private void searchByName(string value)
-        {
-            CityList.Text = "";
-            foreach (classes.City city in cities)
-            {
-                if (city.Name == value)
-                {
-                    CityList.Text +=
-                        $"{city.Name}; " +
-                        $"Latitude - {city.Latitude}; " +
-                        $"Longtitude - {city.Longitude}; " +
-                        $"Population - {city.Population}\n";
-                }
-            }
-        }
-
-        private void searchByLatitude(string value)
-        {
-            CityList.Text = "";
-            foreach (classes.City city in cities)
-            {
-                if (city.Latitude.ToString() == value)
-                {
-                    CityList.Text +=
-                        $"{city.Name}; " +
-                        $"Latitude - {city.Latitude}; " +
-                        $"Longtitude - {city.Longitude}; " +
-                        $"Population - {city.Population}\n";
-                }
-            }
-        }
-
-        private void searchByLongtitude(string value)
-        {
-            CityList.Text = "";
-            foreach (classes.City city in cities)
-            {
-                if (city.Longitude.ToString() == value)
-                {
-                    CityList.Text +=
-                        $"{city.Name}; " +
-                        $"Latitude - {city.Latitude}; " +
-                        $"Longtitude - {city.Longitude}; " +
-                        $"Population - {city.Population}\n";
-                }
-            }
-        }
-
-        private void searchByPopulation(string value)
-        {
-            CityList.Text = "";
-            foreach (classes.City city in cities)
-            {
-                if (city.Population.ToString() == value)
-                {
-                    CityList.Text +=
-                        $"{city.Name}; " +
-                        $"Latitude - {city.Latitude}; " +
-                        $"Longtitude - {city.Longitude}; " +
-                        $"Population - {city.Population}\n";
-                }
-            }
-        }
-
-        private void onSearchButtonClick(object sender, EventArgs e)
-        {
-            switch (SearchParameter.SelectedItem)
-            {
-                case "Name":
-                    searchByName(SearchValue.Text.ToString());
-                    break;
-                case "Latitude":
-                    searchByLatitude(SearchValue.Text.ToString());
-                    break;
-                case "Longtitude":
-                    searchByLongtitude(SearchValue.Text.ToString());
-                    break;
-                case "Population":
-                    searchByPopulation(SearchValue.Text.ToString());
-                    break;
-                default:
-                    CityList.Text = "Wrong Parameter";
-                    break;
-            }
-        }
-
-        private void onMapButtonClick(object sender, EventArgs e)
-        {
-            List<int> cityIndex = new List<int> { };
-            for (int i = 0; i < cities.Count; i++)
-            {
-                if(NamesSelection.SelectedItem == null)
-                {
-                    Dialog diForm = new Dialog();
-                    DialogResult dialog = diForm.ShowDialog(this);
-                    if (dialog == DialogResult.Cancel)
-                    {
-                        diForm.Close();
-                    }
-                    else if (dialog == DialogResult.OK)
-                    {
-                        diForm.Close();
-                    }
-                }
-                else
-                {
-                    if (cities[i].Name == NamesSelection.SelectedItem.ToString())
-                    {
-                        cityIndex.Add(i);
-                    }
-                }
-
-            }
-
-            CitySelectorPage page = new CitySelectorPage(cities, cityIndex);
-            page.Show();
-            Hide();
-        }
-
-        private void onBackButtonClick(object sender, KeyEventArgs e)
+        private void OnBackButtonClick(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -206,66 +57,123 @@ namespace GeografyNotebook.models.forms
                 this.Close();
             }
         }
+        private void CityPage_KeyDown(object sender, KeyEventArgs e)
+            => OnBackButtonClick(sender, e);
 
-        public void leftText(object sender, EventArgs e)
+        private void OnSearchButtonClick(object sender, EventArgs e)
         {
-            if(curFirstCity>9)
+            if (SearchParameter.SelectedItem.ToString().Length > 0 && SearchValue.Text.Length > 0)
+            {
+                showedCities = database.ChangeCities(
+                    searchFild: SearchParameter.SelectedItem.ToString(),
+                    searchValue: SearchValue.Text
+                    );
+
+                curFirstCity = 0;
+
+                for (int i = 0; i < 10; i++)
+                {
+                    if (i <= showedCities.Count - 1)
+                    {
+                        CityList.Text +=
+                            $"{showedCities[i].Name}; " +
+                            $"Country - {showedCities[i].CountryName};" +
+                            $"Latitude - {showedCities[i].Latitude}; " +
+                            $"Longtitude - {showedCities[i].Longitude}; " +
+                            $"Population - {showedCities[i].Population}\n";
+                    }
+                }
+            }
+
+        }
+        private void SearchButton_Click(object sender, EventArgs e)
+            => OnSearchButtonClick(sender, e);
+
+        private void OnMapButtonClick(object sender, EventArgs e)
+        {
+            if (CityOnMapSelector.SelectedItem != null)
+            {
+                List<int> cityIndex = new List<int> { };
+
+                for (int i = 0; i < database.cities.Count; i++)
+                {
+                        if (database.cities[i].Name == CityOnMapSelector.SelectedItem.ToString())
+                        {
+                            cityIndex.Add(i);
+                        }
+                }
+
+                CitySelectorPage page = new CitySelectorPage(database, cityIndex);
+                page.Show();
+                Hide();
+            }
+        }
+        private void MapButton_Click(object sender, EventArgs e)
+            => OnMapButtonClick(sender, e);
+
+        public void LeftText(object sender, EventArgs e)
+        {
+            if (curFirstCity > 9)
             {
                 CityList.Text = "";
                 curFirstCity -= 10;
                 for (int i = 0; i < 10; i++)
                 {
                     CityList.Text +=
-                        $"{cities[curFirstCity + i].Name}; " +
-                        $"Country - {cities[curFirstCity + i].CountryName};" +
-                        $"Latitude - {cities[curFirstCity + i].Latitude}; " +
-                        $"Longtitude - {cities[curFirstCity + i].Longitude}; " +
-                        $"Population - {cities[curFirstCity + i].Population}\n";
+                        $"{showedCities[curFirstCity + i].Name}; " +
+                        $"Country - {showedCities[curFirstCity + i].CountryName};" +
+                        $"Latitude - {showedCities[curFirstCity + i].Latitude}; " +
+                        $"Longtitude - {showedCities[curFirstCity + i].Longitude}; " +
+                        $"Population - {showedCities[curFirstCity + i].Population}\n";
                 }
             }
         }
+        private void LeftButton_Click(object sender, EventArgs e)
+            => LeftText(sender, e);
 
-        public void rightText(object sender, EventArgs e)
+        public void RightText(object sender, EventArgs e)
         {
 
-            if (curFirstCity + 10 <= cities.Count - 1)
+            if (curFirstCity + 10 <= showedCities.Count - 1)
             {
                 CityList.Text = "";
                 curFirstCity += 10;
                 for (int i = 0; i < 10; i++)
                 {
-                    if (curFirstCity + i <= cities.Count - 1)
-                    CityList.Text +=
-                        $"{cities[curFirstCity + i].Name}; " +
-                        $"Country - {cities[curFirstCity + i].CountryName};" +
-                        $"Latitude - {cities[curFirstCity + i].Latitude}; " +
-                        $"Longtitude - {cities[curFirstCity + i].Longitude}; " +
-                        $"Population - {cities[curFirstCity + i].Population}\n";
+                    if (curFirstCity + i <= showedCities.Count - 1)
+                        CityList.Text +=
+                            $"{showedCities[curFirstCity + i].Name}; " +
+                            $"Country - {showedCities[curFirstCity + i].CountryName};" +
+                            $"Latitude - {showedCities[curFirstCity + i].Latitude}; " +
+                            $"Longtitude - {showedCities[curFirstCity + i].Longitude}; " +
+                            $"Population - {showedCities[curFirstCity + i].Population}\n";
                 }
             }
         }
+        private void RightButton_Click(object sender, EventArgs e)
+            => RightText(sender, e);
 
-        private void CityPage_KeyDown(object sender, KeyEventArgs e)
-            => onBackButtonClick(sender, e);
-
-        private void SearchButton_Click(object sender, EventArgs e)
-            => onSearchButtonClick(sender, e);
-
-        private void MapButton_Click(object sender, EventArgs e)
-            => onMapButtonClick(sender, e);
-
-        private void CityPage_Load(object sender, EventArgs e)
+        private void SortCities(object sender, EventArgs e)
         {
+            showedCities = database.ChangeCities(
+                orderByField: SortParametr.Text);
 
+            curFirstCity = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (i <= showedCities.Count - 1)
+                {
+                    CityList.Text +=
+                        $"{showedCities[i].Name}; " +
+                        $"Country - {showedCities[i].CountryName};" +
+                        $"Latitude - {showedCities[i].Latitude}; " +
+                        $"Longtitude - {showedCities[i].Longitude}; " +
+                        $"Population - {showedCities[i].Population}\n";
+                }
+            }
         }
-
-        private void leftButton_Click(object sender, EventArgs e)
-            => leftText(sender, e);
-
-        private void rightButton_Click(object sender, EventArgs e)
-            => rightText(sender, e);
-
-        private void sortButton_Click(object sender, EventArgs e)
-            => sortCity(sender, e);
+        private void SortButton_Click(object sender, EventArgs e)
+            => SortCities(sender, e);
     }
 }

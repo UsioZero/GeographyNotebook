@@ -44,7 +44,6 @@ C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebo
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.MainPage.resources
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.MapPage.resources
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.RegionPage.resources
-C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.SearchPage.resources
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.Properties.Resources.resources
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.csproj.GenerateResource.cache
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.csproj.CoreCompileInputs.cache
