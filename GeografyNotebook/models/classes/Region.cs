@@ -26,7 +26,7 @@ namespace GeografyNotebook.models.classes
 
         public override string ToString()
         {
-            return $"{Uuid};{Name};{Type};{Country};{Population}";
+            return $"{Uuid};{Name};{Type};{Country.Uuid};{Population}";
         }
 
         public override void edit()

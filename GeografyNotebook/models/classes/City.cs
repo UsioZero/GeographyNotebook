@@ -19,6 +19,17 @@ namespace GeografyNotebook.models.classes
             this.Population = population;
         }
 
+        public City(string line)
+        {
+            string[] words = line.Split(';');
+            Uuid = Guid.Parse(words[0]);
+            Name = words[1];
+            CountryName = words[2];
+            Latitude = Double.Parse(words[3]);
+            Longitude = Double.Parse(words[4]);
+            Population = Int32.Parse(words[5]);
+        }
+
         public string CountryName { set; get; }
         public double Latitude { set; get; }
         public double Longitude { set; get; }
