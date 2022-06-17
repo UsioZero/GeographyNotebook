@@ -160,14 +160,14 @@ Malanje Province;Angola;
 Moxico Province;Angola;
 Uíge Province;Angola;
 Zaire Province;Angola;
-Barbuda;Antigua And Barbuda;
-Redonda;Antigua And Barbuda;
-Saint George Parish;Antigua And Barbuda;
-Saint John Parish;Antigua And Barbuda;
-Saint Mary Parish;Antigua And Barbuda;
-Saint Paul Parish;Antigua And Barbuda;
-Saint Peter Parish;Antigua And Barbuda;
-Saint Philip Parish;Antigua And Barbuda;
+Barbuda;Antigua and Barbuda;
+Redonda;Antigua and Barbuda;
+Saint George Parish;Antigua and Barbuda;
+Saint John Parish;Antigua and Barbuda;
+Saint Mary Parish;Antigua and Barbuda;
+Saint Paul Parish;Antigua and Barbuda;
+Saint Peter Parish;Antigua and Barbuda;
+Saint Philip Parish;Antigua and Barbuda;
 Buenos Aires;Argentina;province
 Catamarca;Argentina;province
 Chaco;Argentina;province
@@ -419,15 +419,15 @@ Mono Department;Benin;
 Ouémé Department;Benin;
 Plateau Department;Benin;
 Zou Department;Benin;
-Devonshire Parish;Bermuda;
-Hamilton Parish;Bermuda;
-Paget Parish;Bermuda;
-Pembroke Parish;Bermuda;
-Saint George's Parish;Bermuda;
-Sandys Parish;Bermuda;
-Smith's Parish,;Bermuda;
-Southampton Parish;Bermuda;
-Warwick Parish;Bermuda;
+Devonshire Parish;United Kingdom;
+Hamilton Parish;United Kingdom;
+Paget Parish;United Kingdom;
+Pembroke Parish;United Kingdom;
+Saint George's Parish;United Kingdom;
+Sandys Parish;United Kingdom;
+Smith's Parish,;United Kingdom;
+Southampton Parish;United Kingdom;
+Warwick Parish;United Kingdom;
 Bumthang District;Bhutan;
 Chukha District;Bhutan;
 Dagana District;Bhutan;
@@ -456,9 +456,9 @@ Pando Department;Bolivia;
 Potosí Department;Bolivia;
 Santa Cruz Department;Bolivia;
 Tarija Department;Bolivia;
-Bonaire;Bonaire, Sint Eustatius and Saba;special municipality
-Saba;Bonaire, Sint Eustatius and Saba;special municipality
-Sint Eustatius;Bonaire, Sint Eustatius and Saba;special municipality
+Bonaire;Netherlands;special municipality
+Saba;Netherlands;special municipality
+Sint Eustatius;Netherlands;special municipality
 Bosnian Podrinje Canton;Bosnia and Herzegovina;
 Brčko District;Bosnia and Herzegovina;
 Canton 10;Bosnia and Herzegovina;
@@ -1363,12 +1363,12 @@ Ogooué-Ivindo Province;Gabon;
 Ogooué-Lolo Province;Gabon;
 Ogooué-Maritime Province;Gabon;
 Woleu-Ntem Province;Gabon;
-Banjul;Gambia The;
-Central River Division;Gambia The;
-Lower River Division;Gambia The;
-North Bank Division;Gambia The;
-Upper River Division;Gambia The;
-West Coast Division;Gambia The;
+Banjul;Gambia;
+Central River Division;Gambia;
+Lower River Division;Gambia;
+North Bank Division;Gambia;
+Upper River Division;Gambia;
+West Coast Division;Gambia;
 Adjara;Georgia;
 Autonomous Republic of Abkhazia;Georgia;
 Guria;Georgia;
@@ -1570,24 +1570,24 @@ Olancho Department;Honduras;
 Santa Bárbara Department;Honduras;
 Valle Department;Honduras;
 Yoro Department;Honduras;
-Central and Western District;Hong Kong S.A.R.;
-Eastern;Hong Kong S.A.R.;
-Islands District;Hong Kong S.A.R.;
-Kowloon City;Hong Kong S.A.R.;
-Kwai Tsing;Hong Kong S.A.R.;
-Kwun Tong;Hong Kong S.A.R.;
-North;Hong Kong S.A.R.;
-Sai Kung District;Hong Kong S.A.R.;
-Sha Tin;Hong Kong S.A.R.;
-Sham Shui Po;Hong Kong S.A.R.;
-Southern;Hong Kong S.A.R.;
-Tai Po District;Hong Kong S.A.R.;
-Tsuen Wan District;Hong Kong S.A.R.;
-Tuen Mun;Hong Kong S.A.R.;
-Wan Chai;Hong Kong S.A.R.;
-Wong Tai Sin;Hong Kong S.A.R.;
-Yau Tsim Mong;Hong Kong S.A.R.;
-Yuen Long District;Hong Kong S.A.R.;
+Central and Western District;China;
+Eastern;China;
+Islands District;China;
+Kowloon City;China;
+Kwai Tsing;China;
+Kwun Tong;China;
+North;China;
+Sai Kung District;China;
+Sha Tin;China;
+Sham Shui Po;China;
+Southern;China;
+Tai Po District;China;
+Tsuen Wan District;China;
+Tuen Mun;China;
+Wan Chai;China;
+Wong Tai Sin;China;
+Yau Tsim Mong;China;
+Yuen Long District;China;
 Bács-Kiskun;Hungary;county
 Baranya;Hungary;county
 Békés;Hungary;county
@@ -3094,27 +3094,27 @@ Ngöbe-Buglé Comarca;Panama;
 Panamá Oeste Province;Panama;
 Panamá Province;Panama;
 Veraguas Province;Panama;
-Bougainville;Papua new Guinea;
-Central Province;Papua new Guinea;
-Chimbu Province;Papua new Guinea;
-East New Britain;Papua new Guinea;
-Eastern Highlands Province;Papua new Guinea;
-Enga Province;Papua new Guinea;
-Gulf;Papua new Guinea;
-Hela;Papua new Guinea;
-Jiwaka Province;Papua new Guinea;
-Madang Province;Papua new Guinea;
-Manus Province;Papua new Guinea;
-Milne Bay Province;Papua new Guinea;
-Morobe Province;Papua new Guinea;
-New Ireland Province;Papua new Guinea;
-Oro Province;Papua new Guinea;
-Port Moresby;Papua new Guinea;
-Sandaun Province;Papua new Guinea;
-Southern Highlands Province;Papua new Guinea;
-West New Britain Province;Papua new Guinea;
-Western Highlands Province;Papua new Guinea;
-Western Province;Papua new Guinea;
+Bougainville;Papua New Guinea;
+Central Province;Papua New Guinea;
+Chimbu Province;Papua New Guinea;
+East New Britain;Papua New Guinea;
+Eastern Highlands Province;Papua New Guinea;
+Enga Province;Papua New Guinea;
+Gulf;Papua New Guinea;
+Hela;Papua New Guinea;
+Jiwaka Province;Papua New Guinea;
+Madang Province;Papua New Guinea;
+Manus Province;Papua New Guinea;
+Milne Bay Province;Papua New Guinea;
+Morobe Province;Papua New Guinea;
+New Ireland Province;Papua New Guinea;
+Oro Province;Papua New Guinea;
+Port Moresby;Papua New Guinea;
+Sandaun Province;Papua New Guinea;
+Southern Highlands Province;Papua New Guinea;
+West New Britain Province;Papua New Guinea;
+Western Highlands Province;Papua New Guinea;
+Western Province;Papua New Guinea;
 Alto Paraguay Department;Paraguay;
 Alto Paraná Department;Paraguay;
 Amambay Department;Paraguay;
@@ -3290,16 +3290,16 @@ Setúbal;Portugal;
 Viana do Castelo;Portugal;
 Vila Real;Portugal;
 Viseu;Portugal;
-Arecibo;Puerto Rico;state
-Bayamon;Puerto Rico;state
-Caguas;Puerto Rico;state
-Carolina;Puerto Rico;state
-Guaynabo;Puerto Rico;state
-Mayagüez;Puerto Rico;state
-Ponce;Puerto Rico;state
-San Juan;Puerto Rico;state
-Toa Baja;Puerto Rico;state
-Trujillo Alto;Puerto Rico;state
+Arecibo;United States;state
+Bayamon;United States;state
+Caguas;United States;state
+Carolina;United States;state
+Guaynabo;United States;state
+Mayagüez;United States;state
+Ponce;United States;state
+San Juan;United States;state
+Toa Baja;United States;state
+Trujillo Alto;United States;state
 Al Daayen;Qatar;
 Al Khor;Qatar;
 Al Rayyan Municipality;Qatar;
@@ -3439,21 +3439,21 @@ Kigali district;Rwanda;
 Northern Province;Rwanda;
 Southern Province;Rwanda;
 Western Province;Rwanda;
-Christ Church Nichola Town Parish;Saint Kitts And Nevis;
-Nevis;Saint Kitts And Nevis;
-Saint Anne Sandy Point Parish;Saint Kitts And Nevis;
-Saint George Gingerland Parish;Saint Kitts And Nevis;
-Saint James Windward Parish;Saint Kitts And Nevis;
-Saint John Capisterre Parish;Saint Kitts And Nevis;
-Saint John Figtree Parish;Saint Kitts And Nevis;
-Saint Kitts;Saint Kitts And Nevis;
-Saint Mary Cayon Parish;Saint Kitts And Nevis;
-Saint Paul Capisterre Parish;Saint Kitts And Nevis;
-Saint Paul Charlestown Parish;Saint Kitts And Nevis;
-Saint Peter Basseterre Parish;Saint Kitts And Nevis;
-Saint Thomas Lowland Parish;Saint Kitts And Nevis;
-Saint Thomas Middle Island Parish;Saint Kitts And Nevis;
-Trinity Palmetto Point Parish;Saint Kitts And Nevis;
+Christ Church Nichola Town Parish;Saint Kitts and Nevis;
+Nevis;Saint Kitts and Nevis;
+Saint Anne Sandy Point Parish;Saint Kitts and Nevis;
+Saint George Gingerland Parish;Saint Kitts and Nevis;
+Saint James Windward Parish;Saint Kitts and Nevis;
+Saint John Capisterre Parish;Saint Kitts and Nevis;
+Saint John Figtree Parish;Saint Kitts and Nevis;
+Saint Kitts;Saint Kitts and Nevis;
+Saint Mary Cayon Parish;Saint Kitts and Nevis;
+Saint Paul Capisterre Parish;Saint Kitts and Nevis;
+Saint Paul Charlestown Parish;Saint Kitts and Nevis;
+Saint Peter Basseterre Parish;Saint Kitts and Nevis;
+Saint Thomas Lowland Parish;Saint Kitts and Nevis;
+Saint Thomas Middle Island Parish;Saint Kitts and Nevis;
+Trinity Palmetto Point Parish;Saint Kitts and Nevis;
 Anse la Raye Quarter;Saint Lucia;
 Canaries;Saint Lucia;
 Castries Quarter;Saint Lucia;
@@ -3466,12 +3466,12 @@ Micoud Quarter;Saint Lucia;
 Praslin Quarter;Saint Lucia;
 Soufrière Quarter;Saint Lucia;
 Vieux Fort Quarter;Saint Lucia;
-Charlotte Parish;Saint Vincent And The Grenadines;
-Grenadines Parish;Saint Vincent And The Grenadines;
-Saint Andrew Parish;Saint Vincent And The Grenadines;
-Saint David Parish;Saint Vincent And The Grenadines;
-Saint George Parish;Saint Vincent And The Grenadines;
-Saint Patrick Parish;Saint Vincent And The Grenadines;
+Charlotte Parish;Saint Vincent and the Grenadines;
+Grenadines Parish;Saint Vincent and the Grenadines;
+Saint Andrew Parish;Saint Vincent and the Grenadines;
+Saint David Parish;Saint Vincent and the Grenadines;
+Saint George Parish;Saint Vincent and the Grenadines;
+Saint Patrick Parish;Saint Vincent and the Grenadines;
 A'ana;Samoa;
 Aiga-i-le-Tai;Samoa;
 Atua;Samoa;
@@ -3950,10 +3950,10 @@ Paramaribo District;Suriname;
 Saramacca District;Suriname;
 Sipaliwini District;Suriname;
 Wanica District;Suriname;
-Hhohho District;Swaziland;
-Lubombo District;Swaziland;
-Manzini District;Swaziland;
-Shiselweni District;Swaziland;
+Hhohho District;Eswatini;
+Lubombo District;Eswatini;
+Manzini District;Eswatini;
+Shiselweni District;Eswatini;
 Blekinge;Sweden;
 Dalarna County;Sweden;
 Gävleborg County;Sweden;
@@ -4149,48 +4149,48 @@ Uthai Thani;Thailand;
 Uttaradit;Thailand;
 Yala;Thailand;
 Yasothon;Thailand;
-Acklins;The Bahamas;
-Acklins and Crooked Islands;The Bahamas;
-Berry Islands;The Bahamas;
-Bimini;The Bahamas;
-Black Point;The Bahamas;
-Cat Island;The Bahamas;
-Central Abaco;The Bahamas;
-Central Andros;The Bahamas;
-Central Eleuthera;The Bahamas;
-Crooked Island;The Bahamas;
-East Grand Bahama;The Bahamas;
-Exuma;The Bahamas;
-Freeport;The Bahamas;
-Fresh Creek;The Bahamas;
-Governor's Harbour;The Bahamas;
-Grand Cay;The Bahamas;
-Green Turtle Cay;The Bahamas;
-Harbour Island;The Bahamas;
-High Rock;The Bahamas;
-Hope Town;The Bahamas;
-Inagua;The Bahamas;
-Kemps Bay;The Bahamas;
-Long Island;The Bahamas;
-Mangrove Cay;The Bahamas;
-Marsh Harbour;The Bahamas;
-Mayaguana District;The Bahamas;
-New Providence;The Bahamas;
-Nichollstown and Berry Islands;The Bahamas;
-North Abaco;The Bahamas;
-North Andros;The Bahamas;
-North Eleuthera;The Bahamas;
-Ragged Island;The Bahamas;
-Rock Sound;The Bahamas;
-Rum Cay District;The Bahamas;
-San Salvador and Rum Cay;The Bahamas;
-San Salvador Island;The Bahamas;
-Sandy Point;The Bahamas;
-South Abaco;The Bahamas;
-South Andros;The Bahamas;
-South Eleuthera;The Bahamas;
-Spanish Wells;The Bahamas;
-West Grand Bahama;The Bahamas;
+Acklins;Bahamas;
+Acklins and Crooked Islands;Bahamas;
+Berry Islands;Bahamas;
+Bimini;Bahamas;
+Black Point;Bahamas;
+Cat Island;Bahamas;
+Central Abaco;Bahamas;
+Central Andros;Bahamas;
+Central Eleuthera;Bahamas;
+Crooked Island;Bahamas;
+East Grand Bahama;Bahamas;
+Exuma;Bahamas;
+Freeport;Bahamas;
+Fresh Creek;Bahamas;
+Governor's Harbour;Bahamas;
+Grand Cay;Bahamas;
+Green Turtle Cay;Bahamas;
+Harbour Island;Bahamas;
+High Rock;Bahamas;
+Hope Town;Bahamas;
+Inagua;Bahamas;
+Kemps Bay;Bahamas;
+Long Island;Bahamas;
+Mangrove Cay;Bahamas;
+Marsh Harbour;Bahamas;
+Mayaguana District;Bahamas;
+New Providence;Bahamas;
+Nichollstown and Berry Islands;Bahamas;
+North Abaco;Bahamas;
+North Andros;Bahamas;
+North Eleuthera;Bahamas;
+Ragged Island;Bahamas;
+Rock Sound;Bahamas;
+Rum Cay District;Bahamas;
+San Salvador and Rum Cay;Bahamas;
+San Salvador Island;Bahamas;
+Sandy Point;Bahamas;
+South Abaco;Bahamas;
+South Andros;Bahamas;
+South Eleuthera;Bahamas;
+Spanish Wells;Bahamas;
+West Grand Bahama;Bahamas;
 Centrale Region;Togo;
 Kara Region;Togo;
 Maritime;Togo;
@@ -4201,22 +4201,22 @@ Haʻapai;Tonga;
 Niuas;Tonga;
 Tongatapu;Tonga;
 Vavaʻu;Tonga;
-Arima;Trinidad And Tobago;
-Chaguanas;Trinidad And Tobago;
-Couva-Tabaquite-Talparo Regional Corporation;Trinidad And Tobago;
-Diego Martin Regional Corporation;Trinidad And Tobago;
-Eastern Tobago;Trinidad And Tobago;
-Penal-Debe Regional Corporation;Trinidad And Tobago;
-Point Fortin;Trinidad And Tobago;
-Port of Spain;Trinidad And Tobago;
-Princes Town Regional Corporation;Trinidad And Tobago;
-Rio Claro-Mayaro Regional Corporation;Trinidad And Tobago;
-San Fernando;Trinidad And Tobago;
-San Juan-Laventille Regional Corporation;Trinidad And Tobago;
-Sangre Grande Regional Corporation;Trinidad And Tobago;
-Siparia Regional Corporation;Trinidad And Tobago;
-Tunapuna-Piarco Regional Corporation;Trinidad And Tobago;
-Western Tobago;Trinidad And Tobago;
+Arima;Trinidad and Tobago;
+Chaguanas;Trinidad and Tobago;
+Couva-Tabaquite-Talparo Regional Corporation;Trinidad and Tobago;
+Diego Martin Regional Corporation;Trinidad and Tobago;
+Eastern Tobago;Trinidad and Tobago;
+Penal-Debe Regional Corporation;Trinidad and Tobago;
+Point Fortin;Trinidad and Tobago;
+Port of Spain;Trinidad and Tobago;
+Princes Town Regional Corporation;Trinidad and Tobago;
+Rio Claro-Mayaro Regional Corporation;Trinidad and Tobago;
+San Fernando;Trinidad and Tobago;
+San Juan-Laventille Regional Corporation;Trinidad and Tobago;
+Sangre Grande Regional Corporation;Trinidad and Tobago;
+Siparia Regional Corporation;Trinidad and Tobago;
+Tunapuna-Piarco Regional Corporation;Trinidad and Tobago;
+Western Tobago;Trinidad and Tobago;
 Ariana Governorate;Tunisia;
 Ben Arous Governorate;Tunisia;
 Bizerte Governorate;Tunisia;
@@ -4790,7 +4790,7 @@ Oklahoma;United States;state
 Oregon;United States;state
 Palmyra Atoll;United States;islands / groups of islands
 Pennsylvania;United States;state
-Puerto Rico;United States;outlying area
+United States;United States;outlying area
 Rhode Island;United States;state
 South Carolina;United States;state
 South Dakota;United States;state
@@ -4933,9 +4933,9 @@ Tuyên Quang;Vietnam;
 Vĩnh Long;Vietnam;
 Vĩnh Phúc;Vietnam;
 Yên Bái;Vietnam;
-Saint Croix;Virgin Islands (US);district
-Saint John;Virgin Islands (US);district
-Saint Thomas;Virgin Islands (US);district
+Saint Croix;United States;district
+Saint John;United States;district
+Saint Thomas;United States;district
 'Adan Governorate;Yemen;
 'Amran Governorate;Yemen;
 Abyan Governorate;Yemen;
