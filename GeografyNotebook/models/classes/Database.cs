@@ -132,7 +132,7 @@ namespace GeografyNotebook.models.classes
                     Continent continent = new Continent(
                         uuid: Guid.Parse(words[0]),
                         name: words[1],
-                        countries: countries.FindAll(country => Array.Exists(countryIds, country.Uuid.ToString()))
+                        countries: countries.FindAll(country => Array.Exists(countryIds, item => item == country.Uuid.ToString()))
                     );
 
                     continents.Add(continent);
