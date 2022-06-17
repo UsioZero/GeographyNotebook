@@ -187,11 +187,14 @@ namespace GeografyNotebook.models.classes
         {
             cities.Add(newCity);
 
-            SaveCitiesToFile(cities, citiesPath);
+            using (StreamWriter writer = new StreamWriter(citiesPath, append: true))
+            {
+                writer.WriteLine(newCity.ToString());
+            }
         }
 
-        public void UpdateCity(Guid uuid, City updated) {
-            int index = cities.FindIndex(city => city.Uuid == uuid);
+        public void UpdateCity(City updated) {
+            int index = cities.FindIndex(city => city.Uuid == updated.Uuid);
 
             cities[index] = updated;
             SaveCitiesToFile(cities, citiesPath);

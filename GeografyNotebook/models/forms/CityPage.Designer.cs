@@ -38,13 +38,15 @@
             this.RightButton = new System.Windows.Forms.Button();
             this.SortParametr = new System.Windows.Forms.ComboBox();
             this.SortButton = new System.Windows.Forms.Button();
+            this.AddCityButton = new System.Windows.Forms.Button();
+            this.EditCityButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // CitySelector
+            // CityList
             // 
             this.CityList.AutoSize = true;
             this.CityList.Location = new System.Drawing.Point(49, 129);
-            this.CityList.Name = "CitySelector";
+            this.CityList.Name = "CityList";
             this.CityList.Size = new System.Drawing.Size(35, 13);
             this.CityList.TabIndex = 0;
             this.CityList.Text = "label1";
@@ -130,11 +132,33 @@
             this.SortButton.UseVisualStyleBackColor = true;
             this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
             // 
+            // AddCityButton
+            // 
+            this.AddCityButton.Location = new System.Drawing.Point(687, 275);
+            this.AddCityButton.Name = "AddCityButton";
+            this.AddCityButton.Size = new System.Drawing.Size(75, 23);
+            this.AddCityButton.TabIndex = 10;
+            this.AddCityButton.Text = "New City";
+            this.AddCityButton.UseVisualStyleBackColor = true;
+            this.AddCityButton.Click += new System.EventHandler(this.AddCityButton_Click);
+            // 
+            // EditCityButton
+            // 
+            this.EditCityButton.Location = new System.Drawing.Point(247, 83);
+            this.EditCityButton.Name = "EditCityButton";
+            this.EditCityButton.Size = new System.Drawing.Size(75, 23);
+            this.EditCityButton.TabIndex = 11;
+            this.EditCityButton.Text = "Edit City";
+            this.EditCityButton.UseVisualStyleBackColor = true;
+            this.EditCityButton.Click += new System.EventHandler(this.EditCityButton_Click);
+            // 
             // CityPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.EditCityButton);
+            this.Controls.Add(this.AddCityButton);
             this.Controls.Add(this.SortButton);
             this.Controls.Add(this.SortParametr);
             this.Controls.Add(this.RightButton);
@@ -166,5 +190,7 @@
         private System.Windows.Forms.Button RightButton;
         private System.Windows.Forms.ComboBox SortParametr;
         private System.Windows.Forms.Button SortButton;
+        private System.Windows.Forms.Button AddCityButton;
+        private System.Windows.Forms.Button EditCityButton;
     }
 }

@@ -36,16 +36,6 @@ namespace GeografyNotebook.models.forms
             {
                 if (CitySelector.SelectedItem == null)
                 {
-                    Dialog diForm = new Dialog();
-                    DialogResult dialog = diForm.ShowDialog(this);
-                    if (dialog == DialogResult.Cancel)
-                    {
-                        diForm.Close();
-                    }
-                    else if (dialog == DialogResult.OK)
-                    {
-                        diForm.Close();
-                    }
                 }
                 else
                 {

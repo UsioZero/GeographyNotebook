@@ -56,6 +56,12 @@
     <Compile Include="models\classes\Database.cs" />
     <Compile Include="models\classes\GeographyUnit.cs" />
     <Compile Include="models\classes\Region.cs" />
+    <Compile Include="models\forms\AddOrChangeCityPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="models\forms\AddOrChangeCityPage.Designer.cs">
+      <DependentUpon>AddOrChangeCityPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="models\forms\CityPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,12 +86,6 @@
     <Compile Include="models\forms\CountryPage.Designer.cs">
       <DependentUpon>CountryPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\forms\Dialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="models\forms\Dialog.Designer.cs">
-      <DependentUpon>Dialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="models\forms\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +106,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="models\forms\AddOrChangeCityPage.resx">
+      <DependentUpon>AddOrChangeCityPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="models\forms\CityPage.resx">
       <DependentUpon>CityPage.cs</DependentUpon>
     </EmbeddedResource>

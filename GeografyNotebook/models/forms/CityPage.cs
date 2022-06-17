@@ -177,5 +177,15 @@ namespace GeografyNotebook.models.forms
         }
         private void SortButton_Click(object sender, EventArgs e)
             => SortCities(sender, e);
+
+        private void EditCityButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddCityButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
