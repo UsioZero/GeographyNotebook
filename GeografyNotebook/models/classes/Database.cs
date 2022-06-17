@@ -7,10 +7,14 @@ namespace GeografyNotebook.models.classes
 {
     public class Database
     {   
-        private static string citiesPath = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\cities1.txt";
-        private static string countriesPath = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\countries1.txt";
-        private static string regionsPath = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\regions1.txt";
-        private static string continentsPath = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\continents1.txt";
+        private static string citiesPath 
+            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\cities1.txt";
+        private static string countriesPath 
+            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\countries1.txt";
+        private static string regionsPath 
+            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\regions1.txt";
+        private static string continentsPath 
+            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\continents1.txt";
 
         private List<City> cities;
         private List<Region> regions; 
@@ -31,9 +35,9 @@ namespace GeografyNotebook.models.classes
             }
         }
 
-        private void UpdateCitiesFile()
+        private void SaveCitiesToFile(List<City> updatedCities, string path)    
         {
-            using (StreamWriter writer = new StreamWriter(citiesPath))
+            using (StreamWriter writer = new StreamWriter(path))
             {
                 foreach(City city in cities)
                 {
@@ -158,7 +162,8 @@ namespace GeografyNotebook.models.classes
             GetContinents();
         }
 
-        public List<City> FindCities(string? searchFild, string? searchValue, string? orderByField, string? orderByValue)
+        public List<City> FindCities(string? searchFild, string? searchValue,
+            string? orderByField, string? orderByValue)
         {
             List<City> result = cities;
 
@@ -183,15 +188,18 @@ namespace GeografyNotebook.models.classes
             return result;
         }
 
-        public void AddCity(City newCity) {
+        public void AddCity(City newCity) 
+        {
+            cities.Add(newCity);
 
+            SaveCitiesToFile(cities, citiesPath);
         }
 
         public void UpdateCity(Guid uuid, City updated) {
             int index = cities.FindIndex(city => city.Uuid == uuid);
 
             cities[index] = updated;
-            UpdateCitiesFile();
+            SaveCitiesToFile(cities, citiesPath);
         }
     }
 }
