@@ -24,7 +24,7 @@ namespace GeografyNotebook.models.forms
             );
         }
 
-        private void onBackButtonClick(KeyEventArgs e)
+        private void OnBackButtonClick(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -33,12 +33,6 @@ namespace GeografyNotebook.models.forms
             }
         }
         private void MapPage_KeyDown(object sender, KeyEventArgs e)
-            => onBackButtonClick(e);
-        private void MapPage_MouseMove(object sender, MouseEventArgs e)
-        {
-            double longi = (360 * (e.X - Width/2)) / Width;
-            double lati = (360 * (Height/2 - e.Y)) / Height;
-            Console.WriteLine($"Long: {longi}  Lat: ${lati}");
-        }
+            => OnBackButtonClick(e);
     }
 }

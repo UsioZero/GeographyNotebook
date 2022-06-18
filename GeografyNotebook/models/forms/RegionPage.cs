@@ -43,7 +43,7 @@ namespace GeografyNotebook.models.forms
             SearchParametr.SelectedItem = SearchParametr.Items[0];
         }
 
-        public void leftText(object sender, EventArgs e)
+        public void LeftText()
         {
             if (curFirstRegion > 9)
             {
@@ -64,7 +64,7 @@ namespace GeografyNotebook.models.forms
                 }
             }
         }
-        public void rightText(object sender, EventArgs e)
+        public void RightText()
         {
 
             if (curFirstRegion + 10 <= filteredRegions.Count - 1)
@@ -84,28 +84,36 @@ namespace GeografyNotebook.models.forms
             }
         }
 
-        private void onBackButtonClick(object sender, KeyEventArgs e)
+        private void OnBackButtonClick(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 MainPage form = new MainPage();
                 form.Show();
-                this.Close();
+                Close();
+            }
+            if (e.KeyData == Keys.Tab)
+            {
+                RightText();
+            }
+            if (e.KeyData == (Keys.Tab | Keys.Shift))
+            {
+                LeftText();
             }
         }
         private void RegionPage_KeyDown(object sender, KeyEventArgs e)
-            => onBackButtonClick(sender, e);
+            => OnBackButtonClick(sender, e);
 
         private void RegionPage_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void leftButton_Click(object sender, EventArgs e)
-            => leftText(sender, e);
+        private void LeftButton_Click(object sender, EventArgs e)
+            => LeftText();
 
-        private void rightButton_Click(object sender, EventArgs e)
-            => rightText(sender, e);
+        private void RightButton_Click(object sender, EventArgs e)
+            => RightText();
 
         private void SortTypeSelector_SelectedValueChanged(object sender, EventArgs e)
         {

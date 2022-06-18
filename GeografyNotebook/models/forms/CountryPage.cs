@@ -103,9 +103,9 @@ namespace GeografyNotebook.models.forms
         }
         private void CountryPage_KeyDown(object sender, KeyEventArgs e)
             => OnBackButtonClick(sender, e);
-        private void leftButton_Click(object sender, EventArgs e)
+        private void LeftButton_Click(object sender, EventArgs e)
             => LeftText(sender, e);
-        private void rightButton_Click(object sender, EventArgs e)
+        private void RightButton_Click(object sender, EventArgs e)
             => RightText(sender, e);
         private void SortTypeSelector_SelectedValueChanged(object sender
             , EventArgs e)

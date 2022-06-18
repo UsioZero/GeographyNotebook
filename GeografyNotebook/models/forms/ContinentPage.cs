@@ -31,7 +31,7 @@ namespace GeografyNotebook.models.forms
             }
         }
 
-        private void onBackButtonClick(object sender, KeyEventArgs e)
+        private void OnBackButtonClick(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -41,6 +41,6 @@ namespace GeografyNotebook.models.forms
             }
         }
         private void ContinentPage_KeyDown(object sender, KeyEventArgs e)
-            => onBackButtonClick(sender, e);
+            => OnBackButtonClick(sender, e);
     }
 }

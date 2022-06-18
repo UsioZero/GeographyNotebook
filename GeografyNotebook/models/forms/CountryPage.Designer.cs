@@ -66,7 +66,7 @@
             this.leftButton.TabIndex = 1;
             this.leftButton.Text = "Left";
             this.leftButton.UseVisualStyleBackColor = true;
-            this.leftButton.Click += new System.EventHandler(this.leftButton_Click);
+            this.leftButton.Click += new System.EventHandler(this.LeftButton_Click);
             // 
             // rightButton
             // 
@@ -76,7 +76,7 @@
             this.rightButton.TabIndex = 2;
             this.rightButton.Text = "Right";
             this.rightButton.UseVisualStyleBackColor = true;
-            this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
+            this.rightButton.Click += new System.EventHandler(this.RightButton_Click);
             // 
             // label1
             // 

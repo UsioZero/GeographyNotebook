@@ -55,7 +55,6 @@
             this.Name = "MapPage";
             this.Text = "MapPage";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapPage_KeyDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MapPage_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
