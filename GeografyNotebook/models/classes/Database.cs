@@ -128,6 +128,23 @@ namespace GeografyNotebook.models.classes
             SaveCitiesToFile(Cities, citiesPath);
         }
 
+        public void AddCountry(Country newCountry)
+        {
+            Countries.Add(newCountry);
+
+            using StreamWriter writer
+                = new StreamWriter(countriesPath, append: true);
+            writer.WriteLine(newCountry.ToString());
+        }
+
+        public void UpdateCountry(Country updated)
+        {
+            int index = Countries.FindIndex(country => country.Uuid == updated.Uuid);
+
+            Countries[index] = updated;
+            SaveCountriesToFile(Countries, countriesPath);
+        }
+
         public void SaveCitiesToFile(List<City> updatedCities, string path)
         {
             using StreamWriter writer = new StreamWriter(path);
@@ -222,7 +239,7 @@ namespace GeografyNotebook.models.classes
             }
         }
 
-        private void SaveCountriesToFile(List<Country> updatedCountries,
+        public void SaveCountriesToFile(List<Country> updatedCountries,
             string path)
         {
             using StreamWriter writer = new StreamWriter(path);

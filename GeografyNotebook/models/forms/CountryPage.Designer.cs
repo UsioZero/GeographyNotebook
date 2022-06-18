@@ -37,6 +37,7 @@
             this.SearchValue = new System.Windows.Forms.TextBox();
             this.SortTypeSelector = new System.Windows.Forms.ComboBox();
             this.CountryGrid = new System.Windows.Forms.DataGridView();
+            this.SearchParam = new System.Windows.Forms.ComboBox();
             this.countryBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
             this.countryBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.countryBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -45,7 +46,8 @@
             this.countryBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.countryBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.countryBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
-            this.SearchParam = new System.Windows.Forms.ComboBox();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.SaveResultButton = new System.Windows.Forms.Button();
             SearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CountryGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource7)).BeginInit();
@@ -134,6 +136,14 @@
             this.CountryGrid.TabIndex = 13;
             this.CountryGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CountryGrid_CellClick);
             // 
+            // SearchParam
+            // 
+            this.SearchParam.FormattingEnabled = true;
+            this.SearchParam.Location = new System.Drawing.Point(173, 15);
+            this.SearchParam.Name = "SearchParam";
+            this.SearchParam.Size = new System.Drawing.Size(154, 21);
+            this.SearchParam.TabIndex = 14;
+            // 
             // countryBindingSource7
             // 
             this.countryBindingSource7.DataSource = typeof(GeografyNotebook.models.classes.Country);
@@ -166,19 +176,33 @@
             // 
             this.countryBindingSource6.DataSource = typeof(GeografyNotebook.models.classes.Country);
             // 
-            // SearchParam
+            // AddButton
             // 
-            this.SearchParam.FormattingEnabled = true;
-            this.SearchParam.Location = new System.Drawing.Point(173, 15);
-            this.SearchParam.Name = "SearchParam";
-            this.SearchParam.Size = new System.Drawing.Size(154, 21);
-            this.SearchParam.TabIndex = 14;
+            this.AddButton.Location = new System.Drawing.Point(674, 364);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(97, 23);
+            this.AddButton.TabIndex = 15;
+            this.AddButton.Text = "New Country";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // SaveResultButton
+            // 
+            this.SaveResultButton.Location = new System.Drawing.Point(696, 77);
+            this.SaveResultButton.Name = "SaveResultButton";
+            this.SaveResultButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveResultButton.TabIndex = 16;
+            this.SaveResultButton.Text = "Save";
+            this.SaveResultButton.UseVisualStyleBackColor = true;
+            this.SaveResultButton.Click += new System.EventHandler(this.SaveResultButton_Click);
             // 
             // CountryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SaveResultButton);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.SearchParam);
             this.Controls.Add(this.CountryGrid);
             this.Controls.Add(this.label1);
@@ -224,5 +248,7 @@
         private System.Windows.Forms.BindingSource countryBindingSource7;
         private System.Windows.Forms.BindingSource countryBindingSource6;
         private System.Windows.Forms.ComboBox SearchParam;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button SaveResultButton;
     }
 }

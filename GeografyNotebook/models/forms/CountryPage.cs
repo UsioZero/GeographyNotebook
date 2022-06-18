@@ -42,7 +42,7 @@ namespace GeografyNotebook.models.forms
             CountryGrid.Columns.Add(editButton);
         }
 
-        private void UpdateFiltredCountries(bool isChangePosition = true)
+        public void UpdateFiltredCountries(bool isChangePosition = true)
         {
             if (isChangePosition)
             {
@@ -63,7 +63,6 @@ namespace GeografyNotebook.models.forms
 
             DataTable dataTable = new DataTable();
             DataRow row;
-
 
             dataTable.Columns.Add("Name");
             dataTable.Columns.Add("Capital");
@@ -104,7 +103,6 @@ namespace GeografyNotebook.models.forms
                 form.Show();
                 Close();
             }
-
         }
 
         private void CountryPage_KeyDown(object sender, KeyEventArgs e)
@@ -141,12 +139,33 @@ namespace GeografyNotebook.models.forms
             UpdateFiltredCountries();
         }
 
-        private void CountryGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void CountryGrid_CellClick(object sender
+            , DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
-                Console.WriteLine("Igor'");
+                classes.Country country 
+                    = filtredCountries[curFirstCountry + e.RowIndex];
+
+                AddOrChangeCountryPage editForm
+                    = new AddOrChangeCountryPage(this, database, country);
+                editForm.Show();
+                Hide();
             }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddOrChangeCountryPage editForm
+                = new AddOrChangeCountryPage(this, database);
+            editForm.Show();
+            Hide();
+        }
+
+        private void SaveResultButton_Click(object sender, EventArgs e)
+        {
+            database.SaveCountriesToFile(filtredCountries,
+                @"..\..\assets\search_result.txt");
         }
     }
 }

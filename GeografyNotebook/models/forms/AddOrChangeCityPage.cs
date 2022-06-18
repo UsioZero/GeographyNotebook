@@ -8,8 +8,8 @@ namespace GeografyNotebook.models.forms
     public partial class AddOrChangeCityPage : Form
     {
         readonly classes.Database database;
-        readonly classes.City? city;
         readonly CityPage parent;
+        readonly classes.City? city;
 
         public AddOrChangeCityPage(CityPage cityPage,
             classes.Database databaseRe,
