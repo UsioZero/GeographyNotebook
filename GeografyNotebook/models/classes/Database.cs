@@ -187,15 +187,40 @@ namespace GeografyNotebook.models.classes
             string? searchValue = null,
             string orderByField = "Name")
         {
+            List<Region> result;
+
+            switch (searchField)
+            {
+                case "Country":
+                    result = regions.FindAll(region => region
+                    .Country.Name.Contains(searchValue));
+                    break;
+                case "Population":
+                    result = regions.FindAll(region => region
+                    .Population == Convert.ToUInt32(searchValue));
+                    break;
+                case "Type":
+                    result = regions.FindAll(region => region
+                    .Type.Contains(searchValue));
+                    break;
+                case "Name":
+                    result = regions.FindAll(region => region
+                    .Name.Contains(searchValue));
+                    break;
+                default:
+                    result = regions;
+                    break;
+            }
+
             switch (orderByField) {
                 case "CountryName":
-                    return regions.OrderBy(region => region.Country.Name).ToList();
+                    return result.OrderBy(region => region.Country.Name).ToList();
                 case "Population":
-                    return regions.OrderBy(region => -region.Population).ToList();
+                    return result.OrderBy(region => -region.Population).ToList();
                 case "Type":
-                    return regions.OrderBy(region => region.Type).ToList();                   
+                    return result.OrderBy(region => region.Type).ToList();                   
                 default:
-                    return regions.OrderBy(region => region.Name).ToList();
+                    return result.OrderBy(region => region.Name).ToList();
             }
         }
 

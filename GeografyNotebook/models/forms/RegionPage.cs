@@ -32,6 +32,14 @@ namespace GeografyNotebook.models.forms
                 "Country",
                 "Population"
             });
+
+            SearchParametr.Items.AddRange(new string[]{
+                "Name",
+                "Type",
+                "Country",
+                "Population"
+            });
+            SearchParametr.SelectedItem = SearchParametr.Items[0];
         }
 
         private void onBackButtonClick(object sender, KeyEventArgs e)
@@ -115,6 +123,28 @@ namespace GeografyNotebook.models.forms
                     $"Population - {filteredRegions[i].Population}\n";
             }
 
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            curFirstRegion = 0;
+
+            filteredRegions = database.GetRegions(
+                searchField: SearchParametr.SelectedItem.ToString(),
+                searchValue: SearchValue.Text
+            );
+
+            RegionList.Text = "";
+            for (int i = 0; i < 10; i++)
+            {
+                if(curFirstRegion + i <= filteredRegions.Count - 1)
+                RegionList.Text +=
+                    $"{filteredRegions[i].Name}; " +
+                    $"Region type - {filteredRegions[i].Type}; " +
+                    $"Country - {filteredRegions[i].Country.Name}; " +
+                    $"Capital - {filteredRegions[i].Capital.Name}; " +
+                    $"Population - {filteredRegions[i].Population}\n";
+            }
         }
     }
 }
