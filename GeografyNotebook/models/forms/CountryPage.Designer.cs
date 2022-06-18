@@ -35,7 +35,6 @@
             this.rightButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SearchValue = new System.Windows.Forms.TextBox();
-            this.SearchParametr = new System.Windows.Forms.ComboBox();
             this.SortTypeSelector = new System.Windows.Forms.ComboBox();
             this.CountryGrid = new System.Windows.Forms.DataGridView();
             this.countryBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
@@ -46,6 +45,7 @@
             this.countryBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.countryBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.countryBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.SearchParam = new System.Windows.Forms.ComboBox();
             SearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CountryGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource7)).BeginInit();
@@ -113,14 +113,6 @@
             this.SearchValue.Size = new System.Drawing.Size(267, 20);
             this.SearchValue.TabIndex = 11;
             // 
-            // SearchParametr
-            // 
-            this.SearchParametr.FormattingEnabled = true;
-            this.SearchParametr.Location = new System.Drawing.Point(201, 13);
-            this.SearchParametr.Name = "SearchParametr";
-            this.SearchParametr.Size = new System.Drawing.Size(126, 21);
-            this.SearchParametr.TabIndex = 10;
-            // 
             // SortTypeSelector
             // 
             this.SortTypeSelector.FormattingEnabled = true;
@@ -173,15 +165,23 @@
             // 
             this.countryBindingSource6.DataSource = typeof(GeografyNotebook.models.classes.Country);
             // 
+            // SearchParam
+            // 
+            this.SearchParam.FormattingEnabled = true;
+            this.SearchParam.Location = new System.Drawing.Point(173, 15);
+            this.SearchParam.Name = "SearchParam";
+            this.SearchParam.Size = new System.Drawing.Size(154, 21);
+            this.SearchParam.TabIndex = 14;
+            // 
             // CountryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SearchParam);
             this.Controls.Add(this.CountryGrid);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchValue);
-            this.Controls.Add(this.SearchParametr);
             this.Controls.Add(SearchButton);
             this.Controls.Add(this.SortTypeSelector);
             this.Controls.Add(this.rightButton);
@@ -212,7 +212,6 @@
         private System.Windows.Forms.Button rightButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox SearchValue;
-        private System.Windows.Forms.ComboBox SearchParametr;
         private System.Windows.Forms.ComboBox SortTypeSelector;
         private System.Windows.Forms.DataGridView CountryGrid;
         private System.Windows.Forms.BindingSource countryBindingSource;
@@ -223,5 +222,6 @@
         private System.Windows.Forms.BindingSource countryBindingSource5;
         private System.Windows.Forms.BindingSource countryBindingSource7;
         private System.Windows.Forms.BindingSource countryBindingSource6;
+        private System.Windows.Forms.ComboBox SearchParam;
     }
 }

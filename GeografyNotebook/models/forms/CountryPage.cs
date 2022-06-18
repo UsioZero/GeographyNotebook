@@ -27,13 +27,13 @@ namespace GeografyNotebook.models.forms
             });
             SortTypeSelector.SelectedItem = SortTypeSelector.Items[0];
 
-            SearchParametr.Items.AddRange(new string[]{
+            SearchParam.Items.AddRange(new string[]{
                 "Name",
                 "Area",
                 "Population",
                 "Government type"
             });
-            SearchParametr.SelectedItem = SearchParametr.Items[0];
+            SearchParam.SelectedItem = "Name";
 
             UpdateFiltredCountries();
         }
@@ -46,7 +46,9 @@ namespace GeografyNotebook.models.forms
             }
 
             filtredCountries = database.GetCountries(
-                searchField: SearchParametr.SelectedItem.ToString(),
+                searchField: SearchParam.SelectedItem == null
+                ? "Name"
+                : SearchParam.SelectedItem.ToString(),
                 searchValue: SearchValue.Text,
                 orderByField: SortTypeSelector.SelectedItem.ToString()
             );
@@ -129,51 +131,12 @@ namespace GeografyNotebook.models.forms
         private void SortTypeSelector_SelectedValueChanged(object sender
             , EventArgs e)
         {
-            curFirstCountry = 0;
-
-            filtredCountries = database.GetCountries(
-                orderByField: SortTypeSelector.SelectedItem.ToString()
-                );
-
-            PageLabel.Text = "";
-            for (int i = 0; i < 10; i++)
-            {
-                if (curFirstCountry + i <= filtredCountries.Count - 1)
-                    PageLabel.Text +=
-                        $"{filtredCountries[curFirstCountry + i].Name}; Area - " +
-                        $"{filtredCountries[curFirstCountry + i].Area}; " +
-                        $"Population - " +
-                        $"{filtredCountries[curFirstCountry + i].Population}; " +
-                        $"Government type - " +
-                        $"{filtredCountries[curFirstCountry + i].GovernmentType}; " +
-                        $"Capital - " +
-                        $"{filtredCountries[curFirstCountry + i].Capital.Name}\n";
-            }
+            UpdateFiltredCountries();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            curFirstCountry = 0;
-
-            filtredCountries = database.GetCountries(
-                searchField: SearchParametr.SelectedItem.ToString(),
-                searchValue: SearchValue.Text
-                );
-
-            PageLabel.Text = "";
-            for (int i = 0; i < 10; i++)
-            {
-                if (curFirstCountry + i <= filtredCountries.Count - 1)
-                    PageLabel.Text +=
-                        $"{filtredCountries[curFirstCountry + i].Name}; Area - " +
-                        $"{filtredCountries[curFirstCountry + i].Area}; " +
-                        $"Population - " +
-                        $"{filtredCountries[curFirstCountry + i].Population}; " +
-                        $"Government type - " +
-                        $"{filtredCountries[curFirstCountry + i].GovernmentType}; " +
-                        $"Capital - " +
-                        $"{filtredCountries[curFirstCountry + i].Capital.Name}\n";
-            }
+            UpdateFiltredCountries();
         }
     }
 }
