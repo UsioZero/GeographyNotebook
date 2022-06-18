@@ -199,6 +199,24 @@ namespace GeografyNotebook.models.classes
             }
         }
 
+        public List<Country> GetCountries(
+            string? searchField = null,
+            string? searchValue = null,
+            string orderByField = "Name")
+        {
+            switch (orderByField)
+            {
+                case "Area":
+                    return countries.OrderBy(region => -region.Area).ToList();
+                case "Population":
+                    return countries.OrderBy(region => -region.Population).ToList();
+                case "Government type":
+                    return countries.OrderBy(region => region.GovernmentType).ToList();
+                default:
+                    return countries.OrderBy(region => region.Name).ToList();
+            }
+        }
+
         public void AddCity(City newCity) 
         {
             cities.Add(newCity);

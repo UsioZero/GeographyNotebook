@@ -82,24 +82,23 @@ namespace GeografyNotebook.models.forms
             }
         }
 
-        private void sortCountry(object sender, EventArgs e)
+        private void CountryPage_KeyDown(object sender, KeyEventArgs e)
+            => onBackButtonClick(sender, e);
+
+        private void leftButton_Click(object sender, EventArgs e)
+            => leftText(sender, e);
+
+        private void rightButton_Click(object sender, EventArgs e)
+            => rightText(sender, e);
+
+        private void SortList_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(SortList.SelectedItem == "Name")
-            {
-                filteredCountries = filteredCountries.OrderBy(o => o.Name).ToList();
-            }
-            if (SortList.SelectedItem == "Area")
-            {
-                filteredCountries = filteredCountries.OrderBy(o => -o.Area).ToList();
-            }
-            if (SortList.SelectedItem == "Population")
-            {
-                filteredCountries = filteredCountries.OrderBy(o => -o.Population).ToList();
-            }
-            if (SortList.SelectedItem == "Government type")
-            {
-                filteredCountries = filteredCountries.OrderBy(o => o.GovernmentType).ToList();
-            }
+            curFirstCountry = 0;
+
+            filteredCountries = database.GetCountries(
+                orderByField: SortList.SelectedItem.ToString()
+                );
+
             CountryList.Text = "";
             for (int i = 0; i < 10; i++)
             {
@@ -111,17 +110,5 @@ namespace GeografyNotebook.models.forms
                         $"Capital - {filteredCountries[curFirstCountry + i].Capital.Name}\n";
             }
         }
-
-        private void CountryPage_KeyDown(object sender, KeyEventArgs e)
-            => onBackButtonClick(sender, e);
-
-        private void leftButton_Click(object sender, EventArgs e)
-            => leftText(sender, e);
-
-        private void rightButton_Click(object sender, EventArgs e)
-            => rightText(sender, e);
-
-        private void sortButton_Click(object sender, EventArgs e)
-            => sortCountry(sender, e);
     }
 }

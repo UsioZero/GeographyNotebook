@@ -31,7 +31,6 @@
             this.CountryList = new System.Windows.Forms.Label();
             this.leftButton = new System.Windows.Forms.Button();
             this.rightButton = new System.Windows.Forms.Button();
-            this.sortButton = new System.Windows.Forms.Button();
             this.SortList = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -64,16 +63,6 @@
             this.rightButton.UseVisualStyleBackColor = true;
             this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
             // 
-            // sortButton
-            // 
-            this.sortButton.Location = new System.Drawing.Point(717, 28);
-            this.sortButton.Name = "sortButton";
-            this.sortButton.Size = new System.Drawing.Size(75, 23);
-            this.sortButton.TabIndex = 3;
-            this.sortButton.Text = "Sort";
-            this.sortButton.UseVisualStyleBackColor = true;
-            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
-            // 
             // SortList
             // 
             this.SortList.FormattingEnabled = true;
@@ -81,6 +70,7 @@
             this.SortList.Name = "SortList";
             this.SortList.Size = new System.Drawing.Size(165, 21);
             this.SortList.TabIndex = 4;
+            this.SortList.SelectedValueChanged += new System.EventHandler(this.SortList_SelectedValueChanged);
             // 
             // CountryPage
             // 
@@ -88,7 +78,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SortList);
-            this.Controls.Add(this.sortButton);
             this.Controls.Add(this.rightButton);
             this.Controls.Add(this.leftButton);
             this.Controls.Add(this.CountryList);
@@ -106,7 +95,6 @@
         private System.Windows.Forms.Label CountryList;
         private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.Button rightButton;
-        private System.Windows.Forms.Button sortButton;
         private System.Windows.Forms.ComboBox SortList;
     }
 }
