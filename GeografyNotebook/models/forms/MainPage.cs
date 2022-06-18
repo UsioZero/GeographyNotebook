@@ -43,9 +43,9 @@ namespace GeografyNotebook.models.forms
 
         private void onContinentButtonClick(object sender, EventArgs e)
         {
-            // Form form = new ContinentPage(database);
-            // form.Show();
-            // Hide();
+            Form form = new ContinentPage(database);
+            form.Show();
+            Hide();
         }
 
         private void onBackButtonClick(object sender, KeyEventArgs e)

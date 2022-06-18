@@ -30,7 +30,10 @@ namespace GeografyNotebook.models.forms
 
             UpdateFilteredCities();
             CitiesGrid.DataSource = filteredCities.Take(10).ToList();
-            PageLabel.Text = $"{curFirstCity + 1}-{curFirstCity + 10} of {filteredCities.Count}";
+
+            int from = curFirstCity + 1;
+            int to = curFirstCity + 10 < filteredCities.Count ? curFirstCity + 10 : filteredCities.Count;
+            PageLabel.Text = $"{from}-{to} of {filteredCities.Count}";
         }
 
         public void UpdateFilteredCities(bool changePosition = true)
@@ -46,7 +49,10 @@ namespace GeografyNotebook.models.forms
             );
 
             CitiesGrid.DataSource = filteredCities.Skip(curFirstCity).Take(10).ToList();
-            PageLabel.Text = $"{curFirstCity + 1}-{curFirstCity + 10} of {filteredCities.Count}";
+
+            int from = curFirstCity + 1;
+            int to = curFirstCity + 10 < filteredCities.Count ? curFirstCity + 10 : filteredCities.Count;
+            PageLabel.Text = $"{from}-{to} of {filteredCities.Count}";
         }
 
         private void OnBack()
@@ -76,7 +82,10 @@ namespace GeografyNotebook.models.forms
                 curFirstCity -= 10;
 
                 CitiesGrid.DataSource = filteredCities.Skip(curFirstCity).Take(10).ToList();
-                PageLabel.Text = $"{curFirstCity + 1}-{curFirstCity + 10} of {filteredCities.Count}";
+
+                int from = curFirstCity + 1;
+                int to = curFirstCity + 10 < filteredCities.Count ? curFirstCity + 10 : filteredCities.Count;
+                PageLabel.Text = $"{from}-{to} of {filteredCities.Count}";
             }
         }
 
@@ -85,7 +94,10 @@ namespace GeografyNotebook.models.forms
             if (curFirstCity <= filteredCities.Count - 10) {
                 curFirstCity += 10;
                 CitiesGrid.DataSource = filteredCities.Skip(curFirstCity).Take(10).ToList();
-                PageLabel.Text = $"{curFirstCity + 1}-{curFirstCity + 10} of {filteredCities.Count}";
+                
+                int from = curFirstCity + 1;
+                int to = curFirstCity + 10 < filteredCities.Count ? curFirstCity + 10 : filteredCities.Count;
+                PageLabel.Text = $"{from}-{to} of {filteredCities.Count}";
             }
         }
 

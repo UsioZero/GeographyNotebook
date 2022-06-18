@@ -12,8 +12,14 @@ namespace GeografyNotebook.models.forms
 {
     public partial class ContinentPage : Form
     {
-        public ContinentPage(List<classes.Continent> continents)
+        classes.Database database;
+        List<classes.Continent> continents;
+        
+        public ContinentPage(classes.Database databaseRe)
         {
+            database = databaseRe;
+            continents = database.continents;
+
             InitializeComponent();
             ContinentList.Text = "";
             for (int i = 0; i < continents.Count; i++)
