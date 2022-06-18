@@ -49,7 +49,6 @@
             this.KeyPreview = true;
             this.Name = "ContinentPage";
             this.Text = "ContinentPage";
-            this.Load += new System.EventHandler(this.ContinentPage_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContinentPage_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -7,9 +7,9 @@ namespace GeografyNotebook.models.forms
 {
     public partial class CityPage : Form
     {
-        classes.Database database;
-        List<classes.City> filteredCities;
         int curFirstCity = 0;
+        readonly classes.Database database;
+        List<classes.City> filteredCities;
 
         public CityPage(classes.Database databaseRe)
         {
@@ -32,13 +32,6 @@ namespace GeografyNotebook.models.forms
             CitiesGrid.DataSource = filteredCities.Take(10).ToList();
         }
 
-        private void UpdatePageLabel()
-        {
-            int from = curFirstCity + 1;
-            int to = curFirstCity + 10 < filteredCities.Count ? curFirstCity + 10 : filteredCities.Count;
-            PageLabel.Text = $"{from}-{to} of {filteredCities.Count}";
-        }
-
         public void UpdateFilteredCities(bool changePosition = true)
         {
             if (changePosition) {
@@ -51,17 +44,25 @@ namespace GeografyNotebook.models.forms
                     orderByField: SortParametr.SelectedItem.ToString()
             );
 
-            CitiesGrid.DataSource = filteredCities.Skip(curFirstCity).Take(10).ToList();
+            CitiesGrid.DataSource = filteredCities.Skip(curFirstCity).Take(10)
+                .ToList();
             UpdatePageLabel();
         }
 
+        private void UpdatePageLabel()
+        {
+            int from = curFirstCity + 1;
+            int to = curFirstCity + 10 < filteredCities.Count 
+                ? curFirstCity + 10 
+                : filteredCities.Count;
+            PageLabel.Text = $"{from}-{to} of {filteredCities.Count}";
+        }
         private void OnBack()
         {
             MainPage form = new MainPage();
             form.Show();
             Close();
         }
-
         private void CityPage_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -69,50 +70,50 @@ namespace GeografyNotebook.models.forms
                 OnBack();
             }
         }
-
         private void SearchButton_Click(object sender, EventArgs e)
         {
             UpdateFilteredCities();
         }
-
         private void LeftButton_Click(object sender, EventArgs e)
         {
             if (curFirstCity != 0) {
                 curFirstCity -= 10;
 
-                CitiesGrid.DataSource = filteredCities.Skip(curFirstCity).Take(10).ToList();
+                CitiesGrid.DataSource = filteredCities.Skip(curFirstCity)
+                    .Take(10).ToList();
                 UpdatePageLabel();
             }
         }
-
         private void RightButton_Click(object sender, EventArgs e)
         {
             if (curFirstCity <= filteredCities.Count - 10) {
                 curFirstCity += 10;
-                CitiesGrid.DataSource = filteredCities.Skip(curFirstCity).Take(10).ToList();
+                CitiesGrid.DataSource = filteredCities.Skip(curFirstCity)
+                    .Take(10).ToList();
                 UpdatePageLabel();
             }
         }
-
         private void AddCityButton_Click(object sender, EventArgs e)
         {
-            AddOrChangeCityPage editForm = new AddOrChangeCityPage(this, database);
+            AddOrChangeCityPage editForm 
+                = new AddOrChangeCityPage(this, database);
             editForm.Show();
             Hide();
         }
-
-        private void SortParametr_SelectedValueChanged(object sender, EventArgs e)
+        private void SortParametr_SelectedValueChanged(object sender
+            , EventArgs e)
         {
             UpdateFilteredCities();
         }
-
-        private void CitiesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void CitiesGrid_CellClick(object sender
+            , DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 5)
             {
                 classes.City city = filteredCities[curFirstCity + e.RowIndex];
 
-                AddOrChangeCityPage editForm = new AddOrChangeCityPage(this, database, city);
+                AddOrChangeCityPage editForm = new AddOrChangeCityPage(this,
+                    database, city);
                 editForm.Show();
                 Hide();
             }
@@ -125,10 +126,10 @@ namespace GeografyNotebook.models.forms
                 Hide();
             }
         }
-
         private void SaveResultbutton_Click(object sender, EventArgs e)
         {
-            database.SaveCitiesToFile(filteredCities, @"..\..\assets\search_result.txt");
+            database.SaveCitiesToFile(filteredCities,
+                @"..\..\assets\search_result.txt");
         }
     }
 }

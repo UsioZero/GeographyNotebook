@@ -5,62 +5,53 @@ namespace GeografyNotebook.models.forms
 {
     public partial class MainPage : Form
     {
-        classes.Database database = new classes.Database();
+        readonly classes.Database database = new classes.Database();
 
         public MainPage()
         {
             InitializeComponent();    
         }
 
-        private void onCityButtonClick(object sender, EventArgs e)
+        private void OnCityButtonClick(object sender, EventArgs e)
         {
             Form form = new CityPage(database);
             form.Show();
             Hide();
         }
-
-        private void onRegionButtonClick(object sender, EventArgs e)
+        private void OnRegionButtonClick(object sender, EventArgs e)
         {
             Form form = new RegionPage(database);
             form.Show();
             Hide();
         }
-
-        private void onCountryButtonClick(object sender, EventArgs e)
+        private void OnCountryButtonClick(object sender, EventArgs e)
         {
             Form form = new CountryPage(database);
             form.Show();
             Hide();
         }
-
-        private void onContinentButtonClick(object sender, EventArgs e)
+        private void OnContinentButtonClick(object sender, EventArgs e)
         {
             Form form = new ContinentPage(database);
             form.Show();
             Hide();
         }
-
-        private void onBackButtonClick(object sender, KeyEventArgs e)
+        private void OnBackButtonClick(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 Application.Exit();
             }
         }
-
         private void CityButton_Click(object sender, EventArgs e)
-            => onCityButtonClick(sender, e);
-
+            => OnCityButtonClick(sender, e);
         private void RegionButton_Click(object sender, EventArgs e)
-            => onRegionButtonClick(sender, e);
-
+            => OnRegionButtonClick(sender, e);
         private void CountryButton_Click(object sender, EventArgs e)
-            => onCountryButtonClick(sender, e);
-
+            => OnCountryButtonClick(sender, e);
         private void ContinentButton_Click(object sender, EventArgs e)
-            => onContinentButtonClick(sender, e);
-
+            => OnContinentButtonClick(sender, e);
         private void MainPage_KeyDown(object sender, KeyEventArgs e)
-            => onBackButtonClick(sender, e);
+            => OnBackButtonClick(sender, e);
     }
 }

@@ -7,15 +7,18 @@ namespace GeografyNotebook.models.forms
 {
     public partial class AddOrChangeCityPage : Form
     {
-        classes.Database database;
-        classes.City? city;
-        CityPage parent;
+        readonly classes.Database database;
+        readonly classes.City? city;
+        readonly CityPage parent;
 
-        public AddOrChangeCityPage(CityPage cityPage, classes.Database databaseRe, classes.City? cityRe = null)
+        public AddOrChangeCityPage(CityPage cityPage,
+            classes.Database databaseRe,
+            classes.City? cityRe = null)
         {
             database = databaseRe;
             parent = cityPage;
             city = cityRe;
+
             InitializeComponent();
 
             PopulationNumber.Maximum = Decimal.MaxValue;
@@ -26,7 +29,7 @@ namespace GeografyNotebook.models.forms
             LongtitudeNumber.Maximum = Decimal.MaxValue;
             LongtitudeNumber.Minimum = Decimal.MinValue;
 
-            CountrySelector.Items.AddRange(database.countries
+            CountrySelector.Items.AddRange(database.Countries
                           .Select(r=>r.Name)
                           .ToArray()
             );
@@ -47,12 +50,10 @@ namespace GeografyNotebook.models.forms
             parent.Show();
             Close();
         }
-
         private void BackButton_Click(object sender, EventArgs e)
         {
             CloseThisPage();
         }
-
         private void ChangeButton_Click(object sender, EventArgs e)
         {
             classes.City updatedCity = new classes.City(

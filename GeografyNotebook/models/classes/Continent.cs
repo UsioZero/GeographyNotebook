@@ -20,14 +20,15 @@ namespace GeografyNotebook.models.classes
 
         public List<Country> Countries { set; get; }
 
-
         public override string ToString()
         {
             string returnS = $"{Uuid};{Name};{Population};{Countries.Count}";
+
             foreach(Country country in Countries)
             {
                 returnS += ";" + country.Uuid.ToString();
             }
+
             return returnS;
         }
     }

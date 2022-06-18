@@ -6,14 +6,14 @@ namespace GeografyNotebook.models.forms
 {
     public partial class RegionPage : Form
     {
+        int curFirstRegion = 0;
         classes.Database database;
         List<classes.Region> filteredRegions;
-        int curFirstRegion = 0;
 
         public RegionPage(classes.Database databaseRe)
         {
             database = databaseRe;
-            filteredRegions = database.regions;
+            filteredRegions = database.Regions;
             InitializeComponent();
             RegionList.Text = "";
             for (int i = 0; i < 10; i++)
@@ -43,16 +43,6 @@ namespace GeografyNotebook.models.forms
             SearchParametr.SelectedItem = SearchParametr.Items[0];
         }
 
-        private void onBackButtonClick(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                MainPage form = new MainPage();
-                form.Show();
-                this.Close();
-            }
-        }
-
         public void leftText(object sender, EventArgs e)
         {
             if (curFirstRegion > 9)
@@ -63,14 +53,17 @@ namespace GeografyNotebook.models.forms
                 {
                     RegionList.Text +=
                         $"{filteredRegions[curFirstRegion + i].Name}; " +
-                        $"Region type - {filteredRegions[curFirstRegion + i].Type}; " +
-                        $"Country - {filteredRegions[curFirstRegion + i].Country.Name}; " +
-                        $"Capital - {filteredRegions[curFirstRegion + i].Capital.Name}; " +
-                        $"Population - {filteredRegions[curFirstRegion + i].Population}\n";
+                        $"Region type - " +
+                        $"{filteredRegions[curFirstRegion + i].Type}; " +
+                        $"Country - " +
+                        $"{filteredRegions[curFirstRegion + i].Country.Name}"
+                        + $"; Capital - " +
+                        $"{filteredRegions[curFirstRegion + i].Capital.Name}"
+                        + $"; Population - " +
+                        $"{filteredRegions[curFirstRegion + i].Population}\n";
                 }
             }
         }
-
         public void rightText(object sender, EventArgs e)
         {
 
@@ -91,6 +84,15 @@ namespace GeografyNotebook.models.forms
             }
         }
 
+        private void onBackButtonClick(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                MainPage form = new MainPage();
+                form.Show();
+                this.Close();
+            }
+        }
         private void RegionPage_KeyDown(object sender, KeyEventArgs e)
             => onBackButtonClick(sender, e);
 

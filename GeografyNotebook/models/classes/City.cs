@@ -4,8 +4,8 @@ namespace GeografyNotebook.models.classes
 {
     public class City : GeographyUnit
     {
-        public City (Guid uuid, string name, string countryName, double latitude,
-            double longitude, int population)
+        public City (Guid uuid, string name, string countryName,
+            double latitude, double longitude, int population)
         {
             Uuid = uuid;
             Name = name;
@@ -34,7 +34,8 @@ namespace GeografyNotebook.models.classes
 
         public override string ToString()
         {
-            return $"{Uuid};{Name};{CountryName};{Latitude};{Longitude};{Population}";
+            return $"{Uuid};{Name};{CountryName};" +
+                $"{Latitude};{Longitude};{Population}";
         }
     }
 }

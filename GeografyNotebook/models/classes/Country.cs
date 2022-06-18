@@ -19,10 +19,10 @@ namespace GeografyNotebook.models.classes
         public string GovernmentType { set; get; }
         public City Capital { set; get; }
 
-
         public override string ToString()
         {
-            return $"{Uuid};{Name};{Area};{Population};{GovernmentType};{Capital.Uuid}";
+            return $"{Uuid};{Name};{Area};{Population};" +
+                $"{GovernmentType};{Capital.Uuid}";
         }
     }
 }

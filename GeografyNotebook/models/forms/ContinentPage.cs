@@ -6,13 +6,13 @@ namespace GeografyNotebook.models.forms
 {
     public partial class ContinentPage : Form
     {
-        classes.Database database;
-        List<classes.Continent> continents;
+        readonly classes.Database database;
+        readonly List<classes.Continent> continents;
         
         public ContinentPage(classes.Database databaseRe)
         {
             database = databaseRe;
-            continents = database.continents;
+            continents = database.Continents;
 
             InitializeComponent();
             ContinentList.Text = "";
@@ -24,7 +24,8 @@ namespace GeografyNotebook.models.forms
                     $"Countries:";
                 for(int j = 0; j < 6; j++)
                 {
-                    ContinentList.Text += $" {continents[i].Countries[j].Name} ";
+                    ContinentList.Text 
+                        += $" {continents[i].Countries[j].Name} ";
                 }
                 ContinentList.Text += "...\n";
             }
@@ -39,13 +40,7 @@ namespace GeografyNotebook.models.forms
                 this.Close();
             }
         }
-
         private void ContinentPage_KeyDown(object sender, KeyEventArgs e)
             => onBackButtonClick(sender, e);
-
-        private void ContinentPage_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
