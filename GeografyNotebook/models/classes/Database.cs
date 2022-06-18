@@ -197,7 +197,7 @@ namespace GeografyNotebook.models.classes
                     break;
                 case "Population":
                     result = regions.FindAll(region => region
-                    .Population == Convert.ToUInt32(searchValue));
+                    .Population == Convert.ToInt32(searchValue));
                     break;
                 case "Type":
                     result = regions.FindAll(region => region
@@ -229,16 +229,41 @@ namespace GeografyNotebook.models.classes
             string? searchValue = null,
             string orderByField = "Name")
         {
+            List<Country> result;
+
+            switch (searchField)
+            {
+                case "Area":
+                    result = countries.FindAll(region => region
+                    .Area == Convert.ToInt32(searchValue));
+                    break;
+                case "Population":
+                    result = countries.FindAll(region => region
+                    .Population == Convert.ToInt32(searchValue));
+                    break;
+                case "Government type":
+                    result = countries.FindAll(region => region
+                    .GovernmentType.Contains(searchValue));
+                    break;
+                case "Name":
+                    result = countries.FindAll(region => region
+                    .Name.Contains(searchValue));
+                    break;
+                default:
+                    result = countries;
+                    break;
+            }
+
             switch (orderByField)
             {
                 case "Area":
-                    return countries.OrderBy(region => -region.Area).ToList();
+                    return result.OrderBy(region => -region.Area).ToList();
                 case "Population":
-                    return countries.OrderBy(region => -region.Population).ToList();
+                    return result.OrderBy(region => -region.Population).ToList();
                 case "Government type":
-                    return countries.OrderBy(region => region.GovernmentType).ToList();
+                    return result.OrderBy(region => region.GovernmentType).ToList();
                 default:
-                    return countries.OrderBy(region => region.Name).ToList();
+                    return result.OrderBy(region => region.Name).ToList();
             }
         }
 

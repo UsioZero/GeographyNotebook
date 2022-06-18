@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace GeografyNotebook.models.forms
@@ -27,12 +25,22 @@ namespace GeografyNotebook.models.forms
                     $"Government type - {filteredCountries[i].GovernmentType}; " +
                     $"Capital - {filteredCountries[i].Capital.Name}\n";
             }
-            SortList.Items.AddRange(new string[]{
+
+            SortTypeSelector.Items.AddRange(new string[]{
                 "Name",
                 "Area",
                 "Population",
                 "Government type"
             });
+            SortTypeSelector.SelectedItem = SortTypeSelector.Items[0];
+
+            SearchParametr.Items.AddRange(new string[]{
+                "Name",
+                "Area",
+                "Population",
+                "Government type"
+            });
+            SearchParametr.SelectedItem = SearchParametr.Items[0];
         }
 
         private void onBackButtonClick(object sender, KeyEventArgs e)
@@ -91,12 +99,33 @@ namespace GeografyNotebook.models.forms
         private void rightButton_Click(object sender, EventArgs e)
             => rightText(sender, e);
 
-        private void SortList_SelectedValueChanged(object sender, EventArgs e)
+        private void SortTypeSelector_SelectedValueChanged(object sender, EventArgs e)
         {
             curFirstCountry = 0;
 
             filteredCountries = database.GetCountries(
-                orderByField: SortList.SelectedItem.ToString()
+                orderByField: SortTypeSelector.SelectedItem.ToString()
+                );
+
+            CountryList.Text = "";
+            for (int i = 0; i < 10; i++)
+            {
+                if (curFirstCountry + i <= filteredCountries.Count - 1)
+                    CountryList.Text +=
+                        $"{filteredCountries[curFirstCountry + i].Name}; Area - {filteredCountries[curFirstCountry + i].Area}; " +
+                        $"Population - {filteredCountries[curFirstCountry + i].Population}; " +
+                        $"Government type - {filteredCountries[curFirstCountry + i].GovernmentType}; " +
+                        $"Capital - {filteredCountries[curFirstCountry + i].Capital.Name}\n";
+            }
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            curFirstCountry = 0;
+
+            filteredCountries = database.GetCountries(
+                searchField: SearchParametr.SelectedItem.ToString(),
+                searchValue: SearchValue.Text
                 );
 
             CountryList.Text = "";

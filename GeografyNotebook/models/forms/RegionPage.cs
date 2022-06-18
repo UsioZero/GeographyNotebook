@@ -32,6 +32,7 @@ namespace GeografyNotebook.models.forms
                 "Country",
                 "Population"
             });
+            SortTypeSelector.SelectedItem = SortTypeSelector.Items[0];
 
             SearchParametr.Items.AddRange(new string[]{
                 "Name",
