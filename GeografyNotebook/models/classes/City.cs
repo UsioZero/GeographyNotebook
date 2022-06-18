@@ -4,7 +4,7 @@ namespace GeografyNotebook.models.classes
 {
     public class City : GeographyUnit
     {
-        public City (Guid uuid, string name, string countryName,
+        public City(Guid uuid, string name, string countryName,
             double latitude, double longitude, int population)
         {
             Uuid = uuid;

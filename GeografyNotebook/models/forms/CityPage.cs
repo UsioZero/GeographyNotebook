@@ -29,7 +29,6 @@ namespace GeografyNotebook.models.forms
             SortParametr.SelectedItem = SortParametr.Items[0];
 
             UpdateFilteredCities();
-            CitiesGrid.DataSource = filteredCities.Take(10).ToList();
         }
 
         public void UpdateFilteredCities(bool changePosition = true)
@@ -46,6 +45,7 @@ namespace GeografyNotebook.models.forms
 
             CitiesGrid.DataSource = filteredCities.Skip(curFirstCity).Take(10)
                 .ToList();
+
             UpdatePageLabel();
         }
 

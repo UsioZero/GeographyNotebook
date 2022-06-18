@@ -37,17 +37,17 @@
             this.SortParametr = new System.Windows.Forms.ComboBox();
             this.AddCityButton = new System.Windows.Forms.Button();
             this.CitiesGrid = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.M = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PageLabel = new System.Windows.Forms.Label();
+            this.SaveResultbutton = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.latitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.longitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.populationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PageLabel = new System.Windows.Forms.Label();
-            this.SaveResultbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CitiesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -135,18 +135,9 @@
             this.CitiesGrid.Location = new System.Drawing.Point(49, 129);
             this.CitiesGrid.Name = "CitiesGrid";
             this.CitiesGrid.ReadOnly = true;
-            this.CitiesGrid.Size = new System.Drawing.Size(701, 253);
+            this.CitiesGrid.Size = new System.Drawing.Size(701, 242);
             this.CitiesGrid.TabIndex = 12;
             this.CitiesGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CitiesGrid_CellClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(645, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Sort";
             // 
             // Edit
             // 
@@ -165,6 +156,34 @@
             this.M.Text = "Map";
             this.M.UseColumnTextForButtonValue = true;
             this.M.Width = 50;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(645, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Sort";
+            // 
+            // PageLabel
+            // 
+            this.PageLabel.AutoSize = true;
+            this.PageLabel.Location = new System.Drawing.Point(12, 388);
+            this.PageLabel.Name = "PageLabel";
+            this.PageLabel.Size = new System.Drawing.Size(35, 13);
+            this.PageLabel.TabIndex = 0;
+            this.PageLabel.Text = "label1";
+            // 
+            // SaveResultbutton
+            // 
+            this.SaveResultbutton.Location = new System.Drawing.Point(721, 97);
+            this.SaveResultbutton.Name = "SaveResultbutton";
+            this.SaveResultbutton.Size = new System.Drawing.Size(75, 23);
+            this.SaveResultbutton.TabIndex = 14;
+            this.SaveResultbutton.Text = "Save to file";
+            this.SaveResultbutton.UseVisualStyleBackColor = true;
+            this.SaveResultbutton.Click += new System.EventHandler(this.SaveResultbutton_Click);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -204,25 +223,6 @@
             // cityBindingSource
             // 
             this.cityBindingSource.DataSource = typeof(GeografyNotebook.models.classes.City);
-            // 
-            // PageLabel
-            // 
-            this.PageLabel.AutoSize = true;
-            this.PageLabel.Location = new System.Drawing.Point(12, 388);
-            this.PageLabel.Name = "PageLabel";
-            this.PageLabel.Size = new System.Drawing.Size(35, 13);
-            this.PageLabel.TabIndex = 0;
-            this.PageLabel.Text = "label1";
-            // 
-            // SaveResultbutton
-            // 
-            this.SaveResultbutton.Location = new System.Drawing.Point(721, 97);
-            this.SaveResultbutton.Name = "SaveResultbutton";
-            this.SaveResultbutton.Size = new System.Drawing.Size(75, 23);
-            this.SaveResultbutton.TabIndex = 14;
-            this.SaveResultbutton.Text = "Save to file";
-            this.SaveResultbutton.UseVisualStyleBackColor = true;
-            this.SaveResultbutton.Click += new System.EventHandler(this.SaveResultbutton_Click);
             // 
             // CityPage
             // 

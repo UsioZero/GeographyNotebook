@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button SearchButton;
             this.CountryList = new System.Windows.Forms.Label();
             this.leftButton = new System.Windows.Forms.Button();
@@ -36,12 +37,30 @@
             this.SearchValue = new System.Windows.Forms.TextBox();
             this.SearchParametr = new System.Windows.Forms.ComboBox();
             this.SortTypeSelector = new System.Windows.Forms.ComboBox();
+            this.CountryGrid = new System.Windows.Forms.DataGridView();
+            this.countryBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
+            this.countryBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.countryBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.countryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.countryBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.countryBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.countryBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             SearchButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.CountryGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource6)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchButton
             // 
-            SearchButton.Location = new System.Drawing.Point(652, 32);
+            SearchButton.Location = new System.Drawing.Point(650, 13);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new System.Drawing.Size(75, 23);
             SearchButton.TabIndex = 9;
@@ -52,7 +71,7 @@
             // CountryList
             // 
             this.CountryList.AutoSize = true;
-            this.CountryList.Location = new System.Drawing.Point(58, 170);
+            this.CountryList.Location = new System.Drawing.Point(17, 364);
             this.CountryList.Name = "CountryList";
             this.CountryList.Size = new System.Drawing.Size(35, 13);
             this.CountryList.TabIndex = 0;
@@ -60,9 +79,9 @@
             // 
             // leftButton
             // 
-            this.leftButton.Location = new System.Drawing.Point(12, 170);
+            this.leftButton.Location = new System.Drawing.Point(12, 106);
             this.leftButton.Name = "leftButton";
-            this.leftButton.Size = new System.Drawing.Size(40, 109);
+            this.leftButton.Size = new System.Drawing.Size(40, 242);
             this.leftButton.TabIndex = 1;
             this.leftButton.Text = "Left";
             this.leftButton.UseVisualStyleBackColor = true;
@@ -70,9 +89,9 @@
             // 
             // rightButton
             // 
-            this.rightButton.Location = new System.Drawing.Point(748, 170);
+            this.rightButton.Location = new System.Drawing.Point(731, 106);
             this.rightButton.Name = "rightButton";
-            this.rightButton.Size = new System.Drawing.Size(40, 109);
+            this.rightButton.Size = new System.Drawing.Size(40, 242);
             this.rightButton.TabIndex = 2;
             this.rightButton.Text = "Right";
             this.rightButton.UseVisualStyleBackColor = true;
@@ -81,7 +100,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(649, 103);
+            this.label1.Location = new System.Drawing.Point(647, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 12;
@@ -89,7 +108,7 @@
             // 
             // SearchValue
             // 
-            this.SearchValue.Location = new System.Drawing.Point(353, 34);
+            this.SearchValue.Location = new System.Drawing.Point(351, 15);
             this.SearchValue.Name = "SearchValue";
             this.SearchValue.Size = new System.Drawing.Size(267, 20);
             this.SearchValue.TabIndex = 11;
@@ -97,7 +116,7 @@
             // SearchParametr
             // 
             this.SearchParametr.FormattingEnabled = true;
-            this.SearchParametr.Location = new System.Drawing.Point(203, 32);
+            this.SearchParametr.Location = new System.Drawing.Point(201, 13);
             this.SearchParametr.Name = "SearchParametr";
             this.SearchParametr.Size = new System.Drawing.Size(126, 21);
             this.SearchParametr.TabIndex = 10;
@@ -105,17 +124,61 @@
             // SortTypeSelector
             // 
             this.SortTypeSelector.FormattingEnabled = true;
-            this.SortTypeSelector.Location = new System.Drawing.Point(353, 100);
+            this.SortTypeSelector.Location = new System.Drawing.Point(351, 53);
             this.SortTypeSelector.Name = "SortTypeSelector";
             this.SortTypeSelector.Size = new System.Drawing.Size(267, 21);
             this.SortTypeSelector.TabIndex = 8;
             this.SortTypeSelector.SelectedValueChanged += new System.EventHandler(this.SortTypeSelector_SelectedValueChanged);
+            // 
+            // CountryGrid
+            // 
+            this.CountryGrid.AllowUserToAddRows = false;
+            this.CountryGrid.AllowUserToDeleteRows = false;
+            this.CountryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CountryGrid.Location = new System.Drawing.Point(58, 106);
+            this.CountryGrid.Name = "CountryGrid";
+            this.CountryGrid.ReadOnly = true;
+            this.CountryGrid.Size = new System.Drawing.Size(667, 242);
+            this.CountryGrid.TabIndex = 13;
+            // 
+            // countryBindingSource7
+            // 
+            this.countryBindingSource7.DataSource = typeof(GeografyNotebook.models.classes.Country);
+            // 
+            // countryBindingSource5
+            // 
+            this.countryBindingSource5.DataSource = typeof(GeografyNotebook.models.classes.Country);
+            // 
+            // countryBindingSource2
+            // 
+            this.countryBindingSource2.DataSource = typeof(GeografyNotebook.models.classes.Country);
+            // 
+            // countryBindingSource1
+            // 
+            this.countryBindingSource1.DataSource = typeof(GeografyNotebook.models.classes.Country);
+            // 
+            // countryBindingSource
+            // 
+            this.countryBindingSource.DataSource = typeof(GeografyNotebook.models.classes.Country);
+            // 
+            // countryBindingSource3
+            // 
+            this.countryBindingSource3.DataSource = typeof(GeografyNotebook.models.classes.Country);
+            // 
+            // countryBindingSource4
+            // 
+            this.countryBindingSource4.DataSource = typeof(GeografyNotebook.models.classes.Country);
+            // 
+            // countryBindingSource6
+            // 
+            this.countryBindingSource6.DataSource = typeof(GeografyNotebook.models.classes.Country);
             // 
             // CountryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CountryGrid);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchValue);
             this.Controls.Add(this.SearchParametr);
@@ -128,6 +191,15 @@
             this.Name = "CountryPage";
             this.Text = "CountryPage";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CountryPage_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.CountryGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +214,14 @@
         private System.Windows.Forms.TextBox SearchValue;
         private System.Windows.Forms.ComboBox SearchParametr;
         private System.Windows.Forms.ComboBox SortTypeSelector;
+        private System.Windows.Forms.DataGridView CountryGrid;
+        private System.Windows.Forms.BindingSource countryBindingSource;
+        private System.Windows.Forms.BindingSource countryBindingSource1;
+        private System.Windows.Forms.BindingSource countryBindingSource2;
+        private System.Windows.Forms.BindingSource countryBindingSource3;
+        private System.Windows.Forms.BindingSource countryBindingSource4;
+        private System.Windows.Forms.BindingSource countryBindingSource5;
+        private System.Windows.Forms.BindingSource countryBindingSource7;
+        private System.Windows.Forms.BindingSource countryBindingSource6;
     }
 }

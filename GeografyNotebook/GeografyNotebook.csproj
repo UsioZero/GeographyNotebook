@@ -134,6 +134,7 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="Properties\DataSources\GeografyNotebook.models.classes.City.datasource" />
+    <None Include="Properties\DataSources\GeografyNotebook.models.classes.Country.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -148,20 +149,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\capitals.txt" />
     <Content Include="assets\cities.txt" />
-    <Content Include="assets\cities1.txt" />
     <Content Include="assets\continents.txt" />
-    <Content Include="assets\continents1.txt" />
-    <Content Include="assets\counties.txt" />
-    <Content Include="assets\countries1.txt" />
-    <Content Include="assets\country_area.txt" />
-    <Content Include="assets\country_gov_type.txt" />
-    <Content Include="assets\country_population.txt" />
+    <Content Include="assets\countries.txt" />
     <Content Include="assets\politic_map.jpg" />
     <Content Include="assets\regions.txt" />
-    <Content Include="assets\regions1.txt" />
-    <Content Include="assets\search_results.txt" />
+    <Content Include="assets\search_result.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

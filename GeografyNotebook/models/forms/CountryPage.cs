@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GeografyNotebook.models.forms
@@ -8,26 +10,14 @@ namespace GeografyNotebook.models.forms
     {
         int curFirstCountry = 0;
         readonly classes.Database database;
-        List<classes.Country> countries;
+        List<classes.Country> filtredCountries;
 
         public CountryPage(classes.Database databaseRe)
         {
             database = databaseRe;
-            countries = database.Countries;
+            filtredCountries = database.Countries;
 
             InitializeComponent();
-
-            CountryList.Text = "";
-            for (int i = 0; i < 10; i++)
-            {
-                CountryList.Text +=
-                    $"{countries[i].Name}; " +
-                    $"Area - {countries[i].Area}; " +
-                    $"Population - {countries[i].Population}; " +
-                    $"Government type - " +
-                    $"{countries[i].GovernmentType}; " +
-                    $"Capital - {countries[i].Capital.Name}\n";
-            }
 
             SortTypeSelector.Items.AddRange(new string[]{
                 "Name",
@@ -44,6 +34,48 @@ namespace GeografyNotebook.models.forms
                 "Government type"
             });
             SearchParametr.SelectedItem = SearchParametr.Items[0];
+
+            UpdateFiltredCountries();
+        }
+
+        private void UpdateFiltredCountries(bool isChangePosition = true)
+        {
+            if (isChangePosition)
+            {
+                curFirstCountry = 0;
+            }
+
+            filtredCountries = database.GetCountries(
+                searchField: SearchParametr.SelectedItem.ToString(),
+                searchValue: SearchValue.Text,
+                orderByField: SortTypeSelector.SelectedItem.ToString()
+            );
+
+            List<classes.Country> tmpList =
+                filtredCountries.Skip(curFirstCountry)
+                .Take(curFirstCountry + 10).ToList();
+
+            DataTable dataTable = new DataTable();
+            DataRow row;
+
+            dataTable.Columns.Add("Name");
+            dataTable.Columns.Add("Capital");
+            dataTable.Columns.Add("Area");
+            dataTable.Columns.Add("Government");
+            dataTable.Columns.Add("Population");
+
+            for (int i = 0; i < tmpList.Count; i++)
+            {
+                row = dataTable.NewRow();
+                row["Name"] = tmpList[i].Name;
+                row["Capital"] = tmpList[i].Capital.Name;
+                row["Area"] = tmpList[i].Area;
+                row["Government"] = tmpList[i].GovernmentType;
+                row["Population"] = tmpList[i].Population;
+                dataTable.Rows.Add(row);
+            }
+
+            CountryGrid.DataSource = dataTable;
         }
 
         private void OnBackButtonClick(object sender, KeyEventArgs e)
@@ -52,90 +84,71 @@ namespace GeografyNotebook.models.forms
             {
                 MainPage form = new MainPage();
                 form.Show();
-                this.Close();
+                Close();
             }
 
         }
+
         private void LeftText(object sender, EventArgs e)
         {
             if (curFirstCountry > 9)
             {
-                CountryList.Text = "";
                 curFirstCountry -= 10;
-                for (int i = 0; i < 10; i++)
-                {
-                    CountryList.Text +=
-                        $"{countries[curFirstCountry + i].Name}; " +
-                        $"Area - " +
-                        $"{countries[curFirstCountry + i].Area}; " +
-                        $"Population - " +
-                        $"{countries[curFirstCountry + i].Population}; " +
-                        $"Government type - " +
-                        $"{countries[curFirstCountry + i].GovernmentType}; " +
-                        $"Capital - " +
-                        $"{countries[curFirstCountry + i].Capital.Name}\n";
-                }
+
+                UpdateFiltredCountries();
             }
         }
+
         private void RightText(object sender, EventArgs e)
         {
 
-            if (curFirstCountry + 10 <= countries.Count - 1)
+            if (curFirstCountry + 10 <= filtredCountries.Count - 1)
             {
-                CountryList.Text = "";
                 curFirstCountry += 10;
-                for (int i = 0; i < 10; i++)
-                {
-                    if (curFirstCountry + i <= countries.Count - 1)
-                    {
-                        CountryList.Text +=
-                            $"{countries[curFirstCountry + i].Name}; " +
-                            $"Area - {countries[curFirstCountry + i].Area};" +
-                            $" Population - " +
-                            $"{countries[curFirstCountry + i].Population}; " +
-                            $"Government type - " +
-                            $"{countries[curFirstCountry + i].GovernmentType}"
-                            + $"; Capital - " +
-                            $"{countries[curFirstCountry + i].Capital.Name}\n";
-                    }
-                }
+
+                UpdateFiltredCountries();
             }
         }
+
         private void CountryPage_KeyDown(object sender, KeyEventArgs e)
             => OnBackButtonClick(sender, e);
+
         private void LeftButton_Click(object sender, EventArgs e)
             => LeftText(sender, e);
+
         private void RightButton_Click(object sender, EventArgs e)
             => RightText(sender, e);
+
         private void SortTypeSelector_SelectedValueChanged(object sender
             , EventArgs e)
         {
             curFirstCountry = 0;
 
-            countries = database.GetCountries(
+            filtredCountries = database.GetCountries(
                 orderByField: SortTypeSelector.SelectedItem.ToString()
                 );
 
             CountryList.Text = "";
             for (int i = 0; i < 10; i++)
             {
-                if (curFirstCountry + i <= countries.Count - 1)
+                if (curFirstCountry + i <= filtredCountries.Count - 1)
                     CountryList.Text +=
-                        $"{countries[curFirstCountry + i].Name}; Area - " +
-                        $"{countries[curFirstCountry + i].Area}; " +
+                        $"{filtredCountries[curFirstCountry + i].Name}; Area - " +
+                        $"{filtredCountries[curFirstCountry + i].Area}; " +
                         $"Population - " +
-                        $"{countries[curFirstCountry + i].Population}; " +
+                        $"{filtredCountries[curFirstCountry + i].Population}; " +
                         $"Government type - " +
-                        $"{countries[curFirstCountry + i].GovernmentType}; " +
+                        $"{filtredCountries[curFirstCountry + i].GovernmentType}; " +
                         $"Capital - " +
-                        $"{countries[curFirstCountry + i].Capital.Name}\n";
+                        $"{filtredCountries[curFirstCountry + i].Capital.Name}\n";
             }
         }
+
         private void SearchButton_Click(object sender, EventArgs e)
         {
             curFirstCountry = 0;
 
-            countries = database.GetCountries(
+            filtredCountries = database.GetCountries(
                 searchField: SearchParametr.SelectedItem.ToString(),
                 searchValue: SearchValue.Text
                 );
@@ -143,16 +156,16 @@ namespace GeografyNotebook.models.forms
             CountryList.Text = "";
             for (int i = 0; i < 10; i++)
             {
-                if (curFirstCountry + i <= countries.Count - 1)
+                if (curFirstCountry + i <= filtredCountries.Count - 1)
                     CountryList.Text +=
-                        $"{countries[curFirstCountry + i].Name}; Area - " +
-                        $"{countries[curFirstCountry + i].Area}; " +
+                        $"{filtredCountries[curFirstCountry + i].Name}; Area - " +
+                        $"{filtredCountries[curFirstCountry + i].Area}; " +
                         $"Population - " +
-                        $"{countries[curFirstCountry + i].Population}; " +
+                        $"{filtredCountries[curFirstCountry + i].Population}; " +
                         $"Government type - " +
-                        $"{countries[curFirstCountry + i].GovernmentType}; " +
+                        $"{filtredCountries[curFirstCountry + i].GovernmentType}; " +
                         $"Capital - " +
-                        $"{countries[curFirstCountry + i].Capital.Name}\n";
+                        $"{filtredCountries[curFirstCountry + i].Capital.Name}\n";
             }
         }
     }
