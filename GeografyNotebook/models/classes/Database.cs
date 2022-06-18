@@ -157,30 +157,27 @@ namespace GeografyNotebook.models.classes
             }
         }
 
-        public List<City> ChangeCities(string searchFild, string searchValue)
+        public List<City> GetCities(
+            string? searchField = null,
+            string? searchValue = null,
+            string orderByField = "Name")
         {
-            List<City> result = cities;
-
-            result = result.FindAll(city => city
-                .GetType()
-                .GetProperty(searchFild)
-                .GetValue(city)
-                .ToString() == searchValue);
-
-            return result;
-        }
-
-        public List<City> ChangeCities(string orderByField)
-        {
-            List<City> result = cities;
-
-            result = result.OrderBy(city => city
-                .GetType()
-                .GetProperty(orderByField)
-                .GetValue(city)
-                .ToString()).ToList();
-
-            return result;
+            return cities
+                .FindAll(city =>
+                    searchField != null && searchValue != null
+                        ? city
+                            .GetType()
+                            .GetProperty(searchField)
+                            .GetValue(city)
+                            .ToString()
+                            .Contains(searchValue)
+                        : true)
+                .OrderBy(city => city
+                    .GetType()
+                    .GetProperty(orderByField)
+                    .GetValue(city)
+                    .ToString())
+                .ToList();
         }
 
         public void AddCity(City newCity) 

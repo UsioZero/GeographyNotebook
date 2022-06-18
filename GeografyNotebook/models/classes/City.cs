@@ -12,11 +12,11 @@ namespace GeografyNotebook.models.classes
             double longitude, int population)
         {
             Uuid = uuid;
-            this.Name = name;
-            this.CountryName = countryName;
-            this.Latitude = latitude;
-            this.Longitude = longitude;
-            this.Population = population;
+            Name = name;
+            CountryName = countryName;
+            Latitude = latitude;
+            Longitude = longitude;
+            Population = population;
         }
 
         public City(string line)
@@ -30,9 +30,11 @@ namespace GeografyNotebook.models.classes
             Population = Int32.Parse(words[5]);
         }
 
-        public string CountryName { set; get; }
-        public double Latitude { set; get; }
-        public double Longitude { set; get; }
+        public string CountryName { protected set; get; }
+
+        public double Latitude { protected set; get; }
+        
+        public double Longitude { protected set; get; }
 
         public override string ToString()
         {

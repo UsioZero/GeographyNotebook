@@ -32,6 +32,9 @@ namespace GeografyNotebook.models.forms
             //Form form = new RegionPage(database);
             //form.Show();
             //Hide();
+            Form form = new tmpPage();
+            form.Show();
+            Hide();
         }
 
         private void onCountryButtonClick(object sender, EventArgs e)

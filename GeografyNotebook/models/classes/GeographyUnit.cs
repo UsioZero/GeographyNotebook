@@ -12,7 +12,7 @@ namespace GeografyNotebook.models.classes
 
         public String Name { protected set; get; }
 
-        public int Population { set; get; }
+        public int Population { protected set; get; }
 
         public abstract void edit();
     }

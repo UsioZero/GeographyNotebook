@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CityList = new System.Windows.Forms.Label();
             this.SearchParameter = new System.Windows.Forms.ComboBox();
             this.SearchValue = new System.Windows.Forms.TextBox();
@@ -37,15 +38,25 @@
             this.LeftButton = new System.Windows.Forms.Button();
             this.RightButton = new System.Windows.Forms.Button();
             this.SortParametr = new System.Windows.Forms.ComboBox();
-            this.SortButton = new System.Windows.Forms.Button();
             this.AddCityButton = new System.Windows.Forms.Button();
-            this.EditCityButton = new System.Windows.Forms.Button();
+            this.CitiesGrid = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.M = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.latitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.longitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.populationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.CitiesGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CityList
             // 
             this.CityList.AutoSize = true;
-            this.CityList.Location = new System.Drawing.Point(49, 129);
+            this.CityList.Location = new System.Drawing.Point(12, 388);
             this.CityList.Name = "CityList";
             this.CityList.Size = new System.Drawing.Size(35, 13);
             this.CityList.TabIndex = 0;
@@ -98,7 +109,7 @@
             // 
             this.LeftButton.Location = new System.Drawing.Point(1, 129);
             this.LeftButton.Name = "LeftButton";
-            this.LeftButton.Size = new System.Drawing.Size(42, 122);
+            this.LeftButton.Size = new System.Drawing.Size(42, 253);
             this.LeftButton.TabIndex = 6;
             this.LeftButton.Text = "left";
             this.LeftButton.UseVisualStyleBackColor = true;
@@ -108,7 +119,7 @@
             // 
             this.RightButton.Location = new System.Drawing.Point(756, 129);
             this.RightButton.Name = "RightButton";
-            this.RightButton.Size = new System.Drawing.Size(42, 122);
+            this.RightButton.Size = new System.Drawing.Size(42, 253);
             this.RightButton.TabIndex = 7;
             this.RightButton.Text = "Right";
             this.RightButton.UseVisualStyleBackColor = true;
@@ -121,20 +132,11 @@
             this.SortParametr.Name = "SortParametr";
             this.SortParametr.Size = new System.Drawing.Size(267, 21);
             this.SortParametr.TabIndex = 8;
-            // 
-            // SortButton
-            // 
-            this.SortButton.Location = new System.Drawing.Point(645, 48);
-            this.SortButton.Name = "SortButton";
-            this.SortButton.Size = new System.Drawing.Size(75, 23);
-            this.SortButton.TabIndex = 9;
-            this.SortButton.Text = "Sort";
-            this.SortButton.UseVisualStyleBackColor = true;
-            this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
+            this.SortParametr.SelectedValueChanged += new System.EventHandler(this.SortParametr_SelectedValueChanged);
             // 
             // AddCityButton
             // 
-            this.AddCityButton.Location = new System.Drawing.Point(687, 275);
+            this.AddCityButton.Location = new System.Drawing.Point(723, 388);
             this.AddCityButton.Name = "AddCityButton";
             this.AddCityButton.Size = new System.Drawing.Size(75, 23);
             this.AddCityButton.TabIndex = 10;
@@ -142,24 +144,103 @@
             this.AddCityButton.UseVisualStyleBackColor = true;
             this.AddCityButton.Click += new System.EventHandler(this.AddCityButton_Click);
             // 
-            // EditCityButton
+            // CitiesGrid
             // 
-            this.EditCityButton.Location = new System.Drawing.Point(247, 83);
-            this.EditCityButton.Name = "EditCityButton";
-            this.EditCityButton.Size = new System.Drawing.Size(75, 23);
-            this.EditCityButton.TabIndex = 11;
-            this.EditCityButton.Text = "Edit City";
-            this.EditCityButton.UseVisualStyleBackColor = true;
-            this.EditCityButton.Click += new System.EventHandler(this.EditCityButton_Click);
+            this.CitiesGrid.AllowUserToAddRows = false;
+            this.CitiesGrid.AllowUserToDeleteRows = false;
+            this.CitiesGrid.AllowUserToOrderColumns = true;
+            this.CitiesGrid.AutoGenerateColumns = false;
+            this.CitiesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CitiesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.countryNameDataGridViewTextBoxColumn,
+            this.latitudeDataGridViewTextBoxColumn,
+            this.longitudeDataGridViewTextBoxColumn,
+            this.populationDataGridViewTextBoxColumn,
+            this.Edit,
+            this.M});
+            this.CitiesGrid.DataSource = this.cityBindingSource;
+            this.CitiesGrid.Location = new System.Drawing.Point(49, 129);
+            this.CitiesGrid.Name = "CitiesGrid";
+            this.CitiesGrid.ReadOnly = true;
+            this.CitiesGrid.Size = new System.Drawing.Size(701, 253);
+            this.CitiesGrid.TabIndex = 12;
+            this.CitiesGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CitiesGrid_CellClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(645, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Sort";
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            this.Edit.Width = 50;
+            // 
+            // M
+            // 
+            this.M.HeaderText = "";
+            this.M.Name = "M";
+            this.M.ReadOnly = true;
+            this.M.Text = "Map";
+            this.M.UseColumnTextForButtonValue = true;
+            this.M.Width = 50;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // countryNameDataGridViewTextBoxColumn
+            // 
+            this.countryNameDataGridViewTextBoxColumn.DataPropertyName = "CountryName";
+            this.countryNameDataGridViewTextBoxColumn.HeaderText = "CountryName";
+            this.countryNameDataGridViewTextBoxColumn.Name = "countryNameDataGridViewTextBoxColumn";
+            this.countryNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // latitudeDataGridViewTextBoxColumn
+            // 
+            this.latitudeDataGridViewTextBoxColumn.DataPropertyName = "Latitude";
+            this.latitudeDataGridViewTextBoxColumn.HeaderText = "Latitude";
+            this.latitudeDataGridViewTextBoxColumn.Name = "latitudeDataGridViewTextBoxColumn";
+            this.latitudeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // longitudeDataGridViewTextBoxColumn
+            // 
+            this.longitudeDataGridViewTextBoxColumn.DataPropertyName = "Longitude";
+            this.longitudeDataGridViewTextBoxColumn.HeaderText = "Longitude";
+            this.longitudeDataGridViewTextBoxColumn.Name = "longitudeDataGridViewTextBoxColumn";
+            this.longitudeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // populationDataGridViewTextBoxColumn
+            // 
+            this.populationDataGridViewTextBoxColumn.DataPropertyName = "Population";
+            this.populationDataGridViewTextBoxColumn.HeaderText = "Population";
+            this.populationDataGridViewTextBoxColumn.Name = "populationDataGridViewTextBoxColumn";
+            this.populationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cityBindingSource
+            // 
+            this.cityBindingSource.DataSource = typeof(GeografyNotebook.models.classes.City);
             // 
             // CityPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.EditCityButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CitiesGrid);
             this.Controls.Add(this.AddCityButton);
-            this.Controls.Add(this.SortButton);
             this.Controls.Add(this.SortParametr);
             this.Controls.Add(this.RightButton);
             this.Controls.Add(this.LeftButton);
@@ -173,6 +254,8 @@
             this.Name = "CityPage";
             this.Text = "CityPage";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CityPage_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.CitiesGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,8 +272,16 @@
         private System.Windows.Forms.Button LeftButton;
         private System.Windows.Forms.Button RightButton;
         private System.Windows.Forms.ComboBox SortParametr;
-        private System.Windows.Forms.Button SortButton;
         private System.Windows.Forms.Button AddCityButton;
-        private System.Windows.Forms.Button EditCityButton;
+        private System.Windows.Forms.DataGridView CitiesGrid;
+        private System.Windows.Forms.BindingSource cityBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn latitudeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn longitudeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn populationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        private System.Windows.Forms.DataGridViewButtonColumn M;
     }
 }

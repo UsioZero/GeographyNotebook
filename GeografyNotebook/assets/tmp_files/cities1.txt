@@ -8,7 +8,7 @@ fa7fffd1-6d8b-4236-a17b-c05e6e06a670;`Akko;Israel;32.9261;35.0839;47675
 fa95590a-3caa-4409-862f-2fc0dc098e2b;`Amuda;Syria;37.1042;40.93;47580
 2fcc2c84-7f43-4e0c-bf7b-3893b8ce87f5;`Anadan;Syria;36.2936;37.0444;11918
 293bdafa-dbfa-442c-b8bc-585c4954d9a5;`Assal al Ward;Syria;33.8658;36.4133;5812
-a1e645f4-eb1b-4035-8820-0fbe750b5009;`Ataq;Yemen;14.55;14.55;37315
+a1e645f4-eb1b-4035-8820-0fbe750b5009;`Ataq;Yemen;14.55;46.8;37315
 8e7997de-5dc6-4752-a8cd-009daf278c80;`Ayn `Isa;Syria;36.3858;38.8472;6730
 c7450a63-d5df-4a92-af99-d13604d14a25;`Ibri;Oman;23.2254;56.517;101640
 be7f02d7-7e37-415b-ad53-4395a927bfcf;A Coruna;Spain;43.3667;-8.3833;245468
@@ -10844,7 +10844,7 @@ ec34ed95-2f1a-4b0b-832c-4b6152f9275a;East Lampeter;United States;40.0375;-76.216
 0ded936d-27c6-4993-b3b5-95fde5b1e9a6;East Lansing;United States;42.748;-84.4835;48145
 e67396d9-6313-4b35-b9d5-a927c3c935af;East Leake;United Kingdom;52.832;-1.177;6337
 ee9f8c9a-3749-4ed3-8b24-2b3dba1f87c6;East Liverpool;United States;40.6333;-80.5677;29898
-2be2d957-68ab-45c4-8ea6-9699a398f07b;East London;South Africa;-33.0153;-33.0153;338627
+2be2d957-68ab-45c4-8ea6-9699a398f07b;East London;South Africa;-33.0153;27.9116;338627
 ff44d44c-4c43-451d-a382-5bb74e31b9fc;East Longmeadow;United States;42.0597;-72.499;16242
 985a0238-01fb-4631-8993-fdec469e97ca;East Los Angeles;United States;34.0326;-118.1691;121187
 5a324317-00c7-4a4a-88e8-048c407dc481;East Lyme;United States;41.3664;-72.2352;18724
@@ -25816,7 +25816,7 @@ bd973365-ba01-43e0-a6c0-2e4eb5094b6c;New Ipswich;United States;42.7489;-71.8747;
 89482dff-2f45-4145-9317-1ebb2ffc1b65;New Kingman-Butler;United States;35.2645;-114.0091;13933
 7d3b4086-790a-4b47-ab23-9c1a0f037a3c;New Lenox;United States;41.5097;-87.97;26926
 933c081d-d249-43cd-9128-81ce2c46b863;New London;United States;41.3502;-72.1023;26858
-6133158d-e7a2-4bd5-a90a-e83e5d0f3120;New London;United States;44.395;44.395;7430
+6133158d-e7a2-4bd5-a90a-e83e5d0f3120;New London;United States;44.395;-88.7394;7430
 881718b9-79f2-4309-97cf-3035170878ca;New London;United States;39.7743;-75.8797;5946
 b048088b-092a-4a9a-8c55-c37bec86b7aa;New Martinsville;United States;39.6636;-80.8569;5853
 2d925812-b144-480b-8771-659f6f5e239c;New Milford;United States;40.9337;-74.0196;16429
