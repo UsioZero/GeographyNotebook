@@ -36,6 +36,10 @@ namespace GeografyNotebook.models.forms
             SearchParam.SelectedItem = "Name";
 
             UpdateFiltredCountries();
+
+            DataGridViewButtonColumn editButton
+                = new DataGridViewButtonColumn();
+            CountryGrid.Columns.Add(editButton);
         }
 
         private void UpdateFiltredCountries(bool isChangePosition = true)
@@ -55,10 +59,11 @@ namespace GeografyNotebook.models.forms
 
             List<classes.Country> tmpList =
                 filtredCountries.Skip(curFirstCountry)
-                .Take(curFirstCountry + 10).ToList();
+                .Take(10).ToList();
 
             DataTable dataTable = new DataTable();
             DataRow row;
+
 
             dataTable.Columns.Add("Name");
             dataTable.Columns.Add("Capital");
@@ -76,7 +81,7 @@ namespace GeografyNotebook.models.forms
                 row["Population"] = tmpList[i].Population;
                 dataTable.Rows.Add(row);
             }
-
+            
             CountryGrid.DataSource = dataTable;
 
             UpdatePageLabel();
@@ -134,6 +139,14 @@ namespace GeografyNotebook.models.forms
         private void SearchButton_Click(object sender, EventArgs e)
         {
             UpdateFiltredCountries();
+        }
+
+        private void CountryGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                Console.WriteLine("Igor'");
+            }
         }
     }
 }

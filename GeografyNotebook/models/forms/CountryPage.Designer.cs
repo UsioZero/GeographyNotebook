@@ -132,6 +132,7 @@
             this.CountryGrid.ReadOnly = true;
             this.CountryGrid.Size = new System.Drawing.Size(667, 242);
             this.CountryGrid.TabIndex = 13;
+            this.CountryGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CountryGrid_CellClick);
             // 
             // countryBindingSource7
             // 
