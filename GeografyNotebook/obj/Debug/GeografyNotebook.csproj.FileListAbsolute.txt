@@ -38,7 +38,6 @@ C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebo
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.csproj.AssemblyReference.cache
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.csproj.SuggestedBindingRedirects.cache
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.CityPage.resources
-C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.CitySelectorPage.resources
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.ContinentPage.resources
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.CountryPage.resources
 C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\obj\Debug\GeografyNotebook.models.forms.MainPage.resources

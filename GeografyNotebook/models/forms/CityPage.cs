@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GeografyNotebook.models.forms
@@ -33,16 +28,11 @@ namespace GeografyNotebook.models.forms
             });
             SortParametr.SelectedItem = SortParametr.Items[0];
 
-            updateFilteredCities();
+            UpdateFilteredCities();
             CitiesGrid.DataSource = filteredCities.Take(10).ToList();
-            
-            for (int i = 0; i < database.cities.Count; i++)
-            {
-                CityOnMapSelector.Items.Add(database.cities[i].Name);
-            }
         }
 
-        public void updateFilteredCities(bool changePosition = true)
+        public void UpdateFilteredCities(bool changePosition = true)
         {
             if (changePosition) {
                 curFirstCity = 0;
@@ -75,31 +65,8 @@ namespace GeografyNotebook.models.forms
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            updateFilteredCities();
+            UpdateFilteredCities();
         }
-
-        private void OnMapButtonClick(object sender, EventArgs e)
-        {
-            if (CityOnMapSelector.SelectedItem != null)
-            {
-                List<int> cityIndex = new List<int> { };
-
-                for (int i = 0; i < database.cities.Count; i++)
-                {
-                        if (database.cities[i].Name == CityOnMapSelector.SelectedItem.ToString())
-                        {
-                            cityIndex.Add(i);
-                        }
-                }
-
-                CitySelectorPage page = new CitySelectorPage(database, cityIndex);
-                page.Show();
-                Hide();
-            }
-        }
-
-        private void MapButton_Click(object sender, EventArgs e)
-            => OnMapButtonClick(sender, e);
 
         private void LeftButton_Click(object sender, EventArgs e)
         {
@@ -118,33 +85,16 @@ namespace GeografyNotebook.models.forms
             }
         }
 
-        private void EditCityButton_Click(object sender, EventArgs e)
-        {
-            if (CityOnMapSelector.SelectedItem != null)
-            {
-                List<int> cityIndex = new List<int> { };
-
-                for (int i = 0; i < database.cities.Count; i++)
-                {
-                        if (database.cities[i].Name == CityOnMapSelector.SelectedItem.ToString())
-                        {
-                            cityIndex.Add(i);
-                        }
-                }
-                CitySelectorPage page = new CitySelectorPage(database, cityIndex);
-                page.Show();
-                Hide();
-            }
-        }
-
         private void AddCityButton_Click(object sender, EventArgs e)
         {
-
+            AddOrChangeCityPage editForm = new AddOrChangeCityPage(this, database);
+            editForm.Show();
+            Hide();
         }
 
         private void SortParametr_SelectedValueChanged(object sender, EventArgs e)
         {
-            updateFilteredCities();
+            UpdateFilteredCities();
         }
 
         private void CitiesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -160,7 +110,10 @@ namespace GeografyNotebook.models.forms
 
             if (e.ColumnIndex == 6)
             {
-                Console.WriteLine("Map action");
+                classes.City city = filteredCities[curFirstCity + e.RowIndex];
+                MapPage editForm = new MapPage(this, city);
+                editForm.Show();
+                Hide();
             }
         }
     }

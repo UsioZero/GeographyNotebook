@@ -68,12 +68,6 @@
     <Compile Include="models\forms\CityPage.Designer.cs">
       <DependentUpon>CityPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\forms\CitySelectorPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="models\forms\CitySelectorPage.Designer.cs">
-      <DependentUpon>CitySelectorPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="models\forms\ContinentPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,9 +111,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="models\forms\CityPage.resx">
       <DependentUpon>CityPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="models\forms\CitySelectorPage.resx">
-      <DependentUpon>CitySelectorPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="models\forms\ContinentPage.resx">
       <DependentUpon>ContinentPage.cs</DependentUpon>

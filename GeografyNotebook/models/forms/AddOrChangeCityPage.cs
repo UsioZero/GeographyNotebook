@@ -16,7 +16,7 @@ namespace GeografyNotebook.models.forms
         classes.City? city;
         CityPage parent;
 
-        public AddOrChangeCityPage(CityPage cityPage, classes.Database databaseRe, classes.City? cityRe)
+        public AddOrChangeCityPage(CityPage cityPage, classes.Database databaseRe, classes.City? cityRe = null)
         {
             database = databaseRe;
             parent = cityPage;
@@ -46,16 +46,16 @@ namespace GeografyNotebook.models.forms
             }
         }
 
-        private void closeThisPage()
+        private void CloseThisPage()
         {
-            parent.updateFilteredCities(false);
+            parent.UpdateFilteredCities(false);
             parent.Show();
             Close();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            closeThisPage();
+            CloseThisPage();
         }
 
         private void ChangeButton_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace GeografyNotebook.models.forms
                 name: NameTextBox.Text,
                 countryName: CountrySelector.SelectedItem.ToString(),
                 latitude: Convert.ToDouble(LatitudeNumber.Value),
-                longitude: Convert.ToDouble(LatitudeNumber.Value),
+                longitude: Convert.ToDouble(LongtitudeNumber.Value),
                 population: Convert.ToInt32(PopulationNumber.Value)
             );
 
@@ -78,7 +78,7 @@ namespace GeografyNotebook.models.forms
                 database.UpdateCity(updatedCity);
             }
 
-            closeThisPage();
+            CloseThisPage();
         }
     }
 }

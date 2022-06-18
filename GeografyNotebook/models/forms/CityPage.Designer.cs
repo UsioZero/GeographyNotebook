@@ -33,8 +33,6 @@
             this.SearchParameter = new System.Windows.Forms.ComboBox();
             this.SearchValue = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.MapButton = new System.Windows.Forms.Button();
-            this.CityOnMapSelector = new System.Windows.Forms.ComboBox();
             this.LeftButton = new System.Windows.Forms.Button();
             this.RightButton = new System.Windows.Forms.Button();
             this.SortParametr = new System.Windows.Forms.ComboBox();
@@ -86,24 +84,6 @@
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
-            // MapButton
-            // 
-            this.MapButton.Location = new System.Drawing.Point(645, 85);
-            this.MapButton.Name = "MapButton";
-            this.MapButton.Size = new System.Drawing.Size(75, 23);
-            this.MapButton.TabIndex = 4;
-            this.MapButton.Text = "See on map";
-            this.MapButton.UseVisualStyleBackColor = true;
-            this.MapButton.Click += new System.EventHandler(this.MapButton_Click);
-            // 
-            // CityOnMapSelector
-            // 
-            this.CityOnMapSelector.FormattingEnabled = true;
-            this.CityOnMapSelector.Location = new System.Drawing.Point(346, 85);
-            this.CityOnMapSelector.Name = "CityOnMapSelector";
-            this.CityOnMapSelector.Size = new System.Drawing.Size(267, 21);
-            this.CityOnMapSelector.TabIndex = 5;
             // 
             // LeftButton
             // 
@@ -244,8 +224,6 @@
             this.Controls.Add(this.SortParametr);
             this.Controls.Add(this.RightButton);
             this.Controls.Add(this.LeftButton);
-            this.Controls.Add(this.CityOnMapSelector);
-            this.Controls.Add(this.MapButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SearchValue);
             this.Controls.Add(this.SearchParameter);
@@ -267,8 +245,6 @@
         private System.Windows.Forms.ComboBox SearchParameter;
         private System.Windows.Forms.TextBox SearchValue;
         private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.Button MapButton;
-        private System.Windows.Forms.ComboBox CityOnMapSelector;
         private System.Windows.Forms.Button LeftButton;
         private System.Windows.Forms.Button RightButton;
         private System.Windows.Forms.ComboBox SortParametr;

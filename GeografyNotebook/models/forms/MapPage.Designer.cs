@@ -54,7 +54,6 @@
             this.KeyPreview = true;
             this.Name = "MapPage";
             this.Text = "MapPage";
-            this.Load += new System.EventHandler(this.MapPage_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapPage_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

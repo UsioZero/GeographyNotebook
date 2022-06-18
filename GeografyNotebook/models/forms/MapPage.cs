@@ -12,42 +12,34 @@ namespace GeografyNotebook.models.forms
 {
     public partial class MapPage : Form
     {
+        private CityPage parent;
 
-        classes.Database database;
-        List<classes.City> cities;
-
-        public MapPage(classes.Database databaseRe, int index)
+        public MapPage(CityPage parent, classes.City city)
         {
+            this.parent = parent;
+
+
             InitializeComponent();
-            database = databaseRe;
-            this.cities = database.cities;
-            this.Height = 832;
-            //this.Width = 1430;
-            this.Width = 1430;
-            this.RedDot.Location =
-            new Point(Convert.ToInt32(this.Width / 2
-                + this.Width * cities[index].Longitude / 360),
-                Convert.ToInt32(this.Height / 2
-                - this.Height * cities[index].Latitude / 360)
-                );
+
+            Height = 832;
+            Width = 1430;
+            RedDot.Location =
+            new Point(
+                Convert.ToInt32(Width / 2 + Width * city.Longitude / 360),
+                Convert.ToInt32(Height / 2 - Height * city.Latitude / 360)
+            );
         }
 
         private void onBackButtonClick(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                CityPage form = new CityPage(database);
-                form.Show();
-                this.Close();
+                parent.Show();
+                Close();
             }
         }
 
         private void MapPage_KeyDown(object sender, KeyEventArgs e)
             => onBackButtonClick(e);
-
-        private void MapPage_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
