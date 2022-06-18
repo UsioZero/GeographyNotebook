@@ -27,9 +27,11 @@ namespace GeografyNotebook.models.forms
             AreaNumber.Maximum = Decimal.MaxValue;
             AreaNumber.Minimum = Decimal.MinValue;
 
-            CapitalSelector.Items.Add(database.Cities
+            CapitalSelector.Items.AddRange(database.Cities
                 .Select(city => city.Name)
                 .ToList()
+                .Where((names, i) => names[i] != names[i-1])
+                .ToArray()
                 );
 
             if(country != null)
