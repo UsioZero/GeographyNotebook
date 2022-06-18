@@ -12,22 +12,24 @@ namespace GeografyNotebook.models.forms
 {
     public partial class RegionPage : Form
     {
+        classes.Database database;
+        List<classes.Region> filteredRegions;
         int curFirstRegion = 0;
-        List<classes.Region> regions;
 
-        public RegionPage(List<classes.Region> regionsRe)
+        public RegionPage(classes.Database databaseRe)
         {
-            regions = regionsRe;
+            database = databaseRe;
+            filteredRegions = database.regions;
             InitializeComponent();
             RegionList.Text = "";
             for (int i = 0; i < 10; i++)
             {
                 RegionList.Text +=
-                    $"{regions[i].Name}; " +
-                    $"Region type - {regions[i].Type}; " +
-                    $"Country - {regions[i].Country.Name}; " +
-                    $"Capital - {regions[i].Capital.Name}; " +
-                    $"Population - {regions[i].Population}\n";
+                    $"{filteredRegions[i].Name}; " +
+                    $"Region type - {filteredRegions[i].Type}; " +
+                    $"Country - {filteredRegions[i].Country.Name}; " +
+                    $"Capital - {filteredRegions[i].Capital.Name}; " +
+                    $"Population - {filteredRegions[i].Population}\n";
             }
         }
 
@@ -50,11 +52,11 @@ namespace GeografyNotebook.models.forms
                 for (int i = 0; i < 10; i++)
                 {
                     RegionList.Text +=
-                        $"{regions[curFirstRegion + i].Name}; " +
-                        $"Region type - {regions[curFirstRegion + i].Type}; " +
-                        $"Country - {regions[curFirstRegion + i].Country.Name}; " +
-                        $"Capital - {regions[curFirstRegion + i].Capital.Name}; " +
-                        $"Population - {regions[curFirstRegion + i].Population}\n";
+                        $"{filteredRegions[curFirstRegion + i].Name}; " +
+                        $"Region type - {filteredRegions[curFirstRegion + i].Type}; " +
+                        $"Country - {filteredRegions[curFirstRegion + i].Country.Name}; " +
+                        $"Capital - {filteredRegions[curFirstRegion + i].Capital.Name}; " +
+                        $"Population - {filteredRegions[curFirstRegion + i].Population}\n";
                 }
             }
         }
@@ -62,19 +64,19 @@ namespace GeografyNotebook.models.forms
         public void rightText(object sender, EventArgs e)
         {
 
-            if (curFirstRegion + 10 <= regions.Count - 1)
+            if (curFirstRegion + 10 <= filteredRegions.Count - 1)
             {
                 RegionList.Text = "";
                 curFirstRegion += 10;
                 for (int i = 0; i < 10; i++)
                 {
-                    if (curFirstRegion + i <= regions.Count - 1)
+                    if (curFirstRegion + i <= filteredRegions.Count - 1)
                         RegionList.Text +=
-                            $"{regions[curFirstRegion + i].Name}; " +
-                            $"Region type - {regions[curFirstRegion + i].Type}; " +
-                            $"Country - {regions[curFirstRegion + i].Country.Name}; " +
-                            $"Capital - {regions[curFirstRegion + i].Capital.Name}; " +
-                            $"Population - {regions[curFirstRegion + i].Population}\n";
+                            $"{filteredRegions[curFirstRegion + i].Name}; " +
+                            $"Region type - {filteredRegions[curFirstRegion + i].Type}; " +
+                            $"Country - {filteredRegions[curFirstRegion + i].Country.Name}; " +
+                            $"Capital - {filteredRegions[curFirstRegion + i].Capital.Name}; " +
+                            $"Population - {filteredRegions[curFirstRegion + i].Population}\n";
                 }
             }
         }

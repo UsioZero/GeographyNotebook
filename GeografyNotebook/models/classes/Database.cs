@@ -15,8 +15,6 @@ namespace GeografyNotebook.models.classes
             = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\regions1.txt";
         private static string continentsPath 
             = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\continents1.txt";
-        private static string searchResultPath
-            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\search_results.txt";
 
         public List<City> cities { private set; get; }
         public List<Region> regions { private set; get; }
@@ -37,7 +35,7 @@ namespace GeografyNotebook.models.classes
             }
         }
 
-        private void SaveCitiesToFile(List<City> updatedCities, string path)    
+        public void SaveCitiesToFile(List<City> updatedCities, string path)    
         {
             using (StreamWriter writer = new StreamWriter(path))
             {

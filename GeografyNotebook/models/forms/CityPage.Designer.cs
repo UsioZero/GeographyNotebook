@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CityList = new System.Windows.Forms.Label();
             this.SearchParameter = new System.Windows.Forms.ComboBox();
             this.SearchValue = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
@@ -47,18 +46,11 @@
             this.longitudeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.populationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PageLabel = new System.Windows.Forms.Label();
+            this.SaveResultbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CitiesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CityList
-            // 
-            this.CityList.AutoSize = true;
-            this.CityList.Location = new System.Drawing.Point(12, 388);
-            this.CityList.Name = "CityList";
-            this.CityList.Size = new System.Drawing.Size(35, 13);
-            this.CityList.TabIndex = 0;
-            this.CityList.Text = "label1";
             // 
             // SearchParameter
             // 
@@ -213,11 +205,31 @@
             // 
             this.cityBindingSource.DataSource = typeof(GeografyNotebook.models.classes.City);
             // 
+            // PageLabel
+            // 
+            this.PageLabel.AutoSize = true;
+            this.PageLabel.Location = new System.Drawing.Point(12, 388);
+            this.PageLabel.Name = "PageLabel";
+            this.PageLabel.Size = new System.Drawing.Size(35, 13);
+            this.PageLabel.TabIndex = 0;
+            this.PageLabel.Text = "label1";
+            // 
+            // SaveResultbutton
+            // 
+            this.SaveResultbutton.Location = new System.Drawing.Point(721, 97);
+            this.SaveResultbutton.Name = "SaveResultbutton";
+            this.SaveResultbutton.Size = new System.Drawing.Size(75, 23);
+            this.SaveResultbutton.TabIndex = 14;
+            this.SaveResultbutton.Text = "Save to file";
+            this.SaveResultbutton.UseVisualStyleBackColor = true;
+            this.SaveResultbutton.Click += new System.EventHandler(this.SaveResultbutton_Click);
+            // 
             // CityPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SaveResultbutton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CitiesGrid);
             this.Controls.Add(this.AddCityButton);
@@ -227,7 +239,7 @@
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SearchValue);
             this.Controls.Add(this.SearchParameter);
-            this.Controls.Add(this.CityList);
+            this.Controls.Add(this.PageLabel);
             this.KeyPreview = true;
             this.Name = "CityPage";
             this.Text = "CityPage";
@@ -240,8 +252,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label CityList;
         private System.Windows.Forms.ComboBox SearchParameter;
         private System.Windows.Forms.TextBox SearchValue;
         private System.Windows.Forms.Button SearchButton;
@@ -259,5 +269,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn populationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
         private System.Windows.Forms.DataGridViewButtonColumn M;
+        private System.Windows.Forms.Label PageLabel;
+        private System.Windows.Forms.Button SaveResultbutton;
     }
 }

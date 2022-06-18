@@ -8,21 +8,24 @@ namespace GeografyNotebook.models.forms
 {
     public partial class CountryPage : Form
     {
-        List<classes.Country> countries;
+        classes.Database database;
+        List<classes.Country> filteredCountries;
         int curFirstCountry = 0;
 
-        public CountryPage(List<classes.Country> countriesRe)
+        public CountryPage(classes.Database databaseRe)
         {
-            countries = countriesRe;
+            database = databaseRe;
+            filteredCountries = database.countries;
             InitializeComponent();
             CountryList.Text = "";
             for (int i = 0; i < 10; i++)
             {
                 CountryList.Text +=
-                    $"{countries[i].Name}; Area - {countries[i].Area}; " +
-                    $"Population - {countries[i].Population}; " +
-                    $"Government type - {countries[i].GovernmentType}; " +
-                    $"Capital - {countries[i].Capital.Name}\n";
+                    $"{filteredCountries[i].Name}; " +
+                    $"Area - {filteredCountries[i].Area}; " +
+                    $"Population - {filteredCountries[i].Population}; " +
+                    $"Government type - {filteredCountries[i].GovernmentType}; " +
+                    $"Capital - {filteredCountries[i].Capital.Name}\n";
             }
             SortList.Items.AddRange(new string[]{
                 "Name",
@@ -52,10 +55,10 @@ namespace GeografyNotebook.models.forms
                 for (int i = 0; i < 10; i++)
                 {
                     CountryList.Text +=
-                        $"{countries[curFirstCountry + i].Name}; Area - {countries[curFirstCountry + i].Area}; " +
-                        $"Population - {countries[curFirstCountry + i].Population}; " +
-                        $"Government type - {countries[curFirstCountry + i].GovernmentType}; " +
-                        $"Capital - {countries[curFirstCountry + i].Capital.Name}\n";
+                        $"{filteredCountries[curFirstCountry + i].Name}; Area - {filteredCountries[curFirstCountry + i].Area}; " +
+                        $"Population - {filteredCountries[curFirstCountry + i].Population}; " +
+                        $"Government type - {filteredCountries[curFirstCountry + i].GovernmentType}; " +
+                        $"Capital - {filteredCountries[curFirstCountry + i].Capital.Name}\n";
                 }
             }
         }
@@ -63,18 +66,18 @@ namespace GeografyNotebook.models.forms
         public void rightText(object sender, EventArgs e)
         {
 
-            if (curFirstCountry + 10 <= countries.Count - 1)
+            if (curFirstCountry + 10 <= filteredCountries.Count - 1)
             {
                 CountryList.Text = "";
                 curFirstCountry += 10;
                 for (int i = 0; i < 10; i++)
                 {
-                    if (curFirstCountry + i <= countries.Count - 1)
+                    if (curFirstCountry + i <= filteredCountries.Count - 1)
                         CountryList.Text +=
-                            $"{countries[curFirstCountry + i].Name}; Area - {countries[curFirstCountry + i].Area}; " +
-                            $"Population - {countries[curFirstCountry + i].Population}; " +
-                            $"Government type - {countries[curFirstCountry + i].GovernmentType}; " +
-                            $"Capital - {countries[curFirstCountry + i].Capital.Name}\n";
+                            $"{filteredCountries[curFirstCountry + i].Name}; Area - {filteredCountries[curFirstCountry + i].Area}; " +
+                            $"Population - {filteredCountries[curFirstCountry + i].Population}; " +
+                            $"Government type - {filteredCountries[curFirstCountry + i].GovernmentType}; " +
+                            $"Capital - {filteredCountries[curFirstCountry + i].Capital.Name}\n";
                 }
             }
         }
@@ -83,29 +86,29 @@ namespace GeografyNotebook.models.forms
         {
             if(SortList.SelectedItem == "Name")
             {
-                countries = countries.OrderBy(o => o.Name).ToList();
+                filteredCountries = filteredCountries.OrderBy(o => o.Name).ToList();
             }
             if (SortList.SelectedItem == "Area")
             {
-                countries = countries.OrderBy(o => -o.Area).ToList();
+                filteredCountries = filteredCountries.OrderBy(o => -o.Area).ToList();
             }
             if (SortList.SelectedItem == "Population")
             {
-                countries = countries.OrderBy(o => -o.Population).ToList();
+                filteredCountries = filteredCountries.OrderBy(o => -o.Population).ToList();
             }
             if (SortList.SelectedItem == "Government type")
             {
-                countries = countries.OrderBy(o => o.GovernmentType).ToList();
+                filteredCountries = filteredCountries.OrderBy(o => o.GovernmentType).ToList();
             }
             CountryList.Text = "";
             for (int i = 0; i < 10; i++)
             {
-                if (curFirstCountry + i <= countries.Count - 1)
+                if (curFirstCountry + i <= filteredCountries.Count - 1)
                     CountryList.Text +=
-                        $"{countries[curFirstCountry + i].Name}; Area - {countries[curFirstCountry + i].Area}; " +
-                        $"Population - {countries[curFirstCountry + i].Population}; " +
-                        $"Government type - {countries[curFirstCountry + i].GovernmentType}; " +
-                        $"Capital - {countries[curFirstCountry + i].Capital.Name}\n";
+                        $"{filteredCountries[curFirstCountry + i].Name}; Area - {filteredCountries[curFirstCountry + i].Area}; " +
+                        $"Population - {filteredCountries[curFirstCountry + i].Population}; " +
+                        $"Government type - {filteredCountries[curFirstCountry + i].GovernmentType}; " +
+                        $"Capital - {filteredCountries[curFirstCountry + i].Capital.Name}\n";
             }
         }
 

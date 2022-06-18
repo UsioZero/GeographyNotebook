@@ -29,23 +29,23 @@ namespace GeografyNotebook.models.forms
 
         private void onRegionButtonClick(object sender, EventArgs e)
         {
-            //Form form = new RegionPage(database);
-            //form.Show();
-            //Hide();
+            Form form = new RegionPage(database);
+            form.Show();
+            Hide();
         }
 
         private void onCountryButtonClick(object sender, EventArgs e)
         {
-            //Form form = new CountryPage(database);
-            //form.Show();
-            //Hide();
+            Form form = new CountryPage(database);
+            form.Show();
+            Hide();
         }
 
         private void onContinentButtonClick(object sender, EventArgs e)
         {
-            //Form form = new ContinentPage(database);
-            //form.Show();
-            //Hide();
+            // Form form = new ContinentPage(database);
+            // form.Show();
+            // Hide();
         }
 
         private void onBackButtonClick(object sender, KeyEventArgs e)

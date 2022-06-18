@@ -1,0 +1,14 @@
+2be2d957-68ab-45c4-8ea6-9699a398f07b;East London;South Africa;-33.0153;-33.0153;338627
+316adeaa-b025-4c0f-b3eb-48834c5bd3bf;London;United Kingdom;51.5072;-0.1275;11120000
+bfc3ed39-ad1d-4052-a5d8-4f0bf69515ab;London;Canada;42.9836;-81.2497;383822
+82f510db-f834-44a5-9ba8-d7b2b14baec6;London;United States;37.1175;-84.0767;37714
+fa410cfe-b433-465b-9584-b9f87b98d443;London;United States;39.8936;-83.4376;14870
+f1f6ec20-7618-42ca-b726-4b1b635126a9;London Colney;United Kingdom;51.726;-0.3;9507
+e58d4d0b-6116-480e-a457-ca7e1c93ffce;London Grove;United States;39.8327;-75.8155;8696
+a72868ad-a358-4409-ab91-61a79d2291ae;Londonderry;United States;42.8796;-71.3873;25927
+9c5b2002-06fc-4839-a7e1-4433f639103e;Londonderry;United States;40.1814;-76.6964;5228
+933c081d-d249-43cd-9128-81ce2c46b863;New London;United States;41.3502;-72.1023;26858
+6133158d-e7a2-4bd5-a90a-e83e5d0f3120;New London;United States;44.395;44.395;7430
+881718b9-79f2-4309-97cf-3035170878ca;New London;United States;39.7743;-75.8797;5946
+82f2abcc-cbb1-4a28-a82c-0e33b7fc46c6;North Londonderry;United States;40.3227;-76.5867;8451
+31fb818b-0b35-41b7-b088-2d79f1795b6d;South Londonderry;United States;40.2424;-76.5432;8174

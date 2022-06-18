@@ -98,12 +98,6 @@
     <Compile Include="models\forms\RegionPage.Designer.cs">
       <DependentUpon>RegionPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\forms\tmpPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="models\forms\tmpPage.Designer.cs">
-      <DependentUpon>tmpPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="models\forms\AddOrChangeCityPage.resx">
