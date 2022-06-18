@@ -111,9 +111,7 @@ namespace GeografyNotebook.models.forms
             {
                 curFirstCountry -= 10;
 
-                CountryGrid.DataSource = filtredCountries.Skip(curFirstCountry)
-                    .Take(10).ToList();
-                UpdatePageLabel();
+                UpdateFiltredCountries(false);
             }
         }
 
@@ -122,9 +120,8 @@ namespace GeografyNotebook.models.forms
             if (curFirstCountry <= filtredCountries.Count - 10)
             {
                 curFirstCountry += 10;
-                CountryGrid.DataSource = filtredCountries.Skip(curFirstCountry)
-                    .Take(10).ToList();
-                UpdatePageLabel();
+
+                UpdateFiltredCountries(false);
             }
         }
 
