@@ -35,11 +35,10 @@ namespace GeografyNotebook.models.forms
             if(country != null)
             {
                 NameTextBox.Text = country.Name;
-                CapitalSelector.SelectedItem
-                    = CapitalSelector.Items
-                    .Cast<string>()
-                    .ToList()
-                    .Find(name => name == country.Capital.Name);
+                CapitalSelector.SelectedItem = country.Name;
+                GovernmentTypeTextBox.Text = country.GovernmentType;
+                AreaNumber.Value = Convert.ToDecimal(country.Area);
+                PopulationNumber.Value = Convert.ToDecimal(country.Population);
             }
         }
 
