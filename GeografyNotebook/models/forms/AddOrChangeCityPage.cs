@@ -23,11 +23,11 @@ namespace GeografyNotebook.models.forms
 
             PopulationNumber.Maximum = Decimal.MaxValue;
 
-            LatitudeNumber.Maximum = Decimal.MaxValue;
-            LatitudeNumber.Minimum = Decimal.MinValue;
+            LatitudeNumber.Maximum = 180;
+            LatitudeNumber.Minimum = -180;
 
-            LongtitudeNumber.Maximum = Decimal.MaxValue;
-            LongtitudeNumber.Minimum = Decimal.MinValue;
+            LongtitudeNumber.Maximum = 180;
+            LongtitudeNumber.Minimum = -180;
 
             CountrySelector.Items.AddRange(database.Countries
                           .Select(r=>r.Name)
