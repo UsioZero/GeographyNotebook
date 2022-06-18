@@ -32,6 +32,7 @@ namespace GeografyNotebook.models.forms
                 Close();
             }
         }
+
         private void MapPage_KeyDown(object sender, KeyEventArgs e)
             => OnBackButtonClick(e);
     }

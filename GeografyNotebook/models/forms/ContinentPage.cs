@@ -40,6 +40,7 @@ namespace GeografyNotebook.models.forms
                 this.Close();
             }
         }
+
         private void ContinentPage_KeyDown(object sender, KeyEventArgs e)
             => OnBackButtonClick(sender, e);
     }

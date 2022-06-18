@@ -57,12 +57,14 @@ namespace GeografyNotebook.models.forms
                 : filteredCities.Count;
             PageLabel.Text = $"{from}-{to} of {filteredCities.Count}";
         }
+
         private void OnBack()
         {
             MainPage form = new MainPage();
             form.Show();
             Close();
         }
+
         private void CityPage_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -70,10 +72,12 @@ namespace GeografyNotebook.models.forms
                 OnBack();
             }
         }
+
         private void SearchButton_Click(object sender, EventArgs e)
         {
             UpdateFilteredCities();
         }
+
         private void LeftButton_Click(object sender, EventArgs e)
         {
             if (curFirstCity != 0) {
@@ -84,6 +88,7 @@ namespace GeografyNotebook.models.forms
                 UpdatePageLabel();
             }
         }
+
         private void RightButton_Click(object sender, EventArgs e)
         {
             if (curFirstCity <= filteredCities.Count - 10) {
@@ -93,6 +98,7 @@ namespace GeografyNotebook.models.forms
                 UpdatePageLabel();
             }
         }
+
         private void AddCityButton_Click(object sender, EventArgs e)
         {
             AddOrChangeCityPage editForm 
@@ -100,11 +106,13 @@ namespace GeografyNotebook.models.forms
             editForm.Show();
             Hide();
         }
+
         private void SortParametr_SelectedValueChanged(object sender
             , EventArgs e)
         {
             UpdateFilteredCities();
         }
+
         private void CitiesGrid_CellClick(object sender
             , DataGridViewCellEventArgs e)
         {
@@ -126,6 +134,7 @@ namespace GeografyNotebook.models.forms
                 Hide();
             }
         }
+
         private void SaveResultbutton_Click(object sender, EventArgs e)
         {
             database.SaveCitiesToFile(filteredCities,
