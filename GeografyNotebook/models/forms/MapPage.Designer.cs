@@ -38,7 +38,7 @@
             this.RedDot.BackColor = System.Drawing.Color.Transparent;
             this.RedDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RedDot.ForeColor = System.Drawing.Color.Red;
-            this.RedDot.Location = new System.Drawing.Point(645, 408);
+            this.RedDot.Location = new System.Drawing.Point(705, 444);
             this.RedDot.Name = "RedDot";
             this.RedDot.Size = new System.Drawing.Size(58, 76);
             this.RedDot.TabIndex = 0;
@@ -49,12 +49,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1275, 749);
+            this.ClientSize = new System.Drawing.Size(1430, 832);
             this.Controls.Add(this.RedDot);
             this.KeyPreview = true;
             this.Name = "MapPage";
             this.Text = "MapPage";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapPage_KeyDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MapPage_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

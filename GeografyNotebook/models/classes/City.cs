@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeografyNotebook.models.classes
 {
@@ -39,11 +35,6 @@ namespace GeografyNotebook.models.classes
         public override string ToString()
         {
             return $"{Uuid};{Name};{CountryName};{Latitude};{Longitude};{Population}";
-        }
-
-        public override void edit()
-        {
-            throw new NotImplementedException();
         }
     }
 }

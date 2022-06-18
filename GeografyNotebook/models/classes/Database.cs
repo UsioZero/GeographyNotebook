@@ -7,14 +7,10 @@ namespace GeografyNotebook.models.classes
 {
     public class Database
     {   
-        private static string citiesPath 
-            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\cities1.txt";
-        private static string countriesPath 
-            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\countries1.txt";
-        private static string regionsPath 
-            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\regions1.txt";
-        private static string continentsPath 
-            = @"C:\Users\Oleg\Documents\projects\c#\Курса4\GeographyNotebook\GeografyNotebook\assets\continents1.txt";
+        private static string citiesPath = @"..\..\assets\cities1.txt";
+        private static string countriesPath = @"..\..\assets\countries1.txt";
+        private static string regionsPath = @"..\..\assets\regions1.txt";
+        private static string continentsPath = @"..\..\assets\continents1.txt";
 
         public List<City> cities { private set; get; }
         public List<Region> regions { private set; get; }
@@ -160,22 +156,47 @@ namespace GeografyNotebook.models.classes
             string? searchValue = null,
             string orderByField = "Name")
         {
-            return cities
-                .FindAll(city =>
-                    searchField != null && searchValue != null
-                        ? city
-                            .GetType()
-                            .GetProperty(searchField)
-                            .GetValue(city)
-                            .ToString()
-                            .Contains(searchValue)
-                        : true)
-                .OrderBy(city => city
-                    .GetType()
-                    .GetProperty(orderByField)
-                    .GetValue(city)
-                    .ToString())
-                .ToList();
+            List<City> result = cities.FindAll(city =>
+                searchField != null && searchValue != null
+                    ? city
+                        .GetType()
+                        .GetProperty(searchField)
+                        .GetValue(city)
+                        .ToString()
+                        .Contains(searchValue)
+                    : true);
+
+                
+            switch (orderByField) {
+                case "CountryName":
+                    return result.OrderBy(city => city.CountryName).ToList();
+                case "Population":
+                    return result.OrderBy(city => -city.Population).ToList();
+                case "Latitude":
+                    return result.OrderBy(city => city.Latitude).ToList();
+                case "Longitude":
+                    return result.OrderBy(city => city.Longitude).ToList();                        
+                default:
+                    return result.OrderBy(city => city.Name).ToList();
+            }    
+                
+        }
+
+        public List<Region> GetRegions(
+            string? searchField = null,
+            string? searchValue = null,
+            string orderByField = "Name")
+        {
+            switch (orderByField) {
+                case "CountryName":
+                    return regions.OrderBy(region => region.Country.Name).ToList();
+                case "Population":
+                    return regions.OrderBy(region => -region.Population).ToList();
+                case "Type":
+                    return regions.OrderBy(region => region.Type).ToList();                   
+                default:
+                    return regions.OrderBy(region => region.Name).ToList();
+            }
         }
 
         public void AddCity(City newCity) 

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeografyNotebook.models.classes
 {
@@ -27,11 +23,6 @@ namespace GeografyNotebook.models.classes
         public override string ToString()
         {
             return $"{Uuid};{Name};{Area};{Population};{GovernmentType};{Capital.Uuid}";
-        }
-
-        public override void edit()
-        {
-            throw new NotImplementedException();
         }
     }
 }

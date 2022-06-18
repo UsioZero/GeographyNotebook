@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeografyNotebook.models.classes
 {
@@ -32,11 +29,6 @@ namespace GeografyNotebook.models.classes
                 returnS += ";" + country.Uuid.ToString();
             }
             return returnS;
-        }
-
-        public override void edit()
-        {
-            throw new NotImplementedException();
         }
     }
 }

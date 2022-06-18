@@ -25,6 +25,13 @@ namespace GeografyNotebook.models.forms
                     $"Capital - {filteredRegions[i].Capital.Name}; " +
                     $"Population - {filteredRegions[i].Population}\n";
             }
+
+            SortTypeSelector.Items.AddRange(new string[]{
+                "Name",
+                "Type",
+                "Country",
+                "Population"
+            });
         }
 
         private void onBackButtonClick(object sender, KeyEventArgs e)
@@ -88,5 +95,26 @@ namespace GeografyNotebook.models.forms
 
         private void rightButton_Click(object sender, EventArgs e)
             => rightText(sender, e);
+
+        private void SortTypeSelector_SelectedValueChanged(object sender, EventArgs e)
+        {
+            curFirstRegion = 0;
+
+            filteredRegions = database.GetRegions(
+                orderByField: SortTypeSelector.SelectedItem.ToString()
+            );
+
+            RegionList.Text = "";
+            for (int i = 0; i < 10; i++)
+            {
+                RegionList.Text +=
+                    $"{filteredRegions[i].Name}; " +
+                    $"Region type - {filteredRegions[i].Type}; " +
+                    $"Country - {filteredRegions[i].Country.Name}; " +
+                    $"Capital - {filteredRegions[i].Capital.Name}; " +
+                    $"Population - {filteredRegions[i].Population}\n";
+            }
+
+        }
     }
 }

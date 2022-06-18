@@ -31,6 +31,7 @@
             this.RegionList = new System.Windows.Forms.Label();
             this.leftButton = new System.Windows.Forms.Button();
             this.rightButton = new System.Windows.Forms.Button();
+            this.SortTypeSelector = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // RegionList
@@ -62,11 +63,21 @@
             this.rightButton.UseVisualStyleBackColor = true;
             this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
             // 
+            // SortTypeSelector
+            // 
+            this.SortTypeSelector.FormattingEnabled = true;
+            this.SortTypeSelector.Location = new System.Drawing.Point(457, 68);
+            this.SortTypeSelector.Name = "SortTypeSelector";
+            this.SortTypeSelector.Size = new System.Drawing.Size(121, 21);
+            this.SortTypeSelector.TabIndex = 3;
+            this.SortTypeSelector.SelectedValueChanged += new System.EventHandler(this.SortTypeSelector_SelectedValueChanged);
+            // 
             // RegionPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SortTypeSelector);
             this.Controls.Add(this.rightButton);
             this.Controls.Add(this.leftButton);
             this.Controls.Add(this.RegionList);
@@ -85,5 +96,6 @@
         private System.Windows.Forms.Label RegionList;
         private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.Button rightButton;
+        private System.Windows.Forms.ComboBox SortTypeSelector;
     }
 }
