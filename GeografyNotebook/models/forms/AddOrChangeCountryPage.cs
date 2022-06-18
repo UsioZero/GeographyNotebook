@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -27,20 +28,25 @@ namespace GeografyNotebook.models.forms
             AreaNumber.Maximum = Decimal.MaxValue;
             AreaNumber.Minimum = Decimal.MinValue;
 
-            CapitalSelector.Items.AddRange(database.Cities
+            List<string> names = database.Cities
                 .Select(city => city.Name)
-                .ToList()
-                .Where((names, i) => names[i] != names[i-1])
+                .ToList();
+
+            CapitalSelector.Items.AddRange(names
+                .Where((name, i) => i <= 0 
+                    ? true
+                    : name != names[i - 1])
                 .ToArray()
                 );
 
             if(country != null)
             {
                 NameTextBox.Text = country.Name;
-                CapitalSelector.SelectedItem = country.Name;
+                CapitalSelector.SelectedItem = country.Capital.Name;
                 GovernmentTypeTextBox.Text = country.GovernmentType;
                 AreaNumber.Value = Convert.ToDecimal(country.Area);
-                PopulationNumber.Value = Convert.ToDecimal(country.Population);
+                PopulationNumber.Value 
+                    = Convert.ToDecimal(country.Population);
             }
         }
 
