@@ -76,6 +76,17 @@ namespace GeografyNotebook.models.forms
             }
 
             CountryGrid.DataSource = dataTable;
+
+            UpdatePageLabel();
+        }
+
+        private void UpdatePageLabel()
+        {
+            int from = curFirstCountry + 1;
+            int to = curFirstCountry + 10 < filtredCountries.Count
+                ? curFirstCountry + 10
+                : filtredCountries.Count;
+            PageLabel.Text = $"{from}-{to} of {filtredCountries.Count}";
         }
 
         private void OnBackButtonClick(object sender, KeyEventArgs e)
@@ -89,35 +100,31 @@ namespace GeografyNotebook.models.forms
 
         }
 
-        private void LeftText(object sender, EventArgs e)
-        {
-            if (curFirstCountry > 9)
-            {
-                curFirstCountry -= 10;
-
-                UpdateFiltredCountries();
-            }
-        }
-
-        private void RightText(object sender, EventArgs e)
-        {
-
-            if (curFirstCountry + 10 <= filtredCountries.Count - 1)
-            {
-                curFirstCountry += 10;
-
-                UpdateFiltredCountries();
-            }
-        }
-
         private void CountryPage_KeyDown(object sender, KeyEventArgs e)
             => OnBackButtonClick(sender, e);
 
         private void LeftButton_Click(object sender, EventArgs e)
-            => LeftText(sender, e);
+        {
+            if (curFirstCountry != 0)
+            {
+                curFirstCountry -= 10;
+
+                CountryGrid.DataSource = filtredCountries.Skip(curFirstCountry)
+                    .Take(10).ToList();
+                UpdatePageLabel();
+            }
+        }
 
         private void RightButton_Click(object sender, EventArgs e)
-            => RightText(sender, e);
+        {
+            if (curFirstCountry <= filtredCountries.Count - 10)
+            {
+                curFirstCountry += 10;
+                CountryGrid.DataSource = filtredCountries.Skip(curFirstCountry)
+                    .Take(10).ToList();
+                UpdatePageLabel();
+            }
+        }
 
         private void SortTypeSelector_SelectedValueChanged(object sender
             , EventArgs e)
@@ -128,11 +135,11 @@ namespace GeografyNotebook.models.forms
                 orderByField: SortTypeSelector.SelectedItem.ToString()
                 );
 
-            CountryList.Text = "";
+            PageLabel.Text = "";
             for (int i = 0; i < 10; i++)
             {
                 if (curFirstCountry + i <= filtredCountries.Count - 1)
-                    CountryList.Text +=
+                    PageLabel.Text +=
                         $"{filtredCountries[curFirstCountry + i].Name}; Area - " +
                         $"{filtredCountries[curFirstCountry + i].Area}; " +
                         $"Population - " +
@@ -153,11 +160,11 @@ namespace GeografyNotebook.models.forms
                 searchValue: SearchValue.Text
                 );
 
-            CountryList.Text = "";
+            PageLabel.Text = "";
             for (int i = 0; i < 10; i++)
             {
                 if (curFirstCountry + i <= filtredCountries.Count - 1)
-                    CountryList.Text +=
+                    PageLabel.Text +=
                         $"{filtredCountries[curFirstCountry + i].Name}; Area - " +
                         $"{filtredCountries[curFirstCountry + i].Area}; " +
                         $"Population - " +

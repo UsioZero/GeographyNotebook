@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button SearchButton;
-            this.CountryList = new System.Windows.Forms.Label();
+            this.PageLabel = new System.Windows.Forms.Label();
             this.leftButton = new System.Windows.Forms.Button();
             this.rightButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,14 +68,14 @@
             SearchButton.UseVisualStyleBackColor = true;
             SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // CountryList
+            // PageLabel
             // 
-            this.CountryList.AutoSize = true;
-            this.CountryList.Location = new System.Drawing.Point(17, 364);
-            this.CountryList.Name = "CountryList";
-            this.CountryList.Size = new System.Drawing.Size(35, 13);
-            this.CountryList.TabIndex = 0;
-            this.CountryList.Text = "label1";
+            this.PageLabel.AutoSize = true;
+            this.PageLabel.Location = new System.Drawing.Point(17, 364);
+            this.PageLabel.Name = "PageLabel";
+            this.PageLabel.Size = new System.Drawing.Size(35, 13);
+            this.PageLabel.TabIndex = 0;
+            this.PageLabel.Text = "label1";
             // 
             // leftButton
             // 
@@ -186,7 +186,7 @@
             this.Controls.Add(this.SortTypeSelector);
             this.Controls.Add(this.rightButton);
             this.Controls.Add(this.leftButton);
-            this.Controls.Add(this.CountryList);
+            this.Controls.Add(this.PageLabel);
             this.KeyPreview = true;
             this.Name = "CountryPage";
             this.Text = "CountryPage";
@@ -207,7 +207,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label CountryList;
+        private System.Windows.Forms.Label PageLabel;
         private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.Button rightButton;
         private System.Windows.Forms.Label label1;
