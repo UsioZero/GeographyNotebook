@@ -38,9 +38,11 @@ namespace GeografyNotebook.models.forms
             UpdateFiltredCountries();
 
             DataGridViewButtonColumn editButton
-                = new DataGridViewButtonColumn();
-            editButton.UseColumnTextForButtonValue = true;
-            editButton.Text = "Edit";
+                = new DataGridViewButtonColumn
+                {
+                    UseColumnTextForButtonValue = true,
+                    Text = "Edit"
+                };
             CountryGrid.Columns.Add(editButton);
         }
 

@@ -145,12 +145,59 @@ namespace GeografyNotebook.models.classes
             SaveCountriesToFile(Countries, countriesPath);
         }
 
+        public void AddRegion(Region newRegion)
+        {
+            Regions.Add(newRegion);
+
+            using StreamWriter writer
+                = new StreamWriter(regionsPath, append: true);
+            writer.WriteLine(newRegion.ToString());
+        }
+
+        public void UpdateRegion(Region updated)
+        {
+            int index = Regions.FindIndex(region => region.Uuid == updated.Uuid);
+
+            Regions[index] = updated;
+            SaveRegionsToFile(Regions, regionsPath);
+        }
+
         public void SaveCitiesToFile(List<City> updatedCities, string path)
         {
             using StreamWriter writer = new StreamWriter(path);
             foreach (City city in updatedCities)
             {
                 writer.WriteLine(city.ToString());
+            }
+        }
+
+        public void SaveCountriesToFile(List<Country> updatedCountries,
+            string path)
+        {
+            using StreamWriter writer = new StreamWriter(path);
+            foreach (Country country in updatedCountries)
+            {
+                writer.WriteLine(country.ToString());
+            }
+        }
+
+        public void SaveRegionsToFile(List<Region> updatedRegions
+            , string path)
+        {
+            using StreamWriter writer = new StreamWriter(path);
+            foreach (Region region in updatedRegions)
+            {
+                writer.WriteLine(region.ToString());
+            }
+        }
+
+        public void SaveContinentsToFile(List<Continent> updatedContinents
+            , string path)
+        {
+            using StreamWriter writer = new StreamWriter(path);
+            foreach (Continent continent in updatedContinents)
+            {
+                writer.WriteLine(continent.ToString());
             }
         }
 
@@ -165,6 +212,7 @@ namespace GeografyNotebook.models.classes
                 Cities.Add(new City(line));
             }
         }
+
         private void GetRegionsFromFile()
         {
             Regions = new List<Region>();
@@ -236,36 +284,6 @@ namespace GeografyNotebook.models.classes
                 );
 
                 Continents.Add(continent);
-            }
-        }
-
-        public void SaveCountriesToFile(List<Country> updatedCountries,
-            string path)
-        {
-            using StreamWriter writer = new StreamWriter(path);
-            foreach (Country country in updatedCountries)
-            {
-                writer.WriteLine(country.ToString());
-            }
-        }
-
-        private void SaveRegionsToFile(List<Region> updatedRegions
-            , string path)
-        {
-            using StreamWriter writer = new StreamWriter(path);
-            foreach (Region region in updatedRegions)
-            {
-                writer.WriteLine(region.ToString());
-            }
-        }
-
-        private void SaveContinentsToFile(List<Continent> updatedContinents
-            , string path)
-        {
-            using StreamWriter writer = new StreamWriter(path);
-            foreach (Continent continent in updatedContinents)
-            {
-                writer.WriteLine(continent.ToString());
             }
         }
     }

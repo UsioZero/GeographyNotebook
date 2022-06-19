@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GeografyNotebook.models.forms
@@ -7,24 +9,15 @@ namespace GeografyNotebook.models.forms
     public partial class RegionPage : Form
     {
         int curFirstRegion = 0;
-        classes.Database database;
+        readonly classes.Database database;
         List<classes.Region> filteredRegions;
 
         public RegionPage(classes.Database databaseRe)
         {
             database = databaseRe;
             filteredRegions = database.Regions;
+
             InitializeComponent();
-            RegionList.Text = "";
-            for (int i = 0; i < 10; i++)
-            {
-                RegionList.Text +=
-                    $"{filteredRegions[i].Name}; " +
-                    $"Region type - {filteredRegions[i].Type}; " +
-                    $"Country - {filteredRegions[i].Country.Name}; " +
-                    $"Capital - {filteredRegions[i].Capital.Name}; " +
-                    $"Population - {filteredRegions[i].Population}\n";
-            }
 
             SortTypeSelector.Items.AddRange(new string[]{
                 "Name",
@@ -34,54 +27,74 @@ namespace GeografyNotebook.models.forms
             });
             SortTypeSelector.SelectedItem = SortTypeSelector.Items[0];
 
-            SearchParametr.Items.AddRange(new string[]{
+            SearchParam.Items.AddRange(new string[]{
                 "Name",
                 "Type",
                 "Country",
                 "Population"
             });
-            SearchParametr.SelectedItem = SearchParametr.Items[0];
+            SearchParam.SelectedItem = "Name";
+
+            UpdateFiltredRegions();
+
+            DataGridViewButtonColumn editButton
+                = new DataGridViewButtonColumn
+                {
+                    UseColumnTextForButtonValue = true,
+                    Text = "Edit"
+                };
+            CountryGrid.Columns.Add(editButton);
         }
 
-        public void LeftText()
+        public void UpdateFiltredRegions(bool isChangePosition = true)
         {
-            if (curFirstRegion > 9)
+            if (isChangePosition)
             {
-                RegionList.Text = "";
-                curFirstRegion -= 10;
-                for (int i = 0; i < 10; i++)
-                {
-                    RegionList.Text +=
-                        $"{filteredRegions[curFirstRegion + i].Name}; " +
-                        $"Region type - " +
-                        $"{filteredRegions[curFirstRegion + i].Type}; " +
-                        $"Country - " +
-                        $"{filteredRegions[curFirstRegion + i].Country.Name}"
-                        + $"; Capital - " +
-                        $"{filteredRegions[curFirstRegion + i].Capital.Name}"
-                        + $"; Population - " +
-                        $"{filteredRegions[curFirstRegion + i].Population}\n";
-                }
+                curFirstRegion = 0;
             }
-        }
-        public void RightText()
-        {
 
-            if (curFirstRegion + 10 <= filteredRegions.Count - 1)
+            filteredRegions = database.GetRegions(
+                searchField: SearchParam.SelectedItem == null
+                ? "Name"
+                : SearchParam.SelectedItem.ToString(),
+                searchValue: SearchValue.Text,
+                orderByField: SortTypeSelector.SelectedItem.ToString()
+            );
+
+            List<classes.Region> tmpList =
+                filteredRegions.Skip(curFirstRegion)
+                .Take(10).ToList();
+
+            DataTable dataTable = new DataTable();
+            DataRow row;
+
+            dataTable.Columns.Add("Name");
+            dataTable.Columns.Add("Country");
+            dataTable.Columns.Add("Type");
+            dataTable.Columns.Add("Population");
+
+            for (int i = 0; i < tmpList.Count; i++)
             {
-                RegionList.Text = "";
-                curFirstRegion += 10;
-                for (int i = 0; i < 10; i++)
-                {
-                    if (curFirstRegion + i <= filteredRegions.Count - 1)
-                        RegionList.Text +=
-                            $"{filteredRegions[curFirstRegion + i].Name}; " +
-                            $"Region type - {filteredRegions[curFirstRegion + i].Type}; " +
-                            $"Country - {filteredRegions[curFirstRegion + i].Country.Name}; " +
-                            $"Capital - {filteredRegions[curFirstRegion + i].Capital.Name}; " +
-                            $"Population - {filteredRegions[curFirstRegion + i].Population}\n";
-                }
+                row = dataTable.NewRow();
+                row["Name"] = tmpList[i].Name;
+                row["Country"] = tmpList[i].Country.Name;
+                row["Type"] = tmpList[i].Type;
+                row["Population"] = tmpList[i].Population;
+                dataTable.Rows.Add(row);
             }
+
+            CountryGrid.DataSource = dataTable;
+
+            UpdatePageLabel();
+        }
+
+        private void UpdatePageLabel()
+        {
+            int from = curFirstRegion + 1;
+            int to = curFirstRegion + 10 < filteredRegions.Count
+                ? curFirstRegion + 10
+                : filteredRegions.Count;
+            PageLabel.Text = $"{from}-{to} of {filteredRegions.Count}";
         }
 
         private void OnBackButtonClick(object sender, KeyEventArgs e)
@@ -92,69 +105,65 @@ namespace GeografyNotebook.models.forms
                 form.Show();
                 Close();
             }
-            if (e.KeyData == Keys.Tab)
-            {
-                RightText();
-            }
-            if (e.KeyData == (Keys.Tab | Keys.Shift))
-            {
-                LeftText();
-            }
         }
         private void RegionPage_KeyDown(object sender, KeyEventArgs e)
             => OnBackButtonClick(sender, e);
 
-        private void RegionPage_Load(object sender, EventArgs e)
+        private void LeftButton_Click(object sender, EventArgs e)
         {
+            if (curFirstRegion != 0)
+            {
+                curFirstRegion -= 10;
 
+                UpdateFiltredRegions(false);
+            }
         }
 
-        private void LeftButton_Click(object sender, EventArgs e)
-            => LeftText();
-
         private void RightButton_Click(object sender, EventArgs e)
-            => RightText();
+        {
+            if (curFirstRegion <= filteredRegions.Count - 10)
+            {
+                curFirstRegion += 10;
+
+                UpdateFiltredRegions(false);
+            }
+        }
 
         private void SortTypeSelector_SelectedValueChanged(object sender, EventArgs e)
         {
-            curFirstRegion = 0;
-
-            filteredRegions = database.GetRegions(
-                orderByField: SortTypeSelector.SelectedItem.ToString()
-            );
-
-            RegionList.Text = "";
-            for (int i = 0; i < 10; i++)
-            {
-                RegionList.Text +=
-                    $"{filteredRegions[i].Name}; " +
-                    $"Region type - {filteredRegions[i].Type}; " +
-                    $"Country - {filteredRegions[i].Country.Name}; " +
-                    $"Capital - {filteredRegions[i].Capital.Name}; " +
-                    $"Population - {filteredRegions[i].Population}\n";
-            }
-
+            UpdateFiltredRegions();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            curFirstRegion = 0;
+            UpdateFiltredRegions();
+        }
 
-            filteredRegions = database.GetRegions(
-                searchField: SearchParametr.SelectedItem.ToString(),
-                searchValue: SearchValue.Text
-            );
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddOrChangeRegionPage editForm
+                = new AddOrChangeRegionPage(this, database);
+            editForm.Show();
+            Hide();
+        }
 
-            RegionList.Text = "";
-            for (int i = 0; i < 10; i++)
+        private void SaveResultButton_Click(object sender, EventArgs e)
+        {
+            database.SaveRegionsToFile(filteredRegions,
+                @"..\..\assets\search_result.txt");
+        }
+
+        private void CountryGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
             {
-                if(curFirstRegion + i <= filteredRegions.Count - 1)
-                RegionList.Text +=
-                    $"{filteredRegions[i].Name}; " +
-                    $"Region type - {filteredRegions[i].Type}; " +
-                    $"Country - {filteredRegions[i].Country.Name}; " +
-                    $"Capital - {filteredRegions[i].Capital.Name}; " +
-                    $"Population - {filteredRegions[i].Population}\n";
+                classes.Region region
+                    = filteredRegions[curFirstRegion+ e.RowIndex];
+
+                AddOrChangeRegionPage editForm
+                    = new AddOrChangeRegionPage(this, database, region);
+                editForm.Show();
+                Hide();
             }
         }
     }

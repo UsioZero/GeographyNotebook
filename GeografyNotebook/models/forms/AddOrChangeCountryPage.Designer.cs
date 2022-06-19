@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.AreaNumber = new System.Windows.Forms.NumericUpDown();
             this.PopulationNumber = new System.Windows.Forms.NumericUpDown();
             this.GovernmentTypeTextBox = new System.Windows.Forms.TextBox();
             this.CapitalSelector = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.AreaNumber)).BeginInit();
+            this.AreaNumber = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PopulationNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AreaNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // NameTextBox
@@ -51,18 +51,6 @@
             this.NameTextBox.Size = new System.Drawing.Size(200, 20);
             this.NameTextBox.TabIndex = 0;
             this.NameTextBox.Text = "Name1";
-            // 
-            // AreaNumber
-            // 
-            this.AreaNumber.Location = new System.Drawing.Point(200, 150);
-            this.AreaNumber.Name = "AreaNumber";
-            this.AreaNumber.Size = new System.Drawing.Size(200, 20);
-            this.AreaNumber.TabIndex = 1;
-            this.AreaNumber.Value = new decimal(new int[] {
-            12,
-            0,
-            0,
-            65536});
             // 
             // PopulationNumber
             // 
@@ -119,15 +107,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Government";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(123, 152);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Area";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -157,6 +136,27 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // AreaNumber
+            // 
+            this.AreaNumber.Location = new System.Drawing.Point(200, 150);
+            this.AreaNumber.Name = "AreaNumber";
+            this.AreaNumber.Size = new System.Drawing.Size(200, 20);
+            this.AreaNumber.TabIndex = 1;
+            this.AreaNumber.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            65536});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(123, 152);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Area";
+            // 
             // AddOrChangeCountryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,8 +176,8 @@
             this.Controls.Add(this.NameTextBox);
             this.Name = "AddOrChangeCountryPage";
             this.Text = "AddOrChangeCountryPage";
-            ((System.ComponentModel.ISupportInitialize)(this.AreaNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PopulationNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AreaNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,16 +186,16 @@
         #endregion
 
         private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.NumericUpDown AreaNumber;
         private System.Windows.Forms.NumericUpDown PopulationNumber;
         private System.Windows.Forms.TextBox GovernmentTypeTextBox;
         private System.Windows.Forms.ComboBox CapitalSelector;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.NumericUpDown AreaNumber;
+        private System.Windows.Forms.Label label4;
     }
 }
