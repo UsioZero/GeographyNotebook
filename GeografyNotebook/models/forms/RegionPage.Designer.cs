@@ -117,9 +117,12 @@
             // 
             // CountryGrid
             // 
+            this.CountryGrid.AllowUserToAddRows = false;
+            this.CountryGrid.AllowUserToDeleteRows = false;
             this.CountryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CountryGrid.Location = new System.Drawing.Point(65, 109);
             this.CountryGrid.Name = "CountryGrid";
+            this.CountryGrid.ReadOnly = true;
             this.CountryGrid.Size = new System.Drawing.Size(672, 257);
             this.CountryGrid.TabIndex = 8;
             this.CountryGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CountryGrid_CellClick);

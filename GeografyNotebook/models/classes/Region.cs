@@ -4,14 +4,6 @@ namespace GeografyNotebook.models.classes
 {
     public class Region : GeographyUnit
     {
-        public Region(Guid uuid, string name, int population, string type)
-        {
-            Uuid = uuid;
-            Name = name;
-            Population = population;
-            Type = type;
-        }
-
         public Region(Guid uuid, string name, string type,
             Country country, int population)
         {
