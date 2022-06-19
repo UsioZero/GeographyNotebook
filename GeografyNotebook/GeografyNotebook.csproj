@@ -68,6 +68,12 @@
     <Compile Include="models\forms\AddOrChangeCountryPage.Designer.cs">
       <DependentUpon>AddOrChangeCountryPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="models\forms\AddOrChangeRegionPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="models\forms\AddOrChangeRegionPage.Designer.cs">
+      <DependentUpon>AddOrChangeRegionPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="models\forms\CityPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="models\forms\AddOrChangeCountryPage.resx">
       <DependentUpon>AddOrChangeCountryPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="models\forms\AddOrChangeRegionPage.resx">
+      <DependentUpon>AddOrChangeRegionPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="models\forms\CityPage.resx">
       <DependentUpon>CityPage.cs</DependentUpon>

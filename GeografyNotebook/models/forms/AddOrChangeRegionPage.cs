@@ -60,6 +60,8 @@ namespace GeografyNotebook.models.forms
             classes.Region updatetRegion = new classes.Region(
                 uuid: region == null ? Guid.NewGuid() : region.Uuid,
                 name: NameTextBox.Text,
+                country: database.Countries.Find(coun => coun.Name 
+                    == CountrySelector.SelectedItem.ToString()),
                 population: Convert.ToInt32(PopulationNumber.Value),
                 type: TypeTextBox.Text
                 );
