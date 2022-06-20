@@ -42903,6 +42903,3 @@ dcd02291-d934-4b21-af72-ae948255b511;Zwijndrecht;Belgium;51.2167;4.3333;19002
 0b5a9f93-8d6b-4b54-be06-af573b490ebb;Zyryanka;Russia;65.736;150.89;3627
 ac24cb89-76c9-42a2-b803-72be93efd1b1;Zyryanovsk;Kazakhstan;49.7453;84.2548;49658
 e0e9157b-745f-40d5-8070-7c9bf535e0ef;Zyryanskoye;Russia;56.8306;86.6272;5150
-5daa6f89-cc95-4068-b087-35e6c31cf736;Afgan;Afghanistan;4.2324;4.2324;5
-ba38b7c8-b518-4cc9-9027-45e98732f7a7;City1;Latvia;14.2;-15.3;10000
-9ffbfe30-928d-46d2-9cb6-ba350bff5c9c;Kharkiv2;Ukraine;4.2;5;12

@@ -4977,4 +4977,3 @@ fa088bd4-e317-4ccd-910d-151b63bedac5;Mashonaland West Province;none;3d1140b0-c74
 c12ee6ad-9464-4810-86dd-4c278b2d375c;Matabeleland North Province;none;3d1140b0-c740-4b34-9be3-42d62cef5140;120375
 d4f1c061-8f4a-4a78-9860-08f889937088;Matabeleland South Province;none;3d1140b0-c740-4b34-9be3-42d62cef5140;604160
 42dda232-9789-4c46-8e4c-e0528f04a788;Midlands Province;none;3d1140b0-c740-4b34-9be3-42d62cef5140;625718
-0c1cc226-00d0-44ce-8ea8-7f4d340dcf76;AAAAAAAAAAA;none;2ab3144b-a17f-423d-ba75-94b00d8a8876;2
