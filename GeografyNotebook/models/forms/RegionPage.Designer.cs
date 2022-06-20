@@ -39,6 +39,7 @@
             this.CountryGrid = new System.Windows.Forms.DataGridView();
             this.SaveResultButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             SearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CountryGrid)).BeginInit();
             this.SuspendLayout();
@@ -139,7 +140,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(679, 372);
+            this.AddButton.Location = new System.Drawing.Point(691, 415);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(97, 23);
             this.AddButton.TabIndex = 16;
@@ -147,11 +148,22 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // BackButton
+            // 
+            this.BackButton.Location = new System.Drawing.Point(610, 415);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.TabIndex = 18;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // RegionPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.SaveResultButton);
             this.Controls.Add(this.CountryGrid);
@@ -185,5 +197,6 @@
         private System.Windows.Forms.DataGridView CountryGrid;
         private System.Windows.Forms.Button SaveResultButton;
         private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

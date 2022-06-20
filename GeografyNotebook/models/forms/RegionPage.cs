@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeografyNotebook.models.classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -101,11 +102,17 @@ namespace GeografyNotebook.models.forms
         {
             if (e.KeyCode == Keys.Escape)
             {
-                MainPage form = new MainPage();
-                form.Show();
-                Close();
+                OnBack();
             }
         }
+
+        private void OnBack()
+        {
+            MainPage form = new MainPage();
+            form.Show();
+            Close();
+        }
+
         private void RegionPage_KeyDown(object sender, KeyEventArgs e)
             => OnBackButtonClick(sender, e);
 
@@ -129,7 +136,8 @@ namespace GeografyNotebook.models.forms
             }
         }
 
-        private void SortTypeSelector_SelectedValueChanged(object sender, EventArgs e)
+        private void SortTypeSelector_SelectedValueChanged(object sender,
+            EventArgs e)
         {
             UpdateFiltredRegions();
         }
@@ -141,10 +149,7 @@ namespace GeografyNotebook.models.forms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddOrChangeRegionPage editForm
-                = new AddOrChangeRegionPage(this, database);
-            editForm.Show();
-            Hide();
+            AddOrChangeRegion();
         }
 
         private void SaveResultButton_Click(object sender, EventArgs e)
@@ -153,18 +158,29 @@ namespace GeografyNotebook.models.forms
                 @"..\..\assets\search_result.txt");
         }
 
-        private void CountryGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void CountryGrid_CellClick(object sender,
+            DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
                 classes.Region region
-                    = filteredRegions[curFirstRegion+ e.RowIndex];
+                    = filteredRegions[curFirstRegion + e.RowIndex];
 
-                AddOrChangeRegionPage editForm
-                    = new AddOrChangeRegionPage(this, database, region);
-                editForm.Show();
-                Hide();
+                AddOrChangeRegion(region);
             }
+        }
+
+        private void AddOrChangeRegion(Region? region = null)
+        {
+            AddOrChangeRegionPage editForm
+                = new AddOrChangeRegionPage(this, database, region);
+            editForm.Show();
+            Hide();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            OnBack();
         }
     }
 }

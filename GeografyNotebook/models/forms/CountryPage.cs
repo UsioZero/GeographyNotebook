@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeografyNotebook.models.classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -153,22 +154,24 @@ namespace GeografyNotebook.models.forms
         {
             if (e.ColumnIndex == 0)
             {
-                classes.Country country 
+                classes.Country country
                     = filtredCountries[curFirstCountry + e.RowIndex];
 
-                AddOrChangeCountryPage editForm
-                    = new AddOrChangeCountryPage(this, database, country);
-                editForm.Show();
-                Hide();
+                AddOrChangeCountry(country);
             }
+        }
+
+        private void AddOrChangeCountry(Country? country = null)
+        {
+            AddOrChangeCountryPage editForm
+                = new AddOrChangeCountryPage(this, database, country);
+            editForm.Show();
+            Hide();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddOrChangeCountryPage editForm
-                = new AddOrChangeCountryPage(this, database);
-            editForm.Show();
-            Hide();
+            AddOrChangeCountry();
         }
 
         private void SaveResultButton_Click(object sender, EventArgs e)
