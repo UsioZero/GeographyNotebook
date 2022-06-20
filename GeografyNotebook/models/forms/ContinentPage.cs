@@ -31,17 +31,27 @@ namespace GeografyNotebook.models.forms
             }
         }
 
+        private void OnBack()
+        {
+            MainPage form = new MainPage();
+            form.Show();
+            Close();
+        }
+
         private void OnBackButtonClick(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                MainPage form = new MainPage();
-                form.Show();
-                this.Close();
+                OnBack();
             }
         }
 
         private void ContinentPage_KeyDown(object sender, KeyEventArgs e)
             => OnBackButtonClick(sender, e);
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            OnBack();
+        }
     }
 }

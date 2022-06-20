@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.ContinentList = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ContinentList
@@ -40,11 +41,22 @@
             this.ContinentList.TabIndex = 0;
             this.ContinentList.Text = "label1";
             // 
+            // BackButton
+            // 
+            this.BackButton.Location = new System.Drawing.Point(713, 415);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.TabIndex = 16;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // ContinentPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.ContinentList);
             this.KeyPreview = true;
             this.Name = "ContinentPage";
@@ -58,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Label ContinentList;
+        private System.Windows.Forms.Button BackButton;
     }
 }

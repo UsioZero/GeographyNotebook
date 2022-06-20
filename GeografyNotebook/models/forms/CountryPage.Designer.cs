@@ -48,6 +48,7 @@
             this.countryBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.AddButton = new System.Windows.Forms.Button();
             this.SaveResultButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             SearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CountryGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource7)).BeginInit();
@@ -178,7 +179,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(674, 364);
+            this.AddButton.Location = new System.Drawing.Point(691, 415);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(97, 23);
             this.AddButton.TabIndex = 15;
@@ -196,11 +197,22 @@
             this.SaveResultButton.UseVisualStyleBackColor = true;
             this.SaveResultButton.Click += new System.EventHandler(this.SaveResultButton_Click);
             // 
+            // BackButton
+            // 
+            this.BackButton.Location = new System.Drawing.Point(610, 415);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.TabIndex = 17;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // CountryPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.SaveResultButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.SearchParam);
@@ -250,5 +262,6 @@
         private System.Windows.Forms.ComboBox SearchParam;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button SaveResultButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeografyNotebook.models.classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -101,16 +102,21 @@ namespace GeografyNotebook.models.forms
 
         private void AddCityButton_Click(object sender, EventArgs e)
         {
-            AddOrChangeCityPage editForm 
-                = new AddOrChangeCityPage(this, database);
-            editForm.Show();
-            Hide();
+            AddOrChangeCity();
         }
 
         private void SortParametr_SelectedValueChanged(object sender
             , EventArgs e)
         {
             UpdateFilteredCities();
+        }
+
+        private void AddOrChangeCity(City? city = null)
+        {
+            AddOrChangeCityPage editForm = new AddOrChangeCityPage(this,
+                database, city);
+            editForm.Show();
+            Hide();
         }
 
         private void CitiesGrid_CellClick(object sender
@@ -120,10 +126,7 @@ namespace GeografyNotebook.models.forms
             {
                 classes.City city = filteredCities[curFirstCity + e.RowIndex];
 
-                AddOrChangeCityPage editForm = new AddOrChangeCityPage(this,
-                    database, city);
-                editForm.Show();
-                Hide();
+                AddOrChangeCity(city);
             }
 
             if (e.ColumnIndex == 6)
@@ -139,6 +142,11 @@ namespace GeografyNotebook.models.forms
         {
             database.SaveCitiesToFile(filteredCities,
                 @"..\..\assets\search_result.txt");
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            OnBack();
         }
     }
 }

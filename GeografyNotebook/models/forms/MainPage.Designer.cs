@@ -32,6 +32,7 @@
             this.RegionButton = new System.Windows.Forms.Button();
             this.CountryButton = new System.Windows.Forms.Button();
             this.ContinentButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CityButton
@@ -46,7 +47,7 @@
             // 
             // RegionButton
             // 
-            this.RegionButton.Location = new System.Drawing.Point(242, 139);
+            this.RegionButton.Location = new System.Drawing.Point(231, 139);
             this.RegionButton.Name = "RegionButton";
             this.RegionButton.Size = new System.Drawing.Size(125, 23);
             this.RegionButton.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // CountryButton
             // 
-            this.CountryButton.Location = new System.Drawing.Point(403, 139);
+            this.CountryButton.Location = new System.Drawing.Point(411, 139);
             this.CountryButton.Name = "CountryButton";
             this.CountryButton.Size = new System.Drawing.Size(123, 23);
             this.CountryButton.TabIndex = 2;
@@ -74,11 +75,22 @@
             this.ContinentButton.UseVisualStyleBackColor = true;
             this.ContinentButton.Click += new System.EventHandler(this.ContinentButton_Click);
             // 
+            // ExitButton
+            // 
+            this.ExitButton.Location = new System.Drawing.Point(713, 415);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(75, 23);
+            this.ExitButton.TabIndex = 4;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.ContinentButton);
             this.Controls.Add(this.CountryButton);
             this.Controls.Add(this.RegionButton);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Button RegionButton;
         private System.Windows.Forms.Button CountryButton;
         private System.Windows.Forms.Button ContinentButton;
+        private System.Windows.Forms.Button ExitButton;
     }
 }

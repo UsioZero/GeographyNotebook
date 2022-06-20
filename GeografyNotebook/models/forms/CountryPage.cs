@@ -99,13 +99,18 @@ namespace GeografyNotebook.models.forms
             PageLabel.Text = $"{from}-{to} of {filtredCountries.Count}";
         }
 
+        private void OnBack()
+        {
+            MainPage form = new MainPage();
+            form.Show();
+            Close();
+        }
+
         private void OnBackButtonClick(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                MainPage form = new MainPage();
-                form.Show();
-                Close();
+                OnBack();
             }
         }
 
@@ -170,6 +175,11 @@ namespace GeografyNotebook.models.forms
         {
             database.SaveCountriesToFile(filtredCountries,
                 @"..\..\assets\search_result.txt");
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            OnBack();
         }
     }
 }
