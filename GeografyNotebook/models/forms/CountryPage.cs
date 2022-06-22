@@ -9,9 +9,9 @@ namespace GeografyNotebook.models.forms
 {
     public partial class CountryPage : Form
     {
-        int curFirstCountry = 0;
-        readonly classes.Database database;
-        List<classes.Country> filtredCountries;
+        private int curFirstCountry = 0;
+        private readonly classes.Database database;
+        private List<classes.Country> filtredCountries;
 
         public CountryPage(classes.Database databaseRe)
         {

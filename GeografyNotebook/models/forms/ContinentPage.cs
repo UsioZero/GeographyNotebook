@@ -6,8 +6,8 @@ namespace GeografyNotebook.models.forms
 {
     public partial class ContinentPage : Form
     {
-        readonly classes.Database database;
-        readonly List<classes.Continent> continents;
+        private readonly classes.Database database;
+        private readonly List<classes.Continent> continents;
         
         public ContinentPage(classes.Database databaseRe)
         {

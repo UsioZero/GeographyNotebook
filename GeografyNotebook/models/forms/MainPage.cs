@@ -5,7 +5,7 @@ namespace GeografyNotebook.models.forms
 {
     public partial class MainPage : Form
     {
-        readonly classes.Database database = new classes.Database();
+        private readonly classes.Database database = new classes.Database();
 
         public MainPage()
         {

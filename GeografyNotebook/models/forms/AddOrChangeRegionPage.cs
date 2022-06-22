@@ -8,9 +8,9 @@ namespace GeografyNotebook.models.forms
 {
     public partial class AddOrChangeRegionPage : Form
     {
-        readonly classes.Database database;
-        readonly classes.Region? region;
-        readonly RegionPage parent;
+        private readonly classes.Database database;
+        private readonly classes.Region? region;
+        private readonly RegionPage parent;
 
         public AddOrChangeRegionPage(RegionPage regionPage,
             classes.Database databaseRe,

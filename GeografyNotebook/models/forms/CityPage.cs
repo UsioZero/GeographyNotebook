@@ -8,9 +8,9 @@ namespace GeografyNotebook.models.forms
 {
     public partial class CityPage : Form
     {
-        int curFirstCity = 0;
-        readonly classes.Database database;
-        List<classes.City> filteredCities;
+        private int curFirstCity = 0;
+        private readonly classes.Database database;
+        private List<classes.City> filteredCities;
 
         public CityPage(classes.Database databaseRe)
         {
